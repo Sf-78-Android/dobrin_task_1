@@ -14,7 +14,7 @@ class Knight : Warrior(50){
 }
 
 class Army {
-    private val troops = arrayListOf<Warrior>()
+    private val troops = mutableListOf<Warrior>()
     fun addUnits(quantity: Int, factory: () -> Warrior) {
        repeat(quantity) {
            val warrior1 = factory()
@@ -23,7 +23,7 @@ class Army {
    }
     fun nextWarrior(): Warrior { return troops.first()}
     fun killedWarrior() {
-        troops.removeFirst();
+        troops.removeFirst()
     }
     val hasTroopsLeft: Boolean
     get() = troops.size > 0
