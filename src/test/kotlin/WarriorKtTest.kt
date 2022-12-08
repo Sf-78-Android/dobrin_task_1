@@ -1,8 +1,12 @@
+import characters.Army
+import characters.Knight
+import characters.Warrior
+import characters.fight
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class CharacterKtTest {
+internal class WarriorKtTest {
     @Test
     @DisplayName("1. Fight")
     fun `Warrior loses when fights against Knight`() {

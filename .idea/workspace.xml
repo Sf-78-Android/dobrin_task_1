@@ -5,37 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ced105b4-d7ad-4fac-8b78-8c0f280a137e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_test_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_test_junit_1_7_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_params_5_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/game01122022.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/game01122022.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/game01122022.test.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Defender.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Knight.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Vampire.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/collections/Army.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/interfaces/AbleToFight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/CharacterKtTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/WarriorKtTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +59,7 @@
         <option value="Kotlin File" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -133,7 +115,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CharacterKtTest">
+  <component name="RunManager" selected="JUnit.WarriorKtTest">
     <configuration name="CharacterKtTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -164,19 +146,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CharacterKtTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarriorKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="game01122022.test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CharacterKtTest" />
+      <option name="MAIN_CLASS_NAME" value="WarriorKtTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CharacterKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarriorKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="game01122022.test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CharacterKtTest" />
+      <option name="MAIN_CLASS_NAME" value="WarriorKtTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarriorKtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="game01122022.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WarriorKtTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,10 +182,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CharacterKtTest" />
+        <item itemvalue="JUnit.WarriorKtTest" />
         <item itemvalue="Kotlin.CharacterKt" />
-        <item itemvalue="JUnit.CharacterKtTest (2)" />
-        <item itemvalue="JUnit.CharacterKtTest (1)" />
+        <item itemvalue="JUnit.WarriorKtTest" />
+        <item itemvalue="JUnit.WarriorKtTest" />
         <item itemvalue="Gradle.CharacterKtTest" />
       </list>
     </recent_temporary>
@@ -211,7 +202,8 @@
       <workItem from="1669980989533" duration="11196000" />
       <workItem from="1670243166884" duration="2297000" />
       <workItem from="1670250666657" duration="3405000" />
-      <workItem from="1670261146929" duration="46000" />
+      <workItem from="1670261146929" duration="1617000" />
+      <workItem from="1670483664041" duration="2205000" />
     </task>
     <servers />
   </component>
@@ -258,79 +250,79 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>19</line>
-          <properties class="Army">
+          <properties class="entities.Army" method="fight">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>48</line>
-          <properties method="fight">
+          <properties method="main">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>25</line>
-          <properties class="Army" method="nextWarrior">
+          <properties class="entities.Army">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>29</line>
-          <properties class="Army" method="killedWarrior">
+          <properties class="entities.Army" method="fight">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>49</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>84</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>85</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>89</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>88</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>91</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>58</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>45</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
           <line>30</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
