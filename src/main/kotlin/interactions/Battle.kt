@@ -2,9 +2,9 @@ package interactions
 
 import characters.Warrior
 import collections.Army
-import interfaces.AbleToFight
+import interfaces.Fightable
 
-class Battle: AbleToFight {
+object Battle: Fightable {
 
     override fun fight(warrior1: Warrior, warrior2: Warrior) : Boolean {
         var attacker= warrior1

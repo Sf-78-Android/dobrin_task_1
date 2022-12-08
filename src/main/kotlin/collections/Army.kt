@@ -18,6 +18,4 @@ class Army {
         get() = troops.size > 0
 
 
-
-
 }

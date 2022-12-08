@@ -1,7 +1,11 @@
-import characters.Army
+
+import characters.Defender
 import characters.Knight
+import characters.Vampire
 import characters.Warrior
-import characters.fight
+
+import collections.Army
+import interactions.Battle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -14,7 +18,7 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val jon = Knight()
         // when
-        val res = fight(carl, jon)
+        val res = Battle.fight(carl, jon)
         // then
         assertEquals(false, res)
     }
@@ -27,8 +31,8 @@ internal class WarriorKtTest {
         val tim = Warrior()
         val jon = Knight()
         // when
-        fight(jon, carl)
-        fight(jon, tim)
+        Battle.fight(jon, carl)
+        Battle.fight(jon, tim)
         val res = jon.isAlive
         // then
         assertEquals(false, res)
@@ -41,7 +45,7 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val tim = Warrior()
         // when
-        fight(tim, carl)
+        Battle.fight(tim, carl)
         val res = tim.isAlive
         // then
         assertEquals(true, res)
@@ -54,7 +58,7 @@ internal class WarriorKtTest {
         val tim = Knight()
         val jon = Knight()
         // when
-        fight(tim, jon)
+        Battle.fight(tim, jon)
         val res = tim.isAlive
         // then
         assertEquals(true, res)
@@ -67,7 +71,7 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val tim = Warrior()
         // when
-        fight(tim, carl)
+        Battle.fight(tim, carl)
         val res = carl.isAlive
         // then
         assertEquals(false, res)
@@ -81,8 +85,8 @@ internal class WarriorKtTest {
         val tim = Warrior()
         val jon = Knight()
         // when
-        fight(carl, jon)
-        val res = fight(jon, tim)
+        Battle.fight(carl, jon)
+        val res =  Battle.fight(jon, tim)
         // then
         assertEquals(false, res)
     }
@@ -96,7 +100,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(2, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(false, res)
     }
@@ -110,7 +114,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(3, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(false, res)
     }
@@ -124,7 +128,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(7, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(false, res)
     }
@@ -138,7 +142,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(21, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(true, res)
     }
@@ -152,7 +156,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(7, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res = Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(true, res)
     }
@@ -166,7 +170,7 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(12, ::Warrior)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(true, res)
     }
@@ -179,8 +183,11 @@ internal class WarriorKtTest {
         val secondArmy = Army()
         secondArmy.addUnits(11, ::Knight)
         // when
-        val res = fight(firstArmy, secondArmy)
+        val res =  Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(true, res)
     }
+
+
+
 }
