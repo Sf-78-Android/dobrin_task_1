@@ -25,7 +25,7 @@ internal class DefenderTest {
 
     @Test
     @DisplayName("1. Fight")
-    fun `Warrior attacks first and wins against Defender`() {
+    fun `Warrior attacks first and loses against Defender`() {
         // given
         val carl = Defender()
         val tim = Warrior()
@@ -33,7 +33,7 @@ internal class DefenderTest {
         Battle.fight(tim, carl)
         val res = carl.isAlive
         // then
-        assertEquals(false, res)
+        assertEquals(true, res)
     }
 
     @Test
@@ -62,7 +62,7 @@ internal class DefenderTest {
 
         val res = carl.isAlive
         // then
-        assertEquals(false, res)
+        assertEquals(true, res)
     }
 
     @Test
@@ -91,7 +91,7 @@ internal class DefenderTest {
         // when
         val res =  Battle.fight(firstArmy, secondArmy)
         // then
-        assertEquals(true, res)
+        assertEquals(false, res)
     }
 
     @Test

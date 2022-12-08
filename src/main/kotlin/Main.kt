@@ -141,9 +141,15 @@ fun main(args: Array<String>) {
         println("VAMPIRES OK")
     }
 
- smokeTestOne()
- smokeTestTwo()
-    smokeTestDefender()
-    smokeTestVampires()
+    val test1 = Knight()
+    val test2 = Defender()
+
+    test1.hit(test2)
+    println(test2.health)
+
+   // smokeTestOne()
+    //smokeTestTwo()
+   // smokeTestDefender()
+   // smokeTestVampires()
 }
 
