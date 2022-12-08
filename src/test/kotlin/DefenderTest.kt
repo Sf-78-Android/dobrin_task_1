@@ -1,5 +1,6 @@
 import characters.Defender
 import characters.Knight
+import characters.Rookie
 import characters.Warrior
 import collections.Army
 import interactions.Battle
@@ -47,6 +48,18 @@ internal class DefenderTest {
         val res = carl.isAlive
         // then
         assertEquals(false, res)
+    }
+    @Test
+    @DisplayName("0. Fight")
+    fun `Defender does not take damage`() {
+        // given
+        val carl = Defender()
+        val tim = Rookie()
+        // when
+        Battle.fight(carl, tim)
+        val res = carl.health
+        // then
+        assertEquals(60, res)
     }
 
 

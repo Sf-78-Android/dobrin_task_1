@@ -1,6 +1,5 @@
 package interfaces
 
-import characters.Defender
 import characters.Warrior
 
 interface Hittable {

@@ -75,6 +75,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Vampire.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Vampire.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/Hittable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/interfaces/Hittable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,28 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VampireTest">
+  <component name="RunManager" selected="Gradle.Tests in 'game01122022.test'">
+    <configuration name="Tests in 'game01122022.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests *" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="CharacterKtTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="game01122022.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -184,15 +206,6 @@
       </method>
     </configuration>
     <configuration name="DefenderTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="game01122022.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DefenderTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DefenderTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="game01122022.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DefenderTest" />
@@ -237,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'game01122022.test'" />
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="JUnit.VampireTest" />
         <item itemvalue="JUnit.DefenderTest (1)" />
         <item itemvalue="JUnit.DefenderTest" />
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="JUnit.DefenderTest (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +271,7 @@
       <workItem from="1670243166884" duration="2297000" />
       <workItem from="1670250666657" duration="3405000" />
       <workItem from="1670261146929" duration="1617000" />
-      <workItem from="1670483664041" duration="16967000" />
+      <workItem from="1670483664041" duration="17330000" />
     </task>
     <servers />
   </component>

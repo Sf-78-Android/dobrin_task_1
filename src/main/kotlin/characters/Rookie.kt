@@ -1,4 +1,6 @@
 package characters
 
-class Rookie {
+class Rookie : Warrior (health = 50) {
+    override val attack: Int = 1
+
 }
