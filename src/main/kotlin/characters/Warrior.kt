@@ -32,15 +32,15 @@ open class Warrior(health: Int = 50) : Hittable {
     }
 
     override fun hitAndPierce(opponent: Warrior, nextOpponent: Warrior) {
-        if (opponent is Defender ) {
-            opponent.health -= attack-opponent.defence
+        if (opponent is Defender) {
+            opponent.health -= attack - opponent.defence
         } else {
-            opponent.health-=attack
+            opponent.health -= attack
         }
-        if (nextOpponent is Defender){
-            nextOpponent.health-=attack/2-nextOpponent.defence
-        }else {
-            nextOpponent.health-=attack/2
+        if (nextOpponent is Defender) {
+            nextOpponent.health -= attack / 2 - nextOpponent.defence
+        } else {
+            nextOpponent.health -= attack / 2
         }
     }
 

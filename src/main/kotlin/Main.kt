@@ -147,11 +147,9 @@ fun main(args: Array<String>) {
         val army1 = Army()
         val army2 = Army()
         army1.addUnits(1,::Lancer)
-        army1.addUnits(1, ::Warrior)
-        army2.addUnits(1, ::Defender)
-        army2.addUnits(1,::Rookie)
-        army2.addUnits(1,::Rookie)
-        army2.addUnits(1,::Lancer)
+
+        army2.addUnits(1, ::Lancer)
+
         if(fight(army1,army2)){
             println("army1")
         } else {
