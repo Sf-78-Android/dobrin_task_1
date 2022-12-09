@@ -38,7 +38,7 @@ internal class DefenderTest {
     }
 
     @Test
-    @DisplayName("1. Fight")
+    @DisplayName("2. Fight")
     fun `Defender attacks first and wins against Defender`() {
         // given
         val carl = Defender()
@@ -50,7 +50,7 @@ internal class DefenderTest {
         assertEquals(false, res)
     }
     @Test
-    @DisplayName("0. Fight")
+    @DisplayName("3. Fight")
     fun `Defender does not take damage`() {
         // given
         val carl = Defender()
@@ -64,8 +64,8 @@ internal class DefenderTest {
 
 
     @Test
-    @DisplayName("2. Fight")
-    fun `Defender cannot win against Warrior`() {
+    @DisplayName("4. Fight")
+    fun `Defender wins against Warrior`() {
         // given
         val carl = Defender()
         val tim = Warrior()
@@ -79,7 +79,7 @@ internal class DefenderTest {
     }
 
     @Test
-    @DisplayName("3. Fight")
+    @DisplayName("5. Fight")
     fun `Defender cannot win against Knight`() {
         // given
         val carl = Defender()
@@ -95,7 +95,7 @@ internal class DefenderTest {
 
     @Test
     @DisplayName("1. Battle")
-    fun `Army of warriors wins against army of defenders`() {
+    fun `Army of warriors losses against army of defenders`() {
         // given
         val firstArmy = Army()
         firstArmy.addUnits(20, ::Warrior)

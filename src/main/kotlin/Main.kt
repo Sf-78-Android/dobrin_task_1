@@ -1,8 +1,6 @@
-import characters.Defender
-import characters.Knight
-import characters.Vampire
-import characters.Warrior
+import characters.*
 import collections.Army
+import interactions.Battle
 import interactions.Battle.fight
 
 
@@ -141,10 +139,30 @@ fun main(args: Array<String>) {
         println("VAMPIRES OK")
     }
 
+    fun smokeTestLancers(){
+        val tom = Defender()
+        val jon = Defender()
+        val don = Lancer()
+        //fight(don,jon,tom  )
+        val army1 = Army()
+        val army2 = Army()
+        army1.addUnits(1,::Lancer)
+        army1.addUnits(1, ::Warrior)
+        army2.addUnits(1, ::Defender)
+        army2.addUnits(1,::Rookie)
+        army2.addUnits(1,::Rookie)
+        army2.addUnits(1,::Lancer)
+        if(fight(army1,army2)){
+            println("army1")
+        } else {
+            println("army2")
+        }
+    }
 
-    smokeTestOne()
-   smokeTestTwo()
-    smokeTestDefender()
-   smokeTestVampires()
+    //smokeTestOne()
+   //smokeTestTwo()
+   // smokeTestDefender()
+   //smokeTestVampires()
+    smokeTestLancers()
 }
 
