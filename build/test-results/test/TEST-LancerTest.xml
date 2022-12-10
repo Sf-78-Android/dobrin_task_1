@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LancerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-09T16:12:41" hostname="DESKTOP-FRO9O26" time="0.025">
-  <properties/>
-  <testcase name="Army with one Lancer wins another with one Lancer" classname="LancerTest" time="0.025"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

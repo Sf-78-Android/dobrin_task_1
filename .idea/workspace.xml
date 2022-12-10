@@ -5,38 +5,174 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ced105b4-d7ad-4fac-8b78-8c0f280a137e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/LancerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/characters/Knight.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/characters/Lancer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/characters/Warrior.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/interfaces/Healable.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/interfaces/Hittable.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/game/settings/Params.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/game/characters/DefenderTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/game/characters/LancerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/game/characters/VampireTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/game/characters/WarriorKtTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/game/testClass/Rookie.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestDefender$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestLancers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestLancers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestLancers$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestLancers$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestTwo$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt$main$smokeTestVampires$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Defender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Knight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Lancer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Rookie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Vampire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/characters/Warrior.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/collections/Army.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/interactions/Battle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/interfaces/Fightable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/interfaces/Hittable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Army of warriors loses to army of defenders$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Army of warriors loses to army of defenders$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Army of warriors losses against army of defenders$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Army of warriors losses against army of defenders$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix 2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix 2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix 2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix 2$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest$Battle mix$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/DefenderTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Army with one Lancer wins another with one Lancer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Army with one Lancer wins another with one Lancer$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Check Lancer pierce by killing one Vampire and Defender takes damage minus defence$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Check Lancer pierce by killing one Vampire and Defender takes damage minus defence$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$First army wins in a battle between Lancers$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$First army wins in a battle between Lancers$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army should win$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army should win$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army should win$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army should win$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army wins in a battle between Lancers$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest$Second army wins in a battle between Lancers$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/LancerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/VampireTest$Vampires win$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/VampireTest$Vampires win$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/VampireTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins $2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins with Knights $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins with Knights $2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First army wins$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First one hit, first one wins $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$First one hit, first one wins $2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins again$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins again$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins for third time$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins for third time$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest$Second army wins$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/WarriorKtTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
@@ -96,14 +232,27 @@
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/cacheable/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/local-state/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/VampireTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/LancerTest.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-VampireTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-LancerTest.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Rookie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/characters/Rookie.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Defender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/characters/Defender.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Knight.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Lancer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Rookie.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Vampire.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/characters/Vampire.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/collections/Army.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/collections/Army.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/interactions/Battle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/Fightable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/interfaces/Fightable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/interfaces/Hittable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/game/interfaces/Pierce.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/LancerTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/VampireTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/WarriorKtTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,8 +295,8 @@
         <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Kotlin File" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -195,6 +344,13 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ Projects\game01122022\src\test\kotlin\game" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="game.characters" />
+      <recent name="testClass" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
@@ -202,13 +358,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration name="LancerTest.Check Lancer pierce by killing оне Rookie and Defender takes damage minus defence" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.VampireTest.Does vampirism parameter work for Defender class">
+    <configuration name="DefenderTest.Defender does not take damage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;LancerTest.Check Lancer pierce by killing оне Rookie and Defender takes damage minus defence&quot;" />
+        <option name="scriptParameters" value="--tests &quot;game.characters.DefenderTest.Defender does not take damage&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -224,12 +380,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LancerTest.Check Lancer pierce by killing one Rookie and Defender takes damage minus defence" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DefenderTest.Does defence parameter work for Defender class" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;LancerTest.Check Lancer pierce by killing one Rookie and Defender takes damage minus defence&quot;" />
+        <option name="scriptParameters" value="--tests &quot;game.characters.DefenderTest.Does defence parameter work for Defender class&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -245,12 +401,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LancerTest.Check Lancer pierce by killing one Vampire and Defender takes damage minus defence" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LancerTest.Army with one Lancer wins another with one Lancer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;LancerTest.Check Lancer pierce by killing one Vampire and Defender takes damage minus defence&quot;" />
+        <option name="scriptParameters" value="--tests &quot;LancerTest.Army with one Lancer wins another with one Lancer&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -266,12 +422,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LancerTest.Check Lancer pierce by killing two Rookies with one hit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="VampireTest.Does vampirism parameter work for Defender class" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;LancerTest.Check Lancer pierce by killing two Rookies with one hit&quot;" />
+        <option name="scriptParameters" value="--tests &quot;game.characters.VampireTest.Does vampirism parameter work for Defender class&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -296,11 +452,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.VampireTest.Does vampirism parameter work for Defender class" />
+        <item itemvalue="Gradle.DefenderTest.Does defence parameter work for Defender class" />
+        <item itemvalue="Gradle.DefenderTest.Defender does not take damage" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.LancerTest.Check Lancer pierce by killing one Vampire and Defender takes damage minus defence" />
-        <item itemvalue="Gradle.LancerTest.Check Lancer pierce by killing one Rookie and Defender takes damage minus defence" />
-        <item itemvalue="Gradle.LancerTest.Check Lancer pierce by killing оне Rookie and Defender takes damage minus defence" />
-        <item itemvalue="Gradle.LancerTest.Check Lancer pierce by killing two Rookies with one hit" />
+        <item itemvalue="Gradle.LancerTest.Army with one Lancer wins another with one Lancer" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +474,8 @@
       <workItem from="1670250666657" duration="3405000" />
       <workItem from="1670261146929" duration="1617000" />
       <workItem from="1670483664041" duration="18809000" />
-      <workItem from="1670569700213" duration="11681000" />
+      <workItem from="1670569700213" duration="14725000" />
+      <workItem from="1670676791287" duration="8107000" />
     </task>
     <servers />
   </component>
@@ -364,128 +521,80 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/LancerTest.kt</url>
-          <line>7</line>
-          <properties class="LancerTest" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
-          <line>30</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/VampireTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/VampireTest.kt</url>
           <line>19</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/VampireTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/VampireTest.kt</url>
           <line>20</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/VampireTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/VampireTest.kt</url>
           <line>22</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/VampireTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/VampireTest.kt</url>
           <line>24</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>118</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>88</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>120</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>90</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>58</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>59</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/DefenderTest.kt</url>
+          <url>file://$PROJECT_DIR$/src/test/kotlin/game/DefenderTest.kt</url>
           <line>61</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
-          <line>16</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/characters/Warrior.kt</url>
-          <line>17</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
-          <line>26</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
-          <line>27</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
-          <line>28</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
-          <line>29</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
-          <line>31</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/game/interactions/Battle.kt</url>
           <line>16</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/interactions/Battle.kt</url>
+          <url>file://$PROJECT_DIR$/src/main/kotlin/game/interactions/Battle.kt</url>
           <line>12</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>154</line>
-          <option name="timeStamp" value="76" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/game/interactions/Battle.kt</url>
+          <line>49</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>151</line>
-          <option name="timeStamp" value="77" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/game/interactions/Battle.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
