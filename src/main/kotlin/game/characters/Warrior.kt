@@ -1,6 +1,5 @@
 package game.characters
 
-import game.interfaces.Damagable
 import game.interfaces.Hittable
 import game.settings.Params
 
