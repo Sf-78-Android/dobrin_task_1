@@ -1,6 +1,5 @@
 package game.interactions
 
-import game.characters.Lancer
 import game.characters.Warrior
 import game.collections.Army
 import game.interfaces.Fightable

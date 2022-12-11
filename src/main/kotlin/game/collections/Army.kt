@@ -1,16 +1,20 @@
 package game.collections
 
-import game.characters.Knight
 import game.characters.Warrior
-import kotlin.reflect.KFunction0
-import kotlin.reflect.KFunction1
 
 class Army {
     private val troops = mutableListOf<Warrior>()
+    private var currentWarrior : Warrior? = null
     fun addUnits(quantity: Int, factory: () -> Warrior) {
         repeat(quantity) {
             val warrior= factory()
-            troops.add(warrior)
+            if (troops.size == 0) {
+                currentWarrior = warrior
+                troops.add(warrior)
+            } else {
+                currentWarrior?.warriorBehind=warrior.also { currentWarrior=warrior }
+                troops.add(warrior)
+            }
         }
     }
 
@@ -18,7 +22,7 @@ class Army {
         return troops.first()
     }
 
-    fun piercedWarrior(): Warrior? {
+    private fun piercedWarrior(): Warrior? {
         if (troops.size >= 2) {
             return troops[1]
         }

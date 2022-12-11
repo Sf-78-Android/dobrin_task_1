@@ -72,10 +72,10 @@ internal class LancerTest {
     fun `First army wins in a battle between Lancers`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(15, ::Lancer)
+        firstArmy.addUnits(5, ::Lancer)
 
         val secondArmy = Army()
-        secondArmy.addUnits(15, ::Lancer)
+        secondArmy.addUnits(3, ::Defender)
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)
