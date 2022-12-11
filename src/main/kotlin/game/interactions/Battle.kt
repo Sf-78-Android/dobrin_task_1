@@ -9,7 +9,7 @@ object Battle : Fightable {
     override fun fight(warrior1: Warrior, warrior2: Warrior): Boolean {
         var attacker = warrior1
         var defender = warrior2
-        while (attacker.isAlive) {
+        while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender)
             attacker = defender.also { defender = attacker }
         }

@@ -28,7 +28,7 @@ open class Warrior(health: Int = Params.Warrior.HEALTH) : Hittable, Damagable {
         health+=amount
     }
 
-    fun hit(opponent: Warrior?, damageToNext: Int) {
+    protected fun hit(opponent: Warrior?, damageToNext: Int) {
         opponent?.health = opponent?.health?.minus(damageToNext)!!
     }
 

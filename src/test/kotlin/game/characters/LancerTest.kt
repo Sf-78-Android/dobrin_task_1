@@ -101,13 +101,14 @@ internal class LancerTest {
 
     @Test
     @DisplayName("5. Battle")
-    fun `Army with one Lancer wins another with one Lancer`() {
+    fun `Lancer kills rookie and continues to fight`() {
         // given
         val firstArmy = Army()
         firstArmy.addUnits(1, ::Lancer)
 
         val secondArmy = Army()
-        secondArmy.addUnits(1, ::Lancer)
+        secondArmy.addUnits(1, ::Defender)
+        secondArmy.addUnits(1, ::Rookie)
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)
