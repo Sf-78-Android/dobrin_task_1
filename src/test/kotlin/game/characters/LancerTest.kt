@@ -9,35 +9,24 @@ import kotlin.test.assertEquals
 
 internal class LancerTest {
     @Test
-    @DisplayName("1. Fight")
+    @DisplayName("1. Battle")
     fun `Check Lancer pierce by killing two Rookies with one hit`() {
         // given
-        val carl = Rookie()
-        val tim = Rookie()
-        val dom = Lancer()
+        val army1 = Army()
+        val army2 = Army()
+        army1.addUnits(1,::Rookie)
+        army1.addUnits(1,::Rookie)
+        army2.addUnits(1,::Lancer)
         // when
-     //   dom.hitAndPierce(carl,tim)
-        val res = carl.isAlive && dom.isAlive
+
+        val res = Battle.fight(army2,army1)
         // then
-        assertEquals(false, res)
+        assertEquals(true,res)
     }
 
-    @Test
-    @DisplayName("2. Fight")
-    fun `Check Lancer pierce by killing one Rookie and Defender takes damage minus defence`() {
-        // given
-        val carl = Defender()
-        val tim = Rookie()
-        val dom = Lancer()
-        // when
-       // dom.hitAndPierce(carl,tim)
-        val res = carl.health == 56 && !tim.isAlive
-        // then
-        assertEquals(true, res)
-    }
 
     @Test
-    @DisplayName("1. Battle")
+    @DisplayName("2 Battle")
     fun `Check Lancer pierce by killing one Vampire and Defender takes damage minus defence`() {
         // given
         val firstArmy = Army()
@@ -52,7 +41,7 @@ internal class LancerTest {
 
 
     @Test
-    @DisplayName("2. Battle")
+    @DisplayName("3. Battle")
     fun `Second army should win`() {
         // given
         val firstArmy = Army()
@@ -68,7 +57,7 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("3. Battle")
+    @DisplayName("4. Battle")
     fun `First army wins in a battle between Lancers`() {
         // given
         val firstArmy = Army()
@@ -84,7 +73,7 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("4. Battle")
+    @DisplayName("5. Battle")
     fun `Second army wins in a battle between Lancers`() {
         // given
         val firstArmy = Army()
@@ -100,7 +89,7 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("5. Battle")
+    @DisplayName("6. Battle")
     fun `Lancer kills rookie and continues to fight`() {
         // given
         val firstArmy = Army()

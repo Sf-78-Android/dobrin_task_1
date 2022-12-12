@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="game.characters.DefenderTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-12T19:24:56" hostname="DESKTOP-FRO9O26" time="0.045">
+  <properties/>
+  <testcase name="2. Battle" classname="game.characters.DefenderTest" time="0.035"/>
+  <testcase name="1. Initial for Defender class" classname="game.characters.DefenderTest" time="0.001"/>
+  <testcase name="5. Fight" classname="game.characters.DefenderTest" time="0.0"/>
+  <testcase name="3. Battle" classname="game.characters.DefenderTest" time="0.002"/>
+  <testcase name="1. Battle" classname="game.characters.DefenderTest" time="0.001"/>
+  <testcase name="1. Fight" classname="game.characters.DefenderTest" time="0.0"/>
+  <testcase name="4. Battle" classname="game.characters.DefenderTest" time="0.002"/>
+  <testcase name="2. Fight" classname="game.characters.DefenderTest" time="0.0"/>
+  <testcase name="4. Fight" classname="game.characters.DefenderTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

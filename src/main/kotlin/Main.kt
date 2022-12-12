@@ -4,7 +4,7 @@ import game.interactions.Battle.fight
 import game.settings.Params
 
 
-fun main(args: Array<String>) {
+fun main() {
 
 
 

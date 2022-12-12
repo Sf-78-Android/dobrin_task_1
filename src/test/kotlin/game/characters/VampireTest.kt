@@ -14,14 +14,14 @@ internal class VampireTest {
     fun `Does vampirism parameter work for Defender class`() {
         val warrior1= Vampire()
 
-        val warrior2 = Defender()
+        val warrior2 = Warrior()
 
         warrior2.hit(warrior1)
         warrior1.hit(warrior2)
 
         val res = warrior1.health
 
-        assertEquals(38, res)
+        assertEquals(37, res)
     }
 
     @Test
@@ -44,7 +44,7 @@ internal class VampireTest {
     fun `Vampire  wins against Warrior`() {
         // given
         val carl = Vampire()
-        val tim = Warrior(Params.Defender.HEALTH)
+        val tim = Warrior()
 
         // when
         Battle.fight(carl, tim)

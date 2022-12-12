@@ -11,7 +11,6 @@ class Lancer : Warrior(Params.Lancer.HEALTH) {
         super.hit(opponent)
         val damageDealt = healthBefore-opponent.health
         val damageToNext : Int = (damageDealt*pierce)/100
-        // opponent.warriorBehind?.receiveDamage(damageToNext)
         super.hit(opponent.warriorBehind, damageToNext)
 
     }

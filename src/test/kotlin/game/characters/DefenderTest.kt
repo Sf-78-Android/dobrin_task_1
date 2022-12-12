@@ -3,9 +3,12 @@ package game.characters
 import game.collections.Army
 import game.interactions.Battle
 import game.settings.Params
-import game.testClass.Rookie
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
+import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
 import kotlin.test.assertEquals
 
 internal class DefenderTest {
@@ -40,7 +43,7 @@ internal class DefenderTest {
     @DisplayName("2. Fight")
     fun `Defender attacks first and wins against Defender`() {
         // given
-        val carl = Defender()
+        val carl = Warrior()
         val tim = Defender()
         // when
         Battle.fight(tim, carl)
@@ -48,18 +51,33 @@ internal class DefenderTest {
         // then
         assertEquals(false, res)
     }
-    @Test
-    @DisplayName("3. Fight")
-    fun `Defender does not take damage`() {
-        // given
-        val carl = Defender()
-        val tim = Rookie()
-        // when
-        Battle.fight(carl, tim)
-        val res = carl.health
-        // then
-        assertEquals(60, res)
+
+    /*
+    @ParameterizedTest
+    @MethodSource
+    fun fight (warrior1: Warrior, warrior2: Warrior, expected: Boolean) {
+        val res1 = Battle.fight(warrior1,warrior2)
+        val res2 = warrior1.isAlive
+        val res3 = warrior2.isAlive
+
+        assertAll(
+            { assertEquals(expected,res1, "Fight result is wrong")},
+            { assertEquals(expected,res2 , "First warrior isAlive is wrong")},
+            { assertEquals(!expected,res3 , "Second warrior isAlive is wrong")}
+        )
     }
+
+    companion object {
+        @JvmStatic
+        fun fight() = listOf {
+            Arguments.of( Warrior() , Warrior(), true)
+            Arguments.of(Warrior(), Knight(), false)
+            Arguments.of(Knight(), Warrior(), true)
+            Arguments.of(Knight(), Knight(), true)
+        }
+    }
+    */
+
 
 
     @Test
@@ -150,6 +168,6 @@ internal class DefenderTest {
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
-        assertEquals(false, res)
+        assertEquals(true, res)
     }
 }
