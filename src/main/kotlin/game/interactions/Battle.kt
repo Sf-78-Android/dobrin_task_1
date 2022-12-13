@@ -2,11 +2,12 @@ package game.interactions
 
 import game.characters.Warrior
 import game.collections.Army
+import game.interfaces.BaseWarrior
 import game.interfaces.Fightable
 
 object Battle : Fightable {
 
-    override fun fight(warrior1: Warrior, warrior2: Warrior): Boolean {
+    override fun fight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
         var attacker = warrior1
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {

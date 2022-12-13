@@ -1,15 +1,26 @@
 package game.characters
 
+import game.decorators.WarriorDecorator
+import game.interfaces.BaseWarrior
 import game.settings.Params
 
-class Defender: Warrior(Params.Defender.HEALTH) {
-    override val attack: Int = Params.Defender.ATTACK
-     val defence: Int
+class Defender (val warrior: Warrior,private var health : Int = Params.Defender.HEALTH) : WarriorDecorator(warrior) {
+     private val attack: Int = Params.Defender.ATTACK
+     private val defence: Int
      get()= Params.Defender.DEFENCE
 
-    override fun receiveDamage(damage: Int) {
-        super.receiveDamage(
-            (damage-defence).coerceAtLeast(0)
-        )
+    override fun hit(opponent: BaseWarrior) {
+        opponent.receiveDamage(attack)
     }
+
+    override fun receiveDamage(damage: Int) {
+        health-= (damage-defence).coerceAtLeast(0)
+    }
+
+    override val isAlive: Boolean
+        get() = health>0
+    override val getHealth: Int
+        get() = health
+
+
 }

@@ -1,13 +1,11 @@
-import game.characters.*
 import game.collections.Army
-import game.interactions.Battle.fight
-import game.settings.Params
+import game.interactions.Battle
 
 
 fun main() {
 
 
-
+/*
  fun smokeTestOne(){
 
      val chuck = Warrior(Params.Defender.HEALTH)
@@ -204,5 +202,18 @@ fun main() {
    smokeTestDefender()
    smokeTestVampires()
     smokeTestLancers()
+     */
+
+
+val  army1 = Army()
+
+ val  army2 = Army()
+
+ army1.addUnits( 3,  "Knight")
+ army1.addUnits( 3, "Defender")
+ army2.addUnits( 3, "Lancer" )
+ army2.addUnits( 3,  "Defender" )
+
+ println(Battle.fight(army1,army2))
 }
 

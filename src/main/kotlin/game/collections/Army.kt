@@ -1,13 +1,15 @@
 package game.collections
 
-import game.characters.Warrior
+import game.factory.getWarrior
+import game.interfaces.BaseWarrior
+import java.lang.management.ManagementFactory
 
 class Army {
-    private val troops = mutableListOf<Warrior>()
-    private var currentWarrior : Warrior? = null
-    fun addUnits(quantity: Int, factory: () -> Warrior) {
+    private val troops = mutableListOf<BaseWarrior>()
+    private var currentWarrior : BaseWarrior? = null
+    fun addUnits(quantity: Int, type : String ) {
         repeat(quantity) {
-            val warrior= factory()
+            val warrior = getWarrior(type)
             if (troops.size == 0) {
                 currentWarrior = warrior
                 troops.add(warrior)
@@ -18,11 +20,11 @@ class Army {
         }
     }
 
-    fun nextWarrior(): Warrior {
+    fun nextWarrior(): BaseWarrior {
         return troops.first()
     }
 
-    private fun piercedWarrior(): Warrior? {
+    private fun piercedWarrior(): BaseWarrior? {
         if (troops.size >= 2) {
             return troops[1]
         }

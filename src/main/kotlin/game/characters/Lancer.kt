@@ -1,17 +1,32 @@
 package game.characters
 
+import game.decorators.LancerDecorator
+import game.interfaces.BaseWarrior
 import game.settings.Params
 
-class Lancer : Warrior(Params.Lancer.HEALTH) {
-    override val attack: Int = Params.Lancer.ATTACK
-    val pierce = Params.Lancer.PIERCING_POWER
+class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lancer.HEALTH): LancerDecorator(warrior) {
+    private val attack: Int = Params.Lancer.ATTACK
+    private val pierce = Params.Lancer.PIERCING_POWER
 
-    override fun hit(opponent: Warrior) {
-        val healthBefore = opponent.health
-        super.hit(opponent)
-        val damageDealt = healthBefore-opponent.health
+    override fun pierce(opponent: BaseWarrior, damage: Int) {
+        opponent.receiveDamage(opponent.getHealth.minus(damage))
+    }
+
+    override fun receiveDamage(damage: Int) {
+        health-=damage
+    }
+
+    override val isAlive: Boolean
+        get() = health>0
+    override val getHealth: Int
+        get() = health
+
+    override fun hit(opponent: BaseWarrior) {
+        val healthBefore = opponent.getHealth
+        opponent.receiveDamage(attack)
+        val damageDealt = healthBefore-opponent.getHealth
         val damageToNext : Int = (damageDealt*pierce)/100
-        super.hit(opponent.warriorBehind, damageToNext)
+        opponent.warriorBehind?.let { pierce(it, damageToNext) }
 
     }
 }
