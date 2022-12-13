@@ -4,7 +4,7 @@ package game.characters
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
-
+// TODO understand if possible for a Vampire class for example to be Warrior class
 class Warrior() : BaseWarrior {
       private val attack: Int = Params.Warrior.ATTACK
      var health: Int = Params.Warrior.HEALTH

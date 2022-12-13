@@ -24,6 +24,7 @@ class Army {
         return troops.first()
     }
 
+    //TODO remove this two methods
     private fun piercedWarrior(): BaseWarrior? {
         if (troops.size >= 2) {
             return troops[1]

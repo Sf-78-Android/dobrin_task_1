@@ -3,7 +3,7 @@ package game.factory
 import game.characters.*
 import game.interfaces.BaseWarrior
 
-
+// TODO validation and not case sensitive
 fun  getWarrior(type : String) :  BaseWarrior {
          var warrior : BaseWarrior? = null
         when(type){
