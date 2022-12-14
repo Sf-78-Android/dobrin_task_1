@@ -5,7 +5,7 @@ import game.interfaces.BaseWarrior
 import game.settings.Params
 
 class Rookie : BaseWarrior {
-    override val attack: Int = 1
+    private val attack: Int = 1
     override fun hit(opponent: BaseWarrior) {
         TODO("Not yet implemented")
     }
