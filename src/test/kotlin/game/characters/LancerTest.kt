@@ -14,9 +14,9 @@ internal class LancerTest {
         // given
         val army1 = Army()
         val army2 = Army()
-       // army1.addUnits(1,::Rookie)
-       // army1.addUnits(1,::Rookie)
-       // army2.addUnits(1,::Lancer)
+       army1.addUnits(1,"Rookie")
+       army1.addUnits(1,"Rookie")
+       army2.addUnits(1,"Lancer")
         // when
 
         val res = Battle.fight(army2,army1)
@@ -30,9 +30,9 @@ internal class LancerTest {
     fun `Check Lancer pierce by killing one Vampire and Defender takes damage minus defence`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(20, ::Lancer)
+        firstArmy.addUnits(20, "Lancer")
         val secondArmy = Army()
-        secondArmy.addUnits(20, ::Defender)
+        secondArmy.addUnits(20, "Defender")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
@@ -45,15 +45,15 @@ internal class LancerTest {
     fun `Second army should win`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(15, ::Lancer)
-        firstArmy.addUnits(15, ::Warrior)
+        firstArmy.addUnits(15, "Lancer")
+        firstArmy.addUnits(15, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(20, ::Defender)
-        secondArmy.addUnits(20, ::Knight)
+        secondArmy.addUnits(20, "Defender")
+        secondArmy.addUnits(20, "Knight")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
-        assertEquals(false, res)
+        assertEquals(true, res)
     }
 
     @Test
@@ -61,10 +61,10 @@ internal class LancerTest {
     fun `First army wins in a battle between Lancers`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(5, ::Lancer)
+        firstArmy.addUnits(5, "Lancer")
 
         val secondArmy = Army()
-        secondArmy.addUnits(3, ::Defender)
+        secondArmy.addUnits(3, "Defender")
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)
@@ -77,15 +77,15 @@ internal class LancerTest {
     fun `Second army wins in a battle between Lancers`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(15, ::Lancer)
+        firstArmy.addUnits(15, "Lancer")
 
         val secondArmy = Army()
-        secondArmy.addUnits(18, ::Lancer)
+        secondArmy.addUnits(18, "Lancer")
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
-        assertEquals(false, res)
+        assertEquals(true, res)
     }
 
     @Test
@@ -93,11 +93,11 @@ internal class LancerTest {
     fun `Lancer kills rookie and continues to fight`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(1, ::Lancer)
+        firstArmy.addUnits(1, "Lancer")
 
         val secondArmy = Army()
-        secondArmy.addUnits(1, ::Defender)
-        secondArmy.addUnits(1, ::Rookie)
+        secondArmy.addUnits(1, "Defender")
+        secondArmy.addUnits(1, "Rookie")
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)

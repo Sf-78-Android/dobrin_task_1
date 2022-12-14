@@ -12,14 +12,14 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class")
     fun `Does vampirism parameter work for Defender class`() {
-        val warrior1= Vampire()
+        val warrior1= Vampire(Warrior())
 
         val warrior2 = Warrior()
 
         warrior2.hit(warrior1)
         warrior1.hit(warrior2)
 
-        val res = warrior1.health
+        val res = warrior1.getHealth
 
         assertEquals(37, res)
     }
@@ -27,14 +27,14 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class2")
     fun `Does vampirism parameter work for Warrior class`() {
-        val warrior1= Vampire()
+        val warrior1= Vampire(Warrior())
 
-        val warrior2 = Warrior(Params.Defender.HEALTH)
+        val warrior2 = Warrior()
 
         warrior2.hit(warrior1)
         warrior1.hit(warrior2)
 
-        val res = warrior1.health == 37
+        val res = warrior1.getHealth == 37
 
         assertEquals(true, res)
     }
@@ -43,7 +43,7 @@ internal class VampireTest {
     @DisplayName("1. Fight")
     fun `Vampire  wins against Warrior`() {
         // given
-        val carl = Vampire()
+        val carl = Vampire(Warrior())
         val tim = Warrior()
 
         // when
@@ -57,8 +57,8 @@ internal class VampireTest {
     @DisplayName("2. Fight")
     fun `Vampire  losses against Knight`() {
         // given
-        val carl = Vampire()
-        val tim = Knight()
+        val carl = Vampire(Warrior())
+        val tim = Knight(Warrior())
 
         // when
         Battle.fight(carl, tim)
@@ -74,9 +74,9 @@ internal class VampireTest {
     fun `Vampires win`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(20, ::Vampire)
+        firstArmy.addUnits(20, "Vampire")
         val secondArmy = Army()
-        secondArmy.addUnits(11, ::Knight)
+        secondArmy.addUnits(11, "Knight")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then

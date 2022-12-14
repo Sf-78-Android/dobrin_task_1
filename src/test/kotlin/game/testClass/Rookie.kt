@@ -1,24 +1,24 @@
 package game.testClass
 
 import game.characters.Warrior
+import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
-class Rookie : BaseWarrior {
-    override val attack: Int = 1
+class Rookie (private val warrior: Warrior, private var health : Int = Params.TestRookie.HEALTH) : WarriorDecorator(warrior) {
+     private val attack: Int = Params.TestRookie.ATTACK
     override fun hit(opponent: BaseWarrior) {
-        TODO("Not yet implemented")
+        opponent.receiveDamage(attack)
     }
 
     override fun receiveDamage(damage: Int) {
-        TODO("Not yet implemented")
+       health-=damage
     }
 
     override val isAlive: Boolean
-        get() = TODO("Not yet implemented")
-    override var warriorBehind: BaseWarrior?
-        get() = TODO("Not yet implemented")
-        set(value) {}
+        get() =health>0
+    override var warriorBehind: BaseWarrior? = null
+
     override val getHealth: Int
-        get() = TODO("Not yet implemented")
+        get() = health
 }

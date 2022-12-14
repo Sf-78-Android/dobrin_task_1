@@ -12,8 +12,8 @@ internal class WarriorKtTest {
     @DisplayName("1. Fight")
     fun `Warrior loses when fights against Knight`() {
         // given
-        val carl = Warrior(Params.Defender.HEALTH)
-        val jon = Knight()
+        val carl = Warrior()
+        val jon = Knight(Warrior())
         // when
         val res = Battle.fight(carl, jon)
         // then
@@ -24,9 +24,9 @@ internal class WarriorKtTest {
     @DisplayName("2. Fight")
     fun `Knight dies after more than one battle`() {
         // given
-        val carl = Warrior(Params.Defender.HEALTH)
-        val tim = Warrior(Params.Defender.HEALTH)
-        val jon = Knight()
+        val carl = Warrior()
+        val tim = Warrior()
+        val jon = Knight(Warrior())
         // when
         Battle.fight(jon, carl)
         Battle.fight(jon, tim)
@@ -39,8 +39,8 @@ internal class WarriorKtTest {
     @DisplayName("3. Fight : First warrior wins against second warrior")
     fun `First warrior wins against second warrior`() {
         // given
-        val carl = Warrior(Params.Defender.HEALTH)
-        val tim = Warrior(Params.Defender.HEALTH)
+        val carl = Warrior()
+        val tim = Warrior()
         // when
         Battle.fight(tim, carl)
         val res = tim.isAlive
@@ -52,8 +52,8 @@ internal class WarriorKtTest {
     @DisplayName("4. Fight")
     fun `Knight wins after fighting another knight`() {
         // given
-        val tim = Knight()
-        val jon = Knight()
+        val tim = Knight(Warrior())
+        val jon = Knight(Warrior())
         // when
         Battle.fight(tim, jon)
         val res = tim.isAlive
@@ -65,8 +65,8 @@ internal class WarriorKtTest {
     @DisplayName("5. Fight")
     fun `Second warrior dies after loosing`() {
         // given
-        val carl = Warrior(Params.Defender.HEALTH)
-        val tim = Warrior(Params.Defender.HEALTH)
+        val carl = Warrior()
+        val tim = Warrior()
         // when
         Battle.fight(tim, carl)
         val res = carl.isAlive
@@ -78,9 +78,9 @@ internal class WarriorKtTest {
     @DisplayName("6. Fight")
     fun `Warrior cannot fight after he is dead`() {
         // given
-        val carl = Warrior(Params.Defender.HEALTH)
-        val tim = Warrior(Params.Defender.HEALTH)
-        val jon = Knight()
+        val carl = Warrior()
+        val tim = Warrior()
+        val jon = Knight(Warrior())
         // when
         Battle.fight(carl, jon)
         val res = Battle.fight(jon, tim)
@@ -93,9 +93,9 @@ internal class WarriorKtTest {
     fun `Second army wins`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(1, ::Warrior)
+        firstArmy.addUnits(1, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(2, ::Warrior)
+        secondArmy.addUnits(2, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -107,9 +107,9 @@ internal class WarriorKtTest {
     fun `Second army wins again`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(2, ::Warrior)
+        firstArmy.addUnits(2, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(3, ::Warrior)
+        secondArmy.addUnits(3, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -121,9 +121,9 @@ internal class WarriorKtTest {
     fun `Second army wins for third time`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(5, ::Warrior)
+        firstArmy.addUnits(5, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(7, ::Warrior)
+        secondArmy.addUnits(7, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -135,9 +135,9 @@ internal class WarriorKtTest {
     fun `First army wins`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(20, ::Warrior)
+        firstArmy.addUnits(20, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(21, ::Warrior)
+        secondArmy.addUnits(21, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -149,9 +149,9 @@ internal class WarriorKtTest {
     fun `First army wins `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, ::Warrior)
+        firstArmy.addUnits(11, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(7, ::Warrior)
+        secondArmy.addUnits(7, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -163,9 +163,9 @@ internal class WarriorKtTest {
     fun `First army wins with Knights `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, ::Knight)
+        firstArmy.addUnits(11, "Knight")
         val secondArmy = Army()
-        secondArmy.addUnits(12, ::Warrior)
+        secondArmy.addUnits(12, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -176,9 +176,9 @@ internal class WarriorKtTest {
     fun `First one hit, first one wins `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, ::Knight)
+        firstArmy.addUnits(11, "Knight")
         val secondArmy = Army()
-        secondArmy.addUnits(11, ::Knight)
+        secondArmy.addUnits(11, "Knight")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then

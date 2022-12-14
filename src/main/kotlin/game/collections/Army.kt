@@ -1,8 +1,7 @@
 package game.collections
 
-import game.factory.getWarrior
+import game.testFactory.getWarrior
 import game.interfaces.BaseWarrior
-import java.lang.management.ManagementFactory
 
 class Army {
     private val troops = mutableListOf<BaseWarrior>()

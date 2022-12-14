@@ -1,7 +1,8 @@
-package game.factory
+package game.testFactory
 
 import game.characters.*
 import game.interfaces.BaseWarrior
+import game.testClass.Rookie
 import java.util.*
 
 // TODO validation and not case sensitive
@@ -14,6 +15,7 @@ fun  getWarrior(type : String) :  BaseWarrior {
             "warrior" -> warrior = Warrior()
             "lancer" -> warrior = Lancer(Warrior())
             "defender" -> warrior = Defender(Warrior())
+            "rookie" -> warrior = Rookie(Warrior())
         }
     }
 

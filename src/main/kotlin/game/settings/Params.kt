@@ -24,4 +24,8 @@ object Params {
         const val ATTACK = 6
         const val PIERCING_POWER = 50
     }
+    object TestRookie {
+        const val HEALTH = 3
+        const val ATTACK = 0
+    }
 }
