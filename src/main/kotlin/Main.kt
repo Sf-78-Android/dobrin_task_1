@@ -1,219 +1,206 @@
+import game.characters.*
 import game.collections.Army
 import game.interactions.Battle
 
-
+//TODO fix smoke tests
 fun main() {
 
 
-/*
- fun smokeTestOne(){
+ fun smokeTestOne() {
 
-     val chuck = Warrior(Params.Defender.HEALTH)
-     val bruce = Warrior(Params.Defender.HEALTH)
+  val chuck = Warrior()
+  val bruce = Warrior()
 
-     check(fight(chuck,bruce) == true) {"entities.Warrior should win entities.Warrior"}
-     check(chuck.isAlive == true) {"entities.Warrior winner should be alive "}
-     check(bruce.isAlive == false) {"entities.Warrior winner should not be alive "}
-     val carl = Knight()
-     val dave = Warrior(Params.Defender.HEALTH)
-     check(fight(dave,carl) == false) {"entities.Warrior should lose to entities.Knight"}
-     check(carl.isAlive == true) {"entities.Knight winner should be alive "}
-     check(dave.isAlive == false) {"entities.Warrior defeated should not be alive "}
-     println("ONE OK")
+  check(Battle.fight(chuck, bruce) == true) // "entities.Warrior should win entities.Warrior"
+  check(chuck.isAlive == true) //entities.Warrior winner should be alive "
+  check(bruce.isAlive == false)// "entities.Warrior winner should not be alive "
+  val carl = Knight(Warrior())
+  val dave = Warrior()
+  check(Battle.fight(dave, carl) == false) // "entities.Warrior should lose to entities.Knight"
+  check(carl.isAlive == true)// "entities.Knight winner should be alive "
+  check(dave.isAlive == false) //"entities.Warrior defeated should not be alive "
+  println("ONE OK")
  }
-
 
  fun smokeTestTwo() {
 
 
   val myArmy = Army()
-  myArmy.addUnits(3, ::Knight)
+  myArmy.addUnits(3, "Knight")
 
 
   val enemyArmy = Army()
-  enemyArmy.addUnits(3, ::Warrior)
+  enemyArmy.addUnits(3, "warrioR")
 
   val army3 = Army()
-  army3.addUnits(20, ::Warrior)
-  army3.addUnits(5, ::Knight)
+  army3.addUnits(20, "warrioR")
+  army3.addUnits(5, "Knight")
 
   val army4 = Army()
-  army4.addUnits(30, ::Knight)
+  army4.addUnits(30, "Knight")
 
-  check(fight(myArmy, enemyArmy) == true)
-  check(fight(army3, army4) == false)
+  check(Battle.fight(myArmy, enemyArmy) == true)
+  check(Battle.fight(army3, army4) == false)
   println("TWO OK")
 
  }
-    
-    fun smokeTestDefender() {
-        val chuck = Warrior(Params.Defender.HEALTH)
-        val bruce = Warrior(Params.Defender.HEALTH)
-        val carl = Knight()
-        val dave = Warrior(Params.Defender.HEALTH)
-        val mark = Warrior(Params.Defender.HEALTH)
-        val bob = Defender()
-        val mike = Knight()
-        val rog = Warrior(Params.Defender.HEALTH)
-        val lancelot = Defender()
 
-        assert(fight(chuck, bruce) == true)
-        assert(fight(dave, carl) == false)
-        assert(chuck.isAlive == true)
-        assert(bruce.isAlive == false)
-        assert(carl.isAlive == true)
-        assert(dave.isAlive == false)
-        assert(fight(carl, mark) == false)
-        assert(carl.isAlive == false)
-        assert(fight(bob, mike) == false)
-        assert(fight(lancelot, rog) == true)
+ fun smokeTestDefender() {
+  val chuck = Warrior()
+  val bruce = Warrior()
+  val carl = Knight(Warrior())
+  val dave = Warrior()
+  val mark = Warrior()
+  val bob = Defender(Warrior())
+  val mike = Knight(Warrior())
+  val rog = Warrior()
+  val lancelot = Defender(Warrior())
 
-        val myArmy = Army()
-        myArmy.addUnits(1, ::Defender)
+  assert(Battle.fight(chuck, bruce) == true)
+  assert(Battle.fight(dave, carl) == false)
+  assert(chuck.isAlive == true)
+  assert(bruce.isAlive == false)
+  assert(carl.isAlive == true)
+  assert(dave.isAlive == false)
+  assert(Battle.fight(carl, mark) == false)
+  assert(carl.isAlive == false)
+  assert(Battle.fight(bob, mike) == false)
+  assert(Battle.fight(lancelot, rog) == true)
 
-        val enemyArmy = Army()
-        enemyArmy.addUnits(2, ::Warrior)
+  val myArmy = Army()
+  myArmy.addUnits(1, "DefEndeR")
 
-        val army3 = Army()
-        army3.addUnits(1, ::Warrior)
-        army3.addUnits(1, ::Defender)
+  val enemyArmy = Army()
+  enemyArmy.addUnits(2, "warrioR")
 
-        val army4 = Army()
-        army4.addUnits(2, ::Warrior)
+  val army3 = Army()
+  army3.addUnits(1, "warrioR")
+  army3.addUnits(1, "DefEndeR")
 
-        assert(fight(myArmy, enemyArmy) == false)
-        assert(fight(army3, army4) == true)
-        println("DEFENDERS OK")
-    }
+  val army4 = Army()
+  army4.addUnits(2, "warrioR")
 
-    fun smokeTestVampires(){
-        val chuck = Warrior(Params.Defender.HEALTH)
-        val bruce = Warrior(Params.Defender.HEALTH)
-        val carl = Knight()
-        val dave = Warrior(Params.Defender.HEALTH)
-        val mark = Warrior(Params.Defender.HEALTH)
-        val bob = Defender()
-        val mike = Knight()
-        val rog = Warrior(Params.Defender.HEALTH)
-        val lancelot = Defender()
-        val eric = Vampire()
-        val adam = Vampire()
-        val richard = Defender()
-        val ogre = Warrior(Params.Defender.HEALTH)
+  assert(Battle.fight(myArmy, enemyArmy) == false)
+  assert(Battle.fight(army3, army4) == true)
+  println("DEFENDERS OK")
 
-        assert(fight(chuck, bruce) == true)
-        assert(fight(dave, carl) == false)
-        assert(chuck.isAlive == true)
-        assert(bruce.isAlive == false)
-        assert(carl.isAlive == true)
-        assert(dave.isAlive == false)
-        assert(fight(carl, mark) == false)
-        assert(carl.isAlive == false)
-        assert(fight(bob, mike) == false)
-        assert(fight(lancelot, rog) == true)
-        assert(fight(eric, richard) == false)
-        assert(fight(ogre, adam) == true)
+ }
 
-        val myArmy = Army()
-        myArmy.addUnits(2, ::Defender)
-        myArmy.addUnits(2, ::Vampire)
-        myArmy.addUnits(1, ::Warrior)
+ fun smokeTestVampires() {
+  val chuck = Warrior()
+  val bruce = Warrior()
+  val carl = Knight(Warrior())
+  val dave = Warrior()
+  val mark = Warrior()
+  val bob = Defender(Warrior())
+  val mike = Knight(Warrior())
+  val rog = Warrior()
+  val lancelot = Defender(Warrior())
+  val eric = Vampire(Warrior())
+  val adam = Vampire(Warrior())
+  val richard = Defender(Warrior())
+  val ogre = Warrior()
 
-        val enemyArmy = Army()
-        enemyArmy.addUnits(2, ::Warrior)
-        enemyArmy.addUnits(2, ::Defender)
-        enemyArmy.addUnits(3, ::Vampire)
+  assert(Battle.fight(chuck, bruce) == true)
+  assert(Battle.fight(dave, carl) == false)
+  assert(chuck.isAlive == true)
+  assert(bruce.isAlive == false)
+  assert(carl.isAlive == true)
+  assert(dave.isAlive == false)
+  assert(Battle.fight(carl, mark) == false)
+  assert(carl.isAlive == false)
+  assert(Battle.fight(bob, mike) == true)
+  assert(Battle.fight(lancelot, rog) == true)
+  assert(Battle.fight(eric, richard) == true)
+  assert(Battle.fight(ogre, adam) == false)
 
-        val army3 = Army()
-        army3.addUnits(1, ::Warrior)
-        army3.addUnits(4, ::Defender)
+  val myArmy = Army()
+  myArmy.addUnits(2, "DefEndeR")
+  myArmy.addUnits(2, "vampire")
+  myArmy.addUnits(1, "warrioR")
 
-        val army4 = Army()
-        army4.addUnits(3, ::Vampire)
-        army4.addUnits(2, ::Warrior)
+  val enemyArmy = Army()
+  enemyArmy.addUnits(2, "warrioR")
+  enemyArmy.addUnits(2, "DefEndeR")
+  enemyArmy.addUnits(3, "vampire")
 
-        assert(fight(myArmy, enemyArmy) == false)
-        assert(fight(army3, army4) == true)
-        println("VAMPIRES OK")
-    }
+  val army3 = Army()
+  army3.addUnits(1, "warrioR")
+  army3.addUnits(4, "DefEndeR")
 
-    fun smokeTestLancers(){
-        val chuck = Warrior(Params.Defender.HEALTH);
-        val bruce = Warrior(Params.Defender.HEALTH);
-        val carl = Knight();
-        val dave = Warrior(Params.Defender.HEALTH);
-        val mark = Warrior(Params.Defender.HEALTH);
-        val bob = Defender();
-        val mike = Knight();
-        val rog = Warrior(Params.Defender.HEALTH);
-        val lancelot = Defender();
-        val eric = Vampire();
-        val adam = Vampire();
-        val richard = Defender();
-        val ogre = Warrior(Params.Defender.HEALTH);
-        val freelancer = Lancer();
-        val vampire = Vampire();
+  val army4 = Army()
+  army4.addUnits(3, "vampire")
+  army4.addUnits(2, "warrioR")
 
-        check(fight(chuck, bruce) == true);
-        check(fight(dave, carl) == false);
-        check(chuck.isAlive == true);
-        check(bruce.isAlive == false);
-        check(carl.isAlive == true);
-        check(dave.isAlive == false);
-        check(fight(carl, mark) == false);
-        check(carl.isAlive == false);
-        check(fight(bob, mike) == false);
-        check(fight(lancelot, rog) == true);
-        check(fight(eric, richard) == false);
-        check(fight(ogre, adam) == true);
-        check(fight(freelancer, vampire) == true);
-        check(freelancer.isAlive == true);
+  assert(Battle.fight(myArmy, enemyArmy) == false)
+  assert(Battle.fight(army3, army4) == true)
+  println("VAMPIRES OK")
 
-        val myArmy = Army();
-        myArmy.addUnits(2) { Defender() };
-        myArmy.addUnits(2) { Vampire() };
-        myArmy.addUnits(4) { Lancer() };
-        myArmy.addUnits(1) { Warrior(Params.Defender.HEALTH) };
+ }
 
-        val enemyArmy = Army();
-        enemyArmy.addUnits(2) { Warrior(Params.Defender.HEALTH) };
-        enemyArmy.addUnits(2) { Lancer() };
-        enemyArmy.addUnits(2) { Defender() };
-        enemyArmy.addUnits(3) { Vampire() };
+ fun smokeTestLancers() {
+  val chuck = Warrior()
+  val bruce = Warrior()
+  val carl = Knight(Warrior())
+  val dave = Warrior()
+  val mark = Warrior()
+  val bob = Defender(Warrior())
+  val mike = Knight(Warrior())
+  val rog = Warrior()
+  val lancelot = Defender(Warrior())
+  val eric = Vampire(Warrior())
+  val adam = Vampire(Warrior())
+  val richard = Defender(Warrior())
+  val ogre = Warrior()
+  val freelancer = Lancer(Warrior())
+  val vampire = Vampire(Warrior())
 
-        val army3 = Army();
-        army3.addUnits(1) { Warrior(Params.Defender.HEALTH) };
-        army3.addUnits(1) { Lancer() };
-        army3.addUnits(2) { Defender() };
+  check(Battle.fight(chuck, bruce) == true)
+  check(Battle.fight(dave, carl) == false)
+  check(chuck.isAlive == true)
+  check(bruce.isAlive == false)
+  check(carl.isAlive == true)
+  check(dave.isAlive == false)
+  check(Battle.fight(carl, mark) == false)
+  check(carl.isAlive == false)
+  check(Battle.fight(bob, mike) == false)
+  check(Battle.fight(lancelot, rog) == true)
+  check(Battle.fight(eric, richard) == false)
+  check(Battle.fight(ogre, adam) == true)
+  check(Battle.fight(freelancer, vampire) == true)
+  check(freelancer.isAlive == true)
 
-        val army4 = Army();
-        army4.addUnits(3) { Vampire() };
-        army4.addUnits(1) { Warrior(Params.Defender.HEALTH) };
-        army4.addUnits(2) { Lancer() };
+  val myArmy = Army()
+  myArmy.addUnits(2, "Defender")
+  myArmy.addUnits(2, "vampire")
+  myArmy.addUnits(4, "lancer")
+  myArmy.addUnits(1, "warrior")
 
-        check(fight(myArmy, enemyArmy) == true);
-        check(fight(army3, army4) == false);
-        println("LANCERS OK")
-        }
+  val enemyArmy = Army()
+  enemyArmy.addUnits(2, "warrior")
+  enemyArmy.addUnits(2, "lancer")
+  enemyArmy.addUnits(2, "Defender")
+  enemyArmy.addUnits(3, "vampire")
 
+  val army3 = Army()
+  army3.addUnits(1, "warrior")
+  army3.addUnits(1, "lancer")
+  army3.addUnits(2, "Defender")
 
-    smokeTestOne()
-   smokeTestTwo()
-   smokeTestDefender()
-   smokeTestVampires()
-    smokeTestLancers()
-     */
+  val army4 = Army()
+  army4.addUnits(3, "vampire")
+  army4.addUnits(1, "warrior")
+  army4.addUnits(2, "lanceR")
 
+  check(Battle.fight(myArmy, enemyArmy) == true)
+  check(Battle.fight(army3, army4) == false)
+  println("LANCERS OK")
 
-val  army1 = Army()
-
- val  army2 = Army()
-
- army1.addUnits( 3,  "Knight")
- army1.addUnits( 3, "Defender")
- army2.addUnits( 3, "Lancer" )
- army2.addUnits( 3,  "Defender" )
-
- println(Battle.fight(army1,army2))
+ }
+ smokeTestOne()
+ smokeTestTwo()
+ smokeTestDefender()
+ smokeTestVampires()
+ smokeTestLancers()
 }
 
