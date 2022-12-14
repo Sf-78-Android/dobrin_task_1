@@ -95,7 +95,7 @@ internal class WarriorKtTest {
         val firstArmy = Army()
         firstArmy.addUnits(1, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(2, "warrior")
+        secondArmy.addUnits(2, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -107,9 +107,9 @@ internal class WarriorKtTest {
     fun `Second army wins again`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(2, "warrior")
+        firstArmy.addUnits(2, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(3, "warrior")
+        secondArmy.addUnits(3, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -121,9 +121,9 @@ internal class WarriorKtTest {
     fun `Second army wins for third time`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(5, "warrior")
+        firstArmy.addUnits(5, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(7, "warrior")
+        secondArmy.addUnits(7, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -135,9 +135,9 @@ internal class WarriorKtTest {
     fun `First army wins`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(20, "warrior")
+        firstArmy.addUnits(20, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(21, "warrior")
+        secondArmy.addUnits(21, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -149,9 +149,9 @@ internal class WarriorKtTest {
     fun `First army wins `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, "warrior")
+        firstArmy.addUnits(11, "Warrior")
         val secondArmy = Army()
-        secondArmy.addUnits(7, "warrior")
+        secondArmy.addUnits(7, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -163,9 +163,9 @@ internal class WarriorKtTest {
     fun `First army wins with Knights `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, "knight")
+        firstArmy.addUnits(11, "Knight")
         val secondArmy = Army()
-        secondArmy.addUnits(12, "warrior")
+        secondArmy.addUnits(12, "Warrior")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -176,9 +176,9 @@ internal class WarriorKtTest {
     fun `First one hit, first one wins `() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(11, "knight")
+        firstArmy.addUnits(11, "Knight")
         val secondArmy = Army()
-        secondArmy.addUnits(11, "KnighT")
+        secondArmy.addUnits(11, "Knight")
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then

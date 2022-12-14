@@ -1,6 +1,6 @@
 package game.collections
 
-import game.factory.getWarrior
+import game.testFactory.getWarrior
 import game.interfaces.BaseWarrior
 
 class Army {
