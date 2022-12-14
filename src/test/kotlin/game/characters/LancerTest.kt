@@ -14,9 +14,9 @@ internal class LancerTest {
         // given
         val army1 = Army()
         val army2 = Army()
-        army1.addUnits(1,::Rookie)
-        army1.addUnits(1,::Rookie)
-        army2.addUnits(1,::Lancer)
+       // army1.addUnits(1,::Rookie)
+       // army1.addUnits(1,::Rookie)
+       // army2.addUnits(1,::Lancer)
         // when
 
         val res = Battle.fight(army2,army1)
