@@ -1,15 +1,9 @@
 import game.characters.Knight
 import game.characters.Warrior
-import game.collections.Army
 import game.interactions.Battle
-import game.interfaces.BaseWarrior
-import game.settings.Params
 
 
 fun main() {
-
-
- fun smokeTestOne() {
 
   val chuck = Warrior()
   val bruce = Warrior()
@@ -23,9 +17,6 @@ fun main() {
   check(carl.isAlive == true) { "entities.Knight winner should be alive " }
   check(dave.isAlive == false) { "entities.Warrior defeated should not be alive " }
   println("ONE OK")
- }
-
- smokeTestOne()
 
 
 }
