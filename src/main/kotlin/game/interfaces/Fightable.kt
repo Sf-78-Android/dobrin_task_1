@@ -1,6 +1,5 @@
 package game.interfaces
 
-import game.characters.Warrior
 import game.collections.Army
 
 interface Fightable {

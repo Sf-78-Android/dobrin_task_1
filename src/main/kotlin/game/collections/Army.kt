@@ -2,11 +2,10 @@ package game.collections
 
 import game.factory.getWarrior
 import game.interfaces.BaseWarrior
-import java.lang.management.ManagementFactory
 
 class Army {
     private val troops = mutableListOf<BaseWarrior>()
-    private var currentWarrior : BaseWarrior? = null
+    private  var currentWarrior : BaseWarrior? = null
     fun addUnits(quantity: Int, type : String ) {
         repeat(quantity) {
             val warrior = getWarrior(type)
@@ -24,19 +23,6 @@ class Army {
         return troops.first()
     }
 
-    //TODO remove this two methods
-    private fun piercedWarrior(): BaseWarrior? {
-        if (troops.size >= 2) {
-            return troops[1]
-        }
-        return null
-    }
-
-    fun killedPiercedWarrior() {
-        if (troops.size >= 2) {
-            troops.removeAt(1)
-        }
-    }
 
     fun killedWarrior() {
         troops.removeFirst()
