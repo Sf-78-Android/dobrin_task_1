@@ -1,9 +1,7 @@
 package game.characters
 
 import game.decorators.VampireDecorator
-import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
-
 import game.settings.Params
 
 class Vampire (val warrior: BaseWarrior) : VampireDecorator(warrior) {
@@ -13,7 +11,7 @@ class Vampire (val warrior: BaseWarrior) : VampireDecorator(warrior) {
         field = value.coerceAtMost(initialHealth)
     }
     private val attack: Int = Params.Vampire.ATTACK
-    val vampirism: Int = Params.Vampire.VAMPIRISM
+    private val vampirism: Int = Params.Vampire.VAMPIRISM
 
 
     override fun drainHp(hpDrained: Int) {

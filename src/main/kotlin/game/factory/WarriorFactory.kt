@@ -1,12 +1,12 @@
-package game.testFactory
+package game.factory
 
 import game.characters.*
 import game.interfaces.BaseWarrior
 import java.util.*
 
-// TODO validation and not case sensitive
+
 fun  getWarrior(type : String) :  BaseWarrior {
-         var warrior : BaseWarrior? = null
+        lateinit var warrior : BaseWarrior
     if (type.isNotEmpty() and type.isNotBlank()) {
         when (type.lowercase(Locale.getDefault())) {
             "knight" -> warrior = Knight(Warrior())
@@ -17,6 +17,6 @@ fun  getWarrior(type : String) :  BaseWarrior {
         }
     }
 
-    return  warrior!!
+    return  warrior
     }
 

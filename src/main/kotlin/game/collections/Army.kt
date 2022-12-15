@@ -1,6 +1,6 @@
 package game.collections
 
-import game.testFactory.getWarrior
+import game.factory.getWarrior
 import game.interfaces.BaseWarrior
 
 class Army {
@@ -23,19 +23,6 @@ class Army {
         return troops.first()
     }
 
-    //TODO remove this two methods
-    private fun piercedWarrior(): BaseWarrior? {
-        if (troops.size >= 2) {
-            return troops[1]
-        }
-        return null
-    }
-
-    fun killedPiercedWarrior() {
-        if (troops.size >= 2) {
-            troops.removeAt(1)
-        }
-    }
 
     fun killedWarrior() {
         troops.removeFirst()
