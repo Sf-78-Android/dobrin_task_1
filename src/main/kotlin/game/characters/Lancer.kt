@@ -5,7 +5,12 @@ import game.interfaces.BaseWarrior
 import game.interfaces.CanPierce
 import game.settings.Params
 
-class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lancer.HEALTH): WarriorDecorator(warrior), CanPierce {
+class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior), CanPierce {
+    private val initialHealth = Params.Lancer.HEALTH
+    private var health : Int = Params.Lancer.HEALTH
+        private set(value) {
+            field = value.coerceAtMost(initialHealth)
+        }
     private val attack: Int = Params.Lancer.ATTACK
     private val pierce = Params.Lancer.PIERCING_POWER
 
@@ -13,12 +18,10 @@ class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lance
         opponent.receiveDamage(opponent.getHealth.minus(damage))
     }
 
-    override fun receiveDamage(damage: Int) {
-        health-=damage
-    }
-
     override val isAlive: Boolean
         get() = health>0
+
+
     override val getHealth: Int
         get() = health
 
@@ -30,6 +33,17 @@ class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lance
         opponent.warriorBehind?.let { pierce(it, damageToNext) }
 
     }
+
+    override fun receiveDamage(damage: Int) {
+        health-=damage
+    }
+
+    override fun restoreHp(amountHp: Int) {
+        health+=amountHp
+    }
+
+    override var warriorBehind: BaseWarrior? = null
+
 }
 
 

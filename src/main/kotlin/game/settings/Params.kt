@@ -28,4 +28,9 @@ object Params {
         const val HEALTH = 3
         const val ATTACK = 0
     }
+    object Healer {
+        const val HEALTH = 60
+        const val ATTACK = 0
+        const val healingPower  = 2
+    }
 }

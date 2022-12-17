@@ -1,6 +1,6 @@
 package game.interactions
 
-import game.characters.Warrior
+import game.characters.Healer
 import game.collections.Army
 import game.interfaces.BaseWarrior
 import game.interfaces.Fightable
@@ -12,6 +12,9 @@ object Battle : Fightable {
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender)
+            if (defender.warriorBehind is Healer){
+                defender.restoreHp((defender.warriorBehind as Healer).healingPower)
+            }
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive

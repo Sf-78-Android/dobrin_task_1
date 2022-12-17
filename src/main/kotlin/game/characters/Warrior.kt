@@ -4,9 +4,13 @@ package game.characters
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
-class Warrior() : BaseWarrior {
+class Warrior : BaseWarrior {
+    private val initialHealth = Params.Warrior.HEALTH
       private val attack: Int = Params.Warrior.ATTACK
      private var health: Int = Params.Warrior.HEALTH
+         private set(value) {
+             field = value.coerceAtMost(initialHealth)
+         }
     override val isAlive: Boolean
         get() = health > 0
 
@@ -18,7 +22,12 @@ class Warrior() : BaseWarrior {
         health-=damage
     }
 
+    override fun restoreHp(amountHp: Int) {
+        health+=amountHp
+    }
+
     override var warriorBehind: BaseWarrior? = null
+
 
     override val getHealth: Int
         get() = health

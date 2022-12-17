@@ -6,9 +6,9 @@ import game.interfaces.BaseWarrior
 class Army {
     private val troops = mutableListOf<BaseWarrior>()
     private var currentWarrior : BaseWarrior? = null
-    fun addUnits(quantity: Int, type : String ) {
+    fun addUnits(quantity: Int,factory: () -> BaseWarrior ) {
         repeat(quantity) {
-            val warrior = getWarrior(type)
+            val warrior = factory()
             if (troops.size == 0) {
                 currentWarrior = warrior
                 troops.add(warrior)

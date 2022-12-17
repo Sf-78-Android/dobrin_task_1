@@ -4,7 +4,12 @@ import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
-class Defender (val warrior: Warrior,private var health : Int = Params.Defender.HEALTH) : WarriorDecorator(warrior) {
+class Defender (val warrior: Warrior) : WarriorDecorator(warrior) {
+    private val initialHealth = Params.Defender.HEALTH
+    private var health : Int = Params.Defender.HEALTH
+        private set(value) {
+            field = value.coerceAtMost(initialHealth)
+        }
      private val attack: Int = Params.Defender.ATTACK
      private val defence: Int
      get()= Params.Defender.DEFENCE
@@ -17,8 +22,18 @@ class Defender (val warrior: Warrior,private var health : Int = Params.Defender.
         health-= (damage-defence).coerceAtLeast(0)
     }
 
+
+
+    override var warriorBehind: BaseWarrior? = null
+
     override val isAlive: Boolean
         get() = health>0
+
+    override fun restoreHp(amountHp: Int) {
+       health+=amountHp
+    }
+
+
     override val getHealth: Int
         get() = health
 

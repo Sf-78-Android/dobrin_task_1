@@ -14,6 +14,7 @@ fun  getWarrior(type : String) :  BaseWarrior {
             "warrior" -> warrior = Warrior()
             "lancer" -> warrior = Lancer(Warrior())
             "defender" -> warrior = Defender(Warrior())
+            "healer" -> warrior = Healer(Warrior())
         }
     }
 
