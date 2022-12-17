@@ -1,8 +1,9 @@
 package game.characters
 
-import game.collections.Army
-import game.interactions.Battle
-import game.settings.Params
+
+import game.testCollections.TestArmy
+import game.testInteractions.TestBattle
+
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -47,7 +48,7 @@ internal class VampireTest {
         val tim = Warrior()
 
         // when
-        Battle.fight(carl, tim)
+        TestBattle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
@@ -61,7 +62,7 @@ internal class VampireTest {
         val tim = Knight(Warrior())
 
         // when
-        Battle.fight(carl, tim)
+        TestBattle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
@@ -70,15 +71,15 @@ internal class VampireTest {
 
 
     @Test
-    @DisplayName("1. Battle")
+    @DisplayName("1. TestBattle")
     fun `Vampires win`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(20, "Vampire")
-        val secondArmy = Army()
-        secondArmy.addUnits(11, "Knight")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(20, "Vampire")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(11, "Knight")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(true, res)
     }
