@@ -28,11 +28,19 @@ class Vampire (val warrior: BaseWarrior) : WarriorDecorator(warrior), CanDrainHp
     }
 
     override fun receiveDamage(damage: Int) {
-       health-=damage
+        health-=damage
     }
+
+    override fun restoreHp(amountHp: Int) {
+        health+=amountHp
+    }
+
+    override var warriorBehind: BaseWarrior? = null
 
     override val isAlive: Boolean
         get() = health > 0
+
+
     override val getHealth: Int
         get() = health
 
