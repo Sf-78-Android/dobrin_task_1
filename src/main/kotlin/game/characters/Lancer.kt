@@ -1,10 +1,11 @@
 package game.characters
 
-import game.decorators.LancerDecorator
+import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
+import game.interfaces.CanPierce
 import game.settings.Params
 
-class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lancer.HEALTH): LancerDecorator(warrior) {
+class Lancer (val warrior : BaseWarrior, private var health : Int = Params.Lancer.HEALTH): WarriorDecorator(warrior), CanPierce {
     private val attack: Int = Params.Lancer.ATTACK
     private val pierce = Params.Lancer.PIERCING_POWER
 

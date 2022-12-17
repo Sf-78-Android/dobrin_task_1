@@ -1,10 +1,11 @@
 package game.characters
 
-import game.decorators.VampireDecorator
+import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
+import game.interfaces.CanDrainHp
 import game.settings.Params
 
-class Vampire (val warrior: BaseWarrior) : VampireDecorator(warrior) {
+class Vampire (val warrior: BaseWarrior) : WarriorDecorator(warrior), CanDrainHp {
     private val initialHealth = Params.Vampire.HEALTH
     private var health = initialHealth
     private set(value) {
