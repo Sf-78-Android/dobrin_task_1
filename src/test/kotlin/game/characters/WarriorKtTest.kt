@@ -1,8 +1,7 @@
 package game.characters
 
-import game.collections.Army
-import game.interactions.Battle
-import game.settings.Params
+import game.testCollections.TestArmy
+import game.testInteractions.TestBattle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,21 +14,21 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val jon = Knight(Warrior())
         // when
-        val res = Battle.fight(carl, jon)
+        val res = TestBattle.fight(carl, jon)
         // then
         assertEquals(false, res)
     }
 
     @Test
     @DisplayName("2. Fight")
-    fun `Knight dies after more than one battle`() {
+    fun `Knight dies after more than one TestBattle`() {
         // given
         val carl = Warrior()
         val tim = Warrior()
         val jon = Knight(Warrior())
         // when
-        Battle.fight(jon, carl)
-        Battle.fight(jon, tim)
+        TestBattle.fight(jon, carl)
+        TestBattle.fight(jon, tim)
         val res = jon.isAlive
         // then
         assertEquals(false, res)
@@ -42,7 +41,7 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val tim = Warrior()
         // when
-        Battle.fight(tim, carl)
+        TestBattle.fight(tim, carl)
         val res = tim.isAlive
         // then
         assertEquals(true, res)
@@ -55,7 +54,7 @@ internal class WarriorKtTest {
         val tim = Knight(Warrior())
         val jon = Knight(Warrior())
         // when
-        Battle.fight(tim, jon)
+        TestBattle.fight(tim, jon)
         val res = tim.isAlive
         // then
         assertEquals(true, res)
@@ -68,7 +67,7 @@ internal class WarriorKtTest {
         val carl = Warrior()
         val tim = Warrior()
         // when
-        Battle.fight(tim, carl)
+        TestBattle.fight(tim, carl)
         val res = carl.isAlive
         // then
         assertEquals(false, res)
@@ -82,105 +81,105 @@ internal class WarriorKtTest {
         val tim = Warrior()
         val jon = Knight(Warrior())
         // when
-        Battle.fight(carl, jon)
-        val res = Battle.fight(jon, tim)
+        TestBattle.fight(carl, jon)
+        val res = TestBattle.fight(jon, tim)
         // then
         assertEquals(false, res)
     }
 
     @Test
-    @DisplayName("7.Battle")
-    fun `Second army wins`() {
+    @DisplayName("7.TestBattle")
+    fun `Second TestArmy wins`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(1, "Warrior")
-        val secondArmy = Army()
-        secondArmy.addUnits(2, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(1, "Warrior")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(2, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(false, res)
     }
 
     @Test
-    @DisplayName("8.Battle")
-    fun `Second army wins again`() {
+    @DisplayName("8.TestBattle")
+    fun `Second TestArmy wins again`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(2, "Warrior")
-        val secondArmy = Army()
-        secondArmy.addUnits(3, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(2, "Warrior")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(3, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(false, res)
     }
 
     @Test
-    @DisplayName("9. Battle")
-    fun `Second army wins for third time`() {
+    @DisplayName("9. TestBattle")
+    fun `Second TestArmy wins for third time`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(5, "Warrior")
-        val secondArmy = Army()
-        secondArmy.addUnits(7, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(5, "Warrior")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(7, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(false, res)
     }
 
     @Test
-    @DisplayName("10. Battle")
-    fun `First army wins`() {
+    @DisplayName("10. TestBattle")
+    fun `First TestArmy wins`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(20, "Warrior")
-        val secondArmy = Army()
-        secondArmy.addUnits(21, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(20, "Warrior")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(21, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(true, res)
     }
 
     @Test
-    @DisplayName("11. Battle")
-    fun `First army wins `() {
+    @DisplayName("11. TestBattle")
+    fun `First TestArmy wins `() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(11, "Warrior")
-        val secondArmy = Army()
-        secondArmy.addUnits(7, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(11, "Warrior")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(7, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(true, res)
     }
 
     @Test
-    @DisplayName("12. Battle")
-    fun `First army wins with Knights `() {
+    @DisplayName("12. TestBattle")
+    fun `First TestArmy wins with Knights `() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(11, "Knight")
-        val secondArmy = Army()
-        secondArmy.addUnits(12, "Warrior")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(11, "Knight")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(12, "Warrior")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(true, res)
     }
     @Test
-    @DisplayName("12. Battle")
+    @DisplayName("12. TestBattle")
     fun `First one hit, first one wins `() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(11, "Knight")
-        val secondArmy = Army()
-        secondArmy.addUnits(11, "Knight")
+        val firstTestArmy = TestArmy()
+        firstTestArmy.addUnits(11, "Knight")
+        val secondTestArmy = TestArmy()
+        secondTestArmy.addUnits(11, "Knight")
         // when
-        val res = Battle.fight(firstArmy, secondArmy)
+        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
         // then
         assertEquals(true, res)
     }

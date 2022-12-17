@@ -5,7 +5,7 @@ import game.interfaces.BaseWarrior
 import game.testClass.Rookie
 import java.util.*
 
-// TODO validation and not case sensitive
+
 fun  getWarrior(type : String) :  BaseWarrior {
          var warrior : BaseWarrior? = null
     if (type.isNotEmpty() and type.isNotBlank()) {
