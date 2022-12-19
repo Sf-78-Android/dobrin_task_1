@@ -1,6 +1,7 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
@@ -21,13 +22,14 @@ class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior) {
     override val getHealth: Int
         get() = health
 
-    override fun hit(opponent: BaseWarrior) {
+    override fun hit(opponent: BaseWarrior,fightType: FightType) {
         val healthBefore = opponent.getHealth
         opponent.receiveDamage(attack)
-        val damageDealt = healthBefore-opponent.getHealth
-        val damageToNext : Int = (damageDealt*pierce)/100
-        opponent.warriorBehind?.let { receiveDamage( damageToNext) }
-
+        if (fightType == FightType.Classic) {
+            val damageDealt = healthBefore - opponent.getHealth
+            val damageToNext: Int = (damageDealt * pierce) / 100
+            opponent.warriorBehind?.let { receiveDamage(damageToNext) }
+        }
     }
 
     override fun receiveDamage(damage: Int) {

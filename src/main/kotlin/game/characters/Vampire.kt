@@ -1,6 +1,7 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.CanDrainHp
 import game.settings.Params
@@ -19,7 +20,7 @@ class Vampire (val warrior: BaseWarrior) : WarriorDecorator(warrior), CanDrainHp
         health+=hpDrained
     }
 
-    override fun hit(opponent: BaseWarrior) {
+    override fun hit(opponent: BaseWarrior, fightType: FightType) {
         val healthBefore = opponent.getHealth
         opponent.receiveDamage(attack)
         val damageDealt = healthBefore-opponent.getHealth

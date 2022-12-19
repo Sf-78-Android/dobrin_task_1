@@ -1,6 +1,7 @@
 package game.characters
 
 
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
@@ -14,7 +15,7 @@ class Warrior : BaseWarrior {
     override val isAlive: Boolean
         get() = health > 0
 
-    override fun hit(opponent: BaseWarrior) {
+    override fun hit(opponent: BaseWarrior, fightType: FightType) {
        opponent.receiveDamage(attack)
     }
 

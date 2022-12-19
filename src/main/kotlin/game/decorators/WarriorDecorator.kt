@@ -1,12 +1,13 @@
 package game.decorators
 
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 
 
 abstract class WarriorDecorator(private val warrior: BaseWarrior) : BaseWarrior {
 
-    override fun hit(opponent: BaseWarrior) {
-        warrior.hit(opponent)
+    override fun hit(opponent: BaseWarrior, fightType: FightType) {
+        warrior.hit(opponent, fightType)
     }
 
     override fun receiveDamage(damage: Int) {

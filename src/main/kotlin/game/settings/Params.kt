@@ -11,7 +11,7 @@ object Params {
     }
     object Defender {
         const val HEALTH = 60
-        const val ATTACK = 3
+        const val ATTACK = 4
         const val DEFENCE = 3
     }
     object Vampire {
