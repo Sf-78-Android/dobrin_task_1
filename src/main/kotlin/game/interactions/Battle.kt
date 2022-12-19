@@ -2,6 +2,7 @@ package game.interactions
 
 import game.characters.Healer
 import game.collections.Army
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.Fightable
 
@@ -11,8 +12,7 @@ object Battle : Fightable {
         var attacker = warrior1
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
-            attacker.hit(defender)
-
+            attacker.hit(defender,FightType.Classic)
             if (defender.warriorBehind is Healer){
                 defender.restoreHp((defender.warriorBehind as Healer).healingPower)
             }
@@ -25,8 +25,8 @@ object Battle : Fightable {
         var attacker = warrior1
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
-            attacker.hit(defender)
-            // TODO implement another hit type
+            attacker.hit(defender,FightType.Straight)
+
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive
@@ -41,12 +41,21 @@ object Battle : Fightable {
                    army1.size
                }
            }
-           for (i in 0..size) {
+           val deadPositionsArmy1 = mutableListOf<Int>()
+           val deadPositionsArmy2 = mutableListOf<Int>()
+           for (i in 0 until size) {
                if (fight(army1.getWarriorAtPosition(i), army2.getWarriorAtPosition(i))) {
-                   army2.killedWarrior(i)
+                   deadPositionsArmy2.add(i)
                } else {
-                   army1.killedWarrior(i)
+                   deadPositionsArmy1.add(i)
                }
+           }
+
+           for (i in 0 until deadPositionsArmy1.size) {
+               army1.killedWarrior(i)
+           }
+           for (i in 0 until deadPositionsArmy1.size) {
+               army2.killedWarrior(i)
            }
        }
 

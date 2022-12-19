@@ -1,6 +1,7 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
@@ -13,7 +14,7 @@ class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
         }
     private val attack: Int = Params.Knight.ATTACK
 
-    override fun hit(opponent: BaseWarrior) {
+    override fun hit(opponent: BaseWarrior, fightType: FightType) {
         opponent.receiveDamage(attack)
     }
     override fun receiveDamage(damage: Int) {

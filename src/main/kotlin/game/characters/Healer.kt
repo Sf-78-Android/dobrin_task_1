@@ -1,6 +1,7 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.CanHeal
 import game.settings.Params
@@ -18,15 +19,17 @@ class Healer (val warrior: BaseWarrior) : WarriorDecorator(warrior), CanHeal {
     override val isAlive: Boolean
         get() = health > 0
 
-    override fun hit(opponent: BaseWarrior) {
+    override fun hit(opponent: BaseWarrior,fightType: FightType) {
         opponent.receiveDamage(attack)
     }
 
     override val getHealth: Int
         get() = health
 
-    override fun heal(allyInFront: BaseWarrior) {
-        allyInFront.restoreHp(healingPower)
+    override fun heal(allyInFront: BaseWarrior, fightType: FightType) {
+        if (fightType == FightType.Classic) {
+            allyInFront.restoreHp(healingPower)
+        }
     }
 
     override fun receiveDamage(damage: Int) {
