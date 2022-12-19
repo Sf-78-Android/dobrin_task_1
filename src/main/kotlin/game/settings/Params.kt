@@ -33,4 +33,38 @@ object Params {
         const val ATTACK = 0
         const val healingPower  = 2
     }
+
+    // Weapons
+
+    object Sword {
+        const val HEALTH = 5
+        const val ATTACK = 2
+    }
+
+    object Shield {
+        const val HEALTH = 20
+        const val ATTACK = -1
+        const val DEFENCE = 2
+
+    }
+
+    object GreatAxe {
+        const val HEALTH = -15
+        const val ATTACK = +5
+        const val DEFENCE = -2
+        const val VAMPIRISM = 10
+    }
+
+    object Katana {
+        const val HEALTH = -20
+        const val ATTACK = +6
+        const val DEFENCE = -5
+        const val VAMPIRISM = 50
+    }
+
+    object MagicWand {
+        const val HEALTH = 30
+        const val ATTACK = +3
+        const val HEAL_POWER = 3
+    }
 }
