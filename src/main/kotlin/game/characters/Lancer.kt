@@ -2,10 +2,9 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.interfaces.BaseWarrior
-import game.interfaces.CanPierce
 import game.settings.Params
 
-class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior), CanPierce {
+class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior) {
     private val initialHealth = Params.Lancer.HEALTH
     private var health : Int = Params.Lancer.HEALTH
         private set(value) {
@@ -14,9 +13,6 @@ class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior), CanPierce {
     private val attack: Int = Params.Lancer.ATTACK
     private val pierce = Params.Lancer.PIERCING_POWER
 
-    override fun pierce(opponent: BaseWarrior, damage: Int) {
-        opponent.receiveDamage(opponent.getHealth.minus(damage))
-    }
 
     override val isAlive: Boolean
         get() = health>0
@@ -30,7 +26,7 @@ class Lancer (val warrior : BaseWarrior): WarriorDecorator(warrior), CanPierce {
         opponent.receiveDamage(attack)
         val damageDealt = healthBefore-opponent.getHealth
         val damageToNext : Int = (damageDealt*pierce)/100
-        opponent.warriorBehind?.let { pierce(it, damageToNext) }
+        opponent.warriorBehind?.let { receiveDamage( damageToNext) }
 
     }
 

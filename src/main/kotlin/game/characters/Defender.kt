@@ -23,7 +23,6 @@ class Defender (val warrior: Warrior) : WarriorDecorator(warrior) {
     }
 
 
-
     override var warriorBehind: BaseWarrior? = null
 
     override val isAlive: Boolean

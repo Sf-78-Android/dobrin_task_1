@@ -30,7 +30,6 @@ class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
         get() = health > 0
 
 
-
     override val getHealth: Int
         get() = health
 
