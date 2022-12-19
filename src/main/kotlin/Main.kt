@@ -29,7 +29,7 @@ val  army1 = Army().apply {
   }
 
  check(!Battle.straightFight(army1,army2))
-val weapon : Weapon = Sword()
+
 
   println("OK")
 
