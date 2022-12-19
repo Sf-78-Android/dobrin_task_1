@@ -2,6 +2,8 @@ import game.collections.Army
 import game.enums.WarriorType
 import game.factory.getWarrior
 import game.interactions.Battle
+import game.weapons.Sword
+import game.weapons.Weapon
 
 
 fun main() {
@@ -27,6 +29,7 @@ val  army1 = Army().apply {
   }
 
  check(!Battle.straightFight(army1,army2))
+val weapon : Weapon = Sword()
 
   println("OK")
 
