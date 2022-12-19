@@ -10,7 +10,7 @@ class Army {
     fun addUnits(quantity: Int, type: WarriorType ) {
         repeat(quantity) {
             val warrior = getWarrior(type)
-            if (troops.size == 0) {
+            if (troops.isEmpty()) {
                 currentWarrior = warrior
                 troops.add(warrior)
             } else {
