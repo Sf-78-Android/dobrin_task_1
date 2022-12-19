@@ -6,16 +6,16 @@ import game.interfaces.BaseWarrior
 import game.settings.Params
 import game.weapons.Weapon
 
-class Defender (val warrior: Warrior) : WarriorDecorator(warrior) {
+class Defender(val warrior: Warrior) : WarriorDecorator(warrior) {
     private val initialHealth = Params.Defender.HEALTH
-    private var health : Int = Params.Defender.HEALTH
+    private var health: Int = Params.Defender.HEALTH
         private set(value) {
-            field =value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth)
         }
-     private val attack: Int = Params.Defender.ATTACK
-     private val defence: Int
-     get()= Params.Defender.DEFENCE
-    private val vampirism : Int = 0
+    private val attack: Int = Params.Defender.ATTACK
+    private val defence: Int
+        get() = Params.Defender.DEFENCE
+    private val vampirism: Int = 0
     private val healingPower: Int = 0
 
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
@@ -23,25 +23,24 @@ class Defender (val warrior: Warrior) : WarriorDecorator(warrior) {
     }
 
     override fun receiveDamage(damage: Int) {
-        health-= (damage-defence).coerceAtLeast(0)
+        health -= (damage - defence).coerceAtLeast(0)
     }
 
 
     override var warriorBehind: BaseWarrior? = null
 
-    override var weapon: Weapon? = null
+    // override var weapon: Weapon? = null
 
 
-    // TODO continue
-    override fun equipWeapon(weapon: Weapon) {
-        this.weapon=weapon
-    }
+    //override fun equipWeapon(weapon: Weapon) {
+    //     this.weapon=weapon
+    //   }
 
     override val isAlive: Boolean
-        get() = health>0
+        get() = health > 0
 
     override fun restoreHp(amountHp: Int) {
-       health+=amountHp
+        health += amountHp
     }
 
 

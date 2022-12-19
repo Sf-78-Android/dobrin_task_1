@@ -24,8 +24,8 @@ abstract class WarriorDecorator(private val warrior: BaseWarrior) : BaseWarrior 
 
     override var warriorBehind: BaseWarrior? = null
 
-    override var weapon: Weapon? = null
+ //  override var weapon: Weapon? = null
 
-    abstract override fun equipWeapon(weapon: Weapon)
+  //  abstract override fun equipWeapon(weapon: Weapon)
 
 }

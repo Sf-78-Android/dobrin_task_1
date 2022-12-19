@@ -11,6 +11,6 @@ interface BaseWarrior {
     val isAlive : Boolean
     var warriorBehind: BaseWarrior?
     val getHealth : Int
-    var weapon: Weapon?
-    fun equipWeapon(weapon: Weapon)
+   // var weapon: Weapon?
+   // fun equipWeapon(weapon: Weapon)
 }
