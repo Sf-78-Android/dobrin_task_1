@@ -5,6 +5,5 @@ enum class WarriorType {
     Knight,
     Lancer,
     Defender,
-    Healer,
     Vampire
 }

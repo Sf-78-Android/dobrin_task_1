@@ -1,12 +1,11 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
-import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.settings.Params
 
 
-class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
+class Knight(warrior: BaseWarrior) : WarriorDecorator(warrior) {
     private val initialHealth = Params.Knight.HEALTH
     private var health: Int = Params.Knight.HEALTH
         private set(value) {
@@ -14,16 +13,14 @@ class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
         }
     private val attack: Int = Params.Knight.ATTACK
 
-    override fun hit(opponent: BaseWarrior, fightType: FightType) {
+    override fun hit(opponent: BaseWarrior) {
         opponent.receiveDamage(attack)
     }
+
     override fun receiveDamage(damage: Int) {
-        health-=damage
+        health -= damage
     }
 
-    override fun restoreHp(amountHp: Int) {
-        health+=amountHp
-    }
 
     override var warriorBehind: BaseWarrior? = null
 
