@@ -1,22 +1,20 @@
 package game.factory
 
 import game.characters.*
+import game.enums.WarriorType
 import game.interfaces.BaseWarrior
 import java.util.*
 
 
-fun  getWarrior(type : String) :  BaseWarrior {
-        lateinit var warrior : BaseWarrior
-    if (type.isNotEmpty() and type.isNotBlank()) {
-        when (type.lowercase(Locale.getDefault())) {
-            "knight" -> warrior = Knight(Warrior())
-            "vampire" -> warrior = Vampire(Warrior())
-            "warrior" -> warrior = Warrior()
-            "lancer" -> warrior = Lancer(Warrior())
-            "defender" -> warrior = Defender(Warrior())
-            "healer" -> warrior = Healer(Warrior())
-        }
-    }
+fun  getWarrior(type : WarriorType) :  BaseWarrior {
+    val warrior : BaseWarrior = when (type) {
+    WarriorType.Knight -> Knight(Warrior())
+    WarriorType.Vampire -> Vampire(Warrior())
+    WarriorType.Warrior-> Warrior()
+    WarriorType.Lancer -> Lancer(Warrior())
+    WarriorType.Defender -> Defender(Warrior())
+    WarriorType.Healer -> Healer(Warrior())
+}
 
     return  warrior
     }
