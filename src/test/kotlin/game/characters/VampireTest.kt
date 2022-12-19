@@ -1,9 +1,9 @@
 package game.characters
 
 
-import game.testCollections.TestArmy
-import game.testInteractions.TestBattle
-
+import game.collections.Army
+import game.enums.WarriorType
+import game.interactions.Battle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,7 +13,7 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class")
     fun `Does vampirism parameter work for Defender class`() {
-        val warrior1= Vampire(Warrior())
+        val warrior1 = Vampire(Warrior())
 
         val warrior2 = Warrior()
 
@@ -28,7 +28,7 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class2")
     fun `Does vampirism parameter work for Warrior class`() {
-        val warrior1= Vampire(Warrior())
+        val warrior1 = Vampire(Warrior())
 
         val warrior2 = Warrior()
 
@@ -48,12 +48,13 @@ internal class VampireTest {
         val tim = Warrior()
 
         // when
-        TestBattle.fight(carl, tim)
+        Battle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
         assertEquals(true, res)
     }
+
     @Test
     @DisplayName("2. Fight")
     fun `Vampire  losses against Knight`() {
@@ -62,7 +63,7 @@ internal class VampireTest {
         val tim = Knight(Warrior())
 
         // when
-        TestBattle.fight(carl, tim)
+        Battle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
@@ -71,15 +72,15 @@ internal class VampireTest {
 
 
     @Test
-    @DisplayName("1. TestBattle")
+    @DisplayName("1. Battle")
     fun `Vampires win`() {
         // given
-        val firstTestArmy = TestArmy()
-        firstTestArmy.addUnits(20, "Vampire")
-        val secondTestArmy = TestArmy()
-        secondTestArmy.addUnits(11, "Knight")
+        val firstArmy = Army()
+        firstArmy.addUnits(20, WarriorType.Vampire)
+        val secondArmy = Army()
+        secondArmy.addUnits(11, WarriorType.Knight)
         // when
-        val res = TestBattle.fight(firstTestArmy, secondTestArmy)
+        val res = Battle.fight(firstArmy, secondArmy)
         // then
         assertEquals(true, res)
     }

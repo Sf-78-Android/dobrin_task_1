@@ -67,10 +67,10 @@ object Battle : Fightable {
         while (army1.hasTroopsLeft && army2.hasTroopsLeft) {
             val warrior1 = army1.nextWarrior()
             val warrior2 = army2.nextWarrior()
-                if (fight(warrior1, warrior2)) {
-                    army2.killedWarrior()
-                } else {
-                    army1.killedWarrior()
+            if (fight(warrior1, warrior2)) {
+                army2.killedWarrior()
+            } else {
+                army1.killedWarrior()
             }
         }
         return army1.hasTroopsLeft
