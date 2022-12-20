@@ -3,9 +3,9 @@ package game.characters
 import game.decorators.WarriorDecorator
 import game.enums.FightType
 import game.interfaces.BaseWarrior
+import game.interfaces.BaseWeapon
 import game.interfaces.CanHeal
 import game.settings.Params
-import game.weapons.Weapon
 
 class Healer : WarriorDecorator() , CanHeal {
     private var initialHealth = Params.Defender.HEALTH
@@ -36,7 +36,7 @@ class Healer : WarriorDecorator() , CanHeal {
         health += amountHp
     }
 
-    override fun equipWeapon(weapon: Weapon) {
+    override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
         initialHealth+= weapon.getHealth
         attack+=weapon.getAttack
@@ -44,8 +44,11 @@ class Healer : WarriorDecorator() , CanHeal {
     }
 
     override fun heal(allyInFront: BaseWarrior, fightType: FightType) {
-        if (fightType == FightType.Classic){
-            allyInFront.restoreHp(healingPower)
+        if (this.warriorBehind is Healer) {
+            if (fightType == FightType.Classic) {
+                allyInFront.restoreHp(healingPower)
+            }
+            this.warriorBehind?.let { this.warriorIfFront?.let { it1 -> (this.warriorBehind as? Healer)?.heal(it1, FightType.Classic) } }
         }
     }
 

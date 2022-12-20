@@ -3,8 +3,8 @@ package game.characters
 import game.decorators.WarriorDecorator
 import game.enums.FightType
 import game.interfaces.BaseWarrior
+import game.interfaces.BaseWeapon
 import game.settings.Params
-import game.weapons.Weapon
 
 class Lancer : WarriorDecorator() {
     private var initialHealth = Params.Lancer.HEALTH
@@ -20,6 +20,12 @@ class Lancer : WarriorDecorator() {
         get() = health
     override val getAttack: Int
         get() = attack
+
+    override fun equipWeapon(weapon: BaseWeapon) {
+        weapons.addWeapon(weapon)
+        initialHealth += weapon.getHealth
+        attack += weapon.getAttack
+    }
 
 
     override val isAlive: Boolean
@@ -45,11 +51,6 @@ class Lancer : WarriorDecorator() {
         health += amountHp
     }
 
-    override fun equipWeapon(weapon: Weapon) {
-        weapons.addWeapon(weapon)
-        initialHealth += weapon.getHealth
-        attack += weapon.getAttack
-    }
 
     override fun toString(): String {
         return """Lancer

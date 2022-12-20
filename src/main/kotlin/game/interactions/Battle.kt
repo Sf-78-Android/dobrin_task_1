@@ -14,9 +14,8 @@ object Battle : Fightable {
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender,FightType.Classic)
 
-            if (defender.warriorBehind is Healer) {
-                (defender.warriorBehind as Healer).heal(defender, FightType.Classic)
-            }
+            (defender.warriorBehind as? Healer)?.heal(defender, FightType.Classic)
+
 
             attacker = defender.also { defender = attacker }
         }
@@ -56,7 +55,7 @@ object Battle : Fightable {
            for (i in 0 until deadPositionsArmy1.size) {
                army1.killedWarrior(i)
            }
-           for (i in 0 until deadPositionsArmy1.size) {
+           for (i in 0 until deadPositionsArmy2.size) {
                army2.killedWarrior(i)
            }
        }

@@ -1,8 +1,8 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.interfaces.BaseWeapon
 import game.settings.Params
-import game.weapons.Weapon
 
 class Defender : WarriorDecorator() {
     private var initialHealth = Params.Defender.HEALTH
@@ -31,7 +31,7 @@ class Defender : WarriorDecorator() {
         health += amountHp
     }
 
-    override fun equipWeapon(weapon: Weapon) {
+    override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
         initialHealth+= weapon.getHealth
         attack+=weapon.getAttack

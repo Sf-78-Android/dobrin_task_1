@@ -1,7 +1,10 @@
 package game.interfaces
 
-import game.weapons.Weapon
-
 interface BaseWeapon {
-    fun equipWeapon(weapon: Weapon)
+    val getDefence: Int
+    val getAttack: Int
+    val getHealth: Int
+    val getVampirism: Int
+    val getHealingPower: Int
+
 }

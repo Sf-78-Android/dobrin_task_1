@@ -1,14 +1,14 @@
 package game.collections
 
-import game.weapons.Weapon
+import game.interfaces.BaseWeapon
 
 class Weapons {
-    private val weapons = mutableListOf<Weapon>()
+    private val weapons = mutableListOf<BaseWeapon>()
 
-    fun addWeapon(weapon: Weapon) {
+    fun addWeapon(weapon: BaseWeapon) {
         weapons.add(weapon)
     }
-    val getWeapons : MutableList<Weapon>
+    val getWeapons : MutableList<BaseWeapon>
         get() = weapons
 
 

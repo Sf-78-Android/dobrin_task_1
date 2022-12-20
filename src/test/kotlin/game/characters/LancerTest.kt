@@ -1,12 +1,15 @@
 package game.characters
 
 import game.collections.Army
+import game.decorators.WarriorDecorator
 import game.enums.WarriorType
 import game.interactions.Battle
+import game.interactions.Battle.fight
 
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 
 internal class LancerTest {
     @Test
@@ -104,4 +107,29 @@ internal class LancerTest {
         //assert
         assertEquals(false, res)
     }
+   /*
+    @Test
+    fun `Lancer should damage the fighter from third position if the second is killed`() {
+        class Rookie : WarriorDecorator() {
+            private val health = 3
+            override val attack: Int
+                get() = 50
+        }
+
+        val army1 = Army().apply {
+            addUnits(1, WarriorType.Warrior)
+            addUnits(9, WarriorType.Rookie)
+        }
+        val army2 = Army().apply {
+            addUnits(1, WarriorType.Lancer)
+        }
+
+        val res = fight(army1, army2)
+
+        assertFalse(res, "Lancer should have won")
+    }
+
+    */
+
+
 }

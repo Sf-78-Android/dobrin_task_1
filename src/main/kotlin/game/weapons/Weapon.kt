@@ -1,18 +1,11 @@
 package game.weapons
 
-open class Weapon(
-    private val health: Int, private val attack: Int, private val defence: Int,
-    private val vampirism: Int, private val healingPower: Int
-) {
- val getHealth : Int
-    get() = health
-   val getAttack : Int
-      get() = attack
-   val getDefence : Int
-      get() = defence
-   val getVampirism : Int
-      get() = vampirism
-   val getHealingPower: Int
-      get() =healingPower
+import game.decorators.WeaponDecorator
+
+class Weapon(health: Int, attack : Int) :WeaponDecorator(health, attack) {
+    constructor(health: Int, attack: Int, defence : Int) : this(health, attack)
+    constructor(health: Int, attack: Int, defence : Int, vampirism: Int) : this(health, attack)
+    constructor(health: Int, attack: Int, defence : Int, vampirism: Int, healingPower:Int) : this(health, attack)
+
 }
 

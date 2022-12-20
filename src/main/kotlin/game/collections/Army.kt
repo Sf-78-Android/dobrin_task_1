@@ -16,6 +16,7 @@ class Army {
             } else {
                 currentWarrior?.warriorBehind=warrior.also { currentWarrior=warrior }
                 troops.add(warrior)
+                warrior.warriorIfFront = troops[troops.indexOf(warrior)-1]
             }
 
         }
