@@ -3,9 +3,9 @@ package game.weapons
 import game.settings.Params
 
 class Katana(
-    override val health: Int= Params.Katana.HEALTH,
-    override val attack: Int =  Params.Katana.ATTACK,
-    override val defence: Int = Params.Katana.DEFENCE,
-    override val vampirism: Int = Params.Katana.VAMPIRISM,
-    override val healingPower: Int = 0
-) : Weapon()
+    health: Int = Params.Katana.HEALTH,
+    attack: Int = Params.Katana.ATTACK,
+    defence: Int = Params.Katana.DEFENCE,
+    vampirism: Int = Params.Katana.VAMPIRISM,
+    healingPower: Int = Params.Katana.HEALING_POWER
+) : Weapon(health, attack, defence, vampirism, healingPower)

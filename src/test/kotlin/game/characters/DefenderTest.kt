@@ -2,6 +2,7 @@ package game.characters
 
 
 import game.collections.Army
+import game.enums.FightType
 import game.enums.WarriorType
 import game.interactions.Battle
 import org.junit.jupiter.api.DisplayName
@@ -12,11 +13,11 @@ internal class DefenderTest {
     @Test
     @DisplayName("1. Initial for Defender class")
     fun `Does defence parameter work for Defender class`() {
-        val warrior1 = Knight(Warrior())
+        val warrior1 = Knight()
 
         val warrior2 = Defender(Warrior())
 
-        warrior1.hit(warrior2)
+        warrior1.hit(warrior2, FightType.Classic)
 
 
         assertEquals(56, warrior2.getHealth)
@@ -96,7 +97,7 @@ internal class DefenderTest {
     fun `Defender cannot win against Knight`() {
         // given
         val carl = Defender(Warrior())
-        val tim = Knight(Warrior())
+        val tim = Knight()
 
         // when
         Battle.fight(carl, tim)

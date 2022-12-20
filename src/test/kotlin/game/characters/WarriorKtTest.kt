@@ -13,7 +13,7 @@ internal class WarriorKtTest {
     fun `Warrior loses when fights against Knight`() {
         // given
         val carl = Warrior()
-        val jon = Knight(Warrior())
+        val jon = Knight()
         // when
         val res = Battle.fight(carl, jon)
         // then
@@ -26,7 +26,7 @@ internal class WarriorKtTest {
         // given
         val carl = Warrior()
         val tim = Warrior()
-        val jon = Knight(Warrior())
+        val jon = Knight()
         // when
         Battle.fight(jon, carl)
         Battle.fight(jon, tim)
@@ -52,8 +52,8 @@ internal class WarriorKtTest {
     @DisplayName("4. Fight")
     fun `Knight wins after fighting another knight`() {
         // given
-        val tim = Knight(Warrior())
-        val jon = Knight(Warrior())
+        val tim = Knight()
+        val jon = Knight()
         // when
         Battle.fight(tim, jon)
         val res = tim.isAlive
@@ -80,7 +80,7 @@ internal class WarriorKtTest {
         // given
         val carl = Warrior()
         val tim = Warrior()
-        val jon = Knight(Warrior())
+        val jon = Knight()
         // when
         Battle.fight(carl, jon)
         val res = Battle.fight(jon, tim)

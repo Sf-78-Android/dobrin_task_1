@@ -3,9 +3,9 @@ package game.weapons
 import game.settings.Params
 
 class MagicWand(
-    override val health: Int= Params.MagicWand.HEALTH,
-    override val attack: Int = Params.MagicWand.ATTACK,
-    override val defence: Int = 0,
-    override val vampirism: Int = 0,
-    override val healingPower: Int = Params.MagicWand.HEAL_POWER
-) :Weapon()
+    health: Int = Params.MagicWand.HEALTH,
+    attack: Int = Params.MagicWand.ATTACK,
+    defence: Int = 0,
+    vampirism: Int = 0,
+    healingPower: Int = Params.MagicWand.HEALING_POWER
+) : Weapon(health, attack, defence, vampirism, healingPower)

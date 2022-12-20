@@ -1,4 +1,4 @@
-package test.game.characters
+package game.characters
 
 import game.collections.Army
 import game.enums.WarriorType

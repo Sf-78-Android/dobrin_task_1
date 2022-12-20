@@ -13,9 +13,9 @@ object Battle : Fightable {
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender,FightType.Classic)
-            if (defender.warriorBehind is Healer){
-                defender.restoreHp((defender.warriorBehind as Healer).healingPower)
-            }
+
+            defender.warriorBehind?.heal(defender,FightType.Classic)
+
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive

@@ -1,9 +1,18 @@
 package game.weapons
 
-abstract class  Weapon {
-   abstract val health: Int
-   abstract val attack: Int
-   abstract val defence: Int
-   abstract val vampirism: Int
-   abstract val healingPower: Int
+open class Weapon(
+    private val health: Int, private val attack: Int, private val defence: Int,
+    private val vampirism: Int, private val healingPower: Int
+) {
+ val getHealth : Int
+    get() = health
+   val getAttack : Int
+      get() = attack
+   val getDefence : Int
+      get() = defence
+   val getVampirism : Int
+      get() = vampirism
+   val getHealingPower: Int
+      get() =healingPower
 }
+

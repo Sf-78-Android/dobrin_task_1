@@ -2,6 +2,7 @@ package game.characters
 
 
 import game.collections.Army
+import game.enums.FightType
 import game.enums.WarriorType
 import game.interactions.Battle
 import org.junit.jupiter.api.DisplayName
@@ -17,8 +18,8 @@ internal class VampireTest {
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1)
-        warrior1.hit(warrior2)
+        warrior2.hit(warrior1,FightType.Classic)
+        warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth
 
@@ -32,8 +33,8 @@ internal class VampireTest {
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1)
-        warrior1.hit(warrior2)
+        warrior2.hit(warrior1,FightType.Classic)
+        warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth == 37
 
@@ -60,7 +61,7 @@ internal class VampireTest {
     fun `Vampire  losses against Knight`() {
         // given
         val carl = Vampire(Warrior())
-        val tim = Knight(Warrior())
+        val tim = Knight()
 
         // when
         Battle.fight(carl, tim)
