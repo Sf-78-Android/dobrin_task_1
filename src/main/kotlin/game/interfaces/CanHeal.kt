@@ -4,5 +4,4 @@ import game.enums.FightType
 
 interface CanHeal {
     fun heal(allyInFront: BaseWarrior, fightType: FightType)
-    fun heal(allyInFront: BaseWarrior)
 }

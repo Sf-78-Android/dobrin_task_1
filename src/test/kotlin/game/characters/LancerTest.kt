@@ -30,9 +30,10 @@ internal class LancerTest {
     fun `Check Lancer pierce by killing one Vampire and Defender takes damage minus defence`() {
         // given
         val firstArmy = Army()
-        firstArmy.addUnits(20, WarriorType.Lancer)
+        firstArmy.addUnits(1, WarriorType.Lancer)
         val secondArmy = Army()
-        secondArmy.addUnits(20, WarriorType.Defender)
+        secondArmy.addUnits(1, WarriorType.Warrior)
+        secondArmy.addUnits(1, WarriorType.Vampire)
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
@@ -53,7 +54,7 @@ internal class LancerTest {
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
-        assertEquals(true, res)
+        assertEquals(false, res)
     }
 
     @Test
@@ -85,7 +86,7 @@ internal class LancerTest {
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
-        assertEquals(true, res)
+        assertEquals(false, res)
     }
 
     @Test
@@ -101,6 +102,6 @@ internal class LancerTest {
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         //assert
-        assertEquals(true, res)
+        assertEquals(false, res)
     }
 }

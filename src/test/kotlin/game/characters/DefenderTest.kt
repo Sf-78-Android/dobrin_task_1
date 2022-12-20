@@ -15,7 +15,7 @@ internal class DefenderTest {
     fun `Does defence parameter work for Defender class`() {
         val warrior1 = Knight()
 
-        val warrior2 = Defender(Warrior())
+        val warrior2 = Defender()
 
         warrior1.hit(warrior2, FightType.Classic)
 
@@ -28,7 +28,7 @@ internal class DefenderTest {
     @DisplayName("1. Fight")
     fun `Warrior attacks first and loses against Defender`() {
         // given
-        val carl = Defender(Warrior())
+        val carl = Defender()
         val tim = Warrior()
         // when
         Battle.fight(tim, carl)
@@ -42,7 +42,7 @@ internal class DefenderTest {
     fun `Defender attacks first and wins against Defender`() {
         // given
         val carl = Warrior()
-        val tim = Defender(Warrior())
+        val tim = Defender()
         // when
         Battle.fight(tim, carl)
         val res = carl.isAlive
@@ -81,7 +81,7 @@ internal class DefenderTest {
     @DisplayName("4. Fight")
     fun `Defender wins against Warrior`() {
         // given
-        val carl = Defender(Warrior())
+        val carl = Defender()
         val tim = Warrior()
 
         // when
@@ -96,7 +96,7 @@ internal class DefenderTest {
     @DisplayName("5. Fight")
     fun `Defender cannot win against Knight`() {
         // given
-        val carl = Defender(Warrior())
+        val carl = Defender()
         val tim = Knight()
 
         // when

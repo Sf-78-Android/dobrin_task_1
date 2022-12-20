@@ -14,7 +14,9 @@ object Battle : Fightable {
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender,FightType.Classic)
 
-            defender.warriorBehind?.heal(defender,FightType.Classic)
+            if (defender.warriorBehind is Healer) {
+                (defender.warriorBehind as Healer).heal(defender, FightType.Classic)
+            }
 
             attacker = defender.also { defender = attacker }
         }

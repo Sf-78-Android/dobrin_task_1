@@ -14,7 +14,7 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class")
     fun `Does vampirism parameter work for Defender class`() {
-        val warrior1 = Vampire(Warrior())
+        val warrior1 = Vampire()
 
         val warrior2 = Warrior()
 
@@ -29,7 +29,7 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class2")
     fun `Does vampirism parameter work for Warrior class`() {
-        val warrior1 = Vampire(Warrior())
+        val warrior1 = Vampire()
 
         val warrior2 = Warrior()
 
@@ -45,7 +45,7 @@ internal class VampireTest {
     @DisplayName("1. Fight")
     fun `Vampire  wins against Warrior`() {
         // given
-        val carl = Vampire(Warrior())
+        val carl = Vampire()
         val tim = Warrior()
 
         // when
@@ -60,7 +60,7 @@ internal class VampireTest {
     @DisplayName("2. Fight")
     fun `Vampire  losses against Knight`() {
         // given
-        val carl = Vampire(Warrior())
+        val carl = Vampire()
         val tim = Knight()
 
         // when

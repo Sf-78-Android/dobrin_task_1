@@ -1,11 +1,12 @@
 package game.factory
 
 import game.characters.*
+import game.decorators.WarriorDecorator
 import game.enums.WarriorType
 import game.interfaces.BaseWarrior
 
 
-fun  getWarrior(type : WarriorType) :  BaseWarrior {
+fun  getWarrior(type : WarriorType) : BaseWarrior {
     val warrior : BaseWarrior = when (type) {
     WarriorType.Knight -> Knight()
     WarriorType.Vampire -> Vampire()

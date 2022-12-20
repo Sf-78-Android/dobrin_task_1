@@ -25,22 +25,22 @@ internal class HealerTest {
 
         val res = Battle.fight(Army2,Army1)
         // then
-        assertEquals(true,res)
+        assertEquals(false,res)
     }
 
     @Test
     @DisplayName("1. Fight")
     fun `Check if healer actually heals kk`() {
         // given
-        val warrior1 = getWarrior(WarriorType.Healer)
-        val warrior2 = getWarrior(WarriorType.Warrior)
-        val warrior3 = getWarrior(WarriorType.Warrior)
+        val warrior1 = Healer()
+        val warrior2 = Warrior()
+        val warrior3 = Warrior()
         // when
 
-        Battle.fight(warrior2,warrior3)
+       warrior3.hit(warrior2, FightType.Classic)
         warrior1.heal(warrior2,FightType.Classic)
        val res = warrior2.getHealth
         // then
-        assertEquals(18,res)
+        assertEquals(47,res)
     }
 }

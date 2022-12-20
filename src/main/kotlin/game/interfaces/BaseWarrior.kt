@@ -1,14 +1,15 @@
 package game.interfaces
 
-interface BaseWarrior : CanHit, CanHeal, CanReceiveDamage, CanRestoreHp {
+import game.collections.Weapons
+
+interface BaseWarrior : CanHit, CanReceiveDamage, CanRestoreHp, BaseWeapon {
 
     val isAlive: Boolean
     var warriorBehind: BaseWarrior?
+    val weapons : Weapons
     val getHealth: Int
     val getAttack: Int
-    val getDefence: Int
-    val getVampirism: Int
-    val getHealingPower: Int
+
 
 
     // var weapon: Weapon?

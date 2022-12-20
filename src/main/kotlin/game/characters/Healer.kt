@@ -1,31 +1,27 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.enums.FightType
 import game.interfaces.BaseWarrior
+import game.interfaces.CanHeal
 import game.settings.Params
+import game.weapons.Weapon
 
-class Healer : WarriorDecorator() {
-    private val initialHealth = Params.Defender.HEALTH
+class Healer : WarriorDecorator() , CanHeal {
+    private var initialHealth = Params.Defender.HEALTH
     private var health: Int = Params.Healer.HEALTH
         private set(value) {
             field = value.coerceAtMost(initialHealth)
         }
-    private val attack: Int = Params.Healer.ATTACK
-    private val healingPower: Int
-        get() = Params.Healer.HEALING_POWER
-    private val defence: Int
-        get() = Params.Healer.DEFENCE
-    private val vampirism: Int = Params.Healer.VAMPIRISM
+    private var attack: Int = Params.Healer.ATTACK
+    private var healingPower: Int = Params.Healer.HEALING_POWER
+
 
     override val getHealth: Int
         get() = health
     override val getAttack: Int
         get() = attack
-    override val getDefence: Int
-        get() = defence
-    override val getVampirism: Int
-        get() = vampirism
-    override val getHealingPower: Int
+    private val getHealingPower: Int
         get() = healingPower
 
     override val isAlive: Boolean
@@ -33,19 +29,32 @@ class Healer : WarriorDecorator() {
 
 
     override fun receiveDamage(damage: Int) {
-        health -= (damage - defence).coerceAtLeast(0)
+        health -= damage
     }
 
     override fun restoreHp(amountHp: Int) {
         health += amountHp
     }
 
+    override fun equipWeapon(weapon: Weapon) {
+        weapons.addWeapon(weapon)
+        initialHealth+= weapon.getHealth
+        attack+=weapon.getAttack
+        healingPower+=weapon.getHealingPower
+    }
+
+    override fun heal(allyInFront: BaseWarrior, fightType: FightType) {
+        if (fightType == FightType.Classic){
+            allyInFront.restoreHp(healingPower)
+        }
+    }
+
+
+
     override fun toString(): String {
         return """Healer
       Health = ${this.getHealth}
       Attack = ${this.getAttack}
-      Defence = ${this.getDefence}
-      Vampirism = ${this.getVampirism}
       Healing power = ${this.getHealingPower}"""
     }
 }
