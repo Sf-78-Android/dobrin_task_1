@@ -1,23 +1,34 @@
-import game.characters.Knight
-import game.characters.Warrior
+import game.collections.Army
+import game.enums.WarriorType
 import game.interactions.Battle
 
 
 fun main() {
 
-  val chuck = Warrior()
-  val bruce = Warrior()
 
-  check(Battle.fight(chuck, bruce) == true) { "entities.Warrior should win entities.Warrior" }
-  check(chuck.isAlive == true) { "entities.Warrior winner should be alive " }
-  check(bruce.isAlive == false) { "entities.Warrior winner should not be alive " }
-  val carl = Knight(Warrior())
-  val dave = Warrior()
-  check(Battle.fight(dave, carl) == false) { "entities.Warrior should lose to entities.Knight" }
-  check(carl.isAlive == true) { "entities.Knight winner should be alive " }
-  check(dave.isAlive == false) { "entities.Warrior defeated should not be alive " }
-  println("ONE OK")
+    val army1 = Army().apply {
+        addUnits(1, WarriorType.Warrior)
+        addUnits(1, WarriorType.Knight)
+        addUnits(1, WarriorType.Lancer)
+        addUnits(1, WarriorType.Defender)
+        addUnits(1, WarriorType.Vampire)
+    }
+
+
+    val army2 = Army().apply {
+        addUnits(1, WarriorType.Warrior)
+        addUnits(1, WarriorType.Knight)
+        addUnits(1, WarriorType.Lancer)
+        addUnits(3, WarriorType.Defender)
+        addUnits(1, WarriorType.Vampire)
+    }
+
+    check(!Battle.fight(army1, army2))
+
+
+    println("OK")
 
 
 }
+
 

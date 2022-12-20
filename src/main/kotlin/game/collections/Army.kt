@@ -1,19 +1,20 @@
 package game.collections
 
+import game.enums.WarriorType
 import game.factory.getWarrior
 import game.interfaces.BaseWarrior
 
 class Army {
     private val troops = mutableListOf<BaseWarrior>()
-    private  var currentWarrior : BaseWarrior? = null
-    fun addUnits(quantity: Int, type : String ) {
+    private var currentWarrior: BaseWarrior? = null
+    fun addUnits(quantity: Int, type: WarriorType) {
         repeat(quantity) {
             val warrior = getWarrior(type)
-            if (troops.size == 0) {
+            if (troops.isEmpty()) {
                 currentWarrior = warrior
                 troops.add(warrior)
             } else {
-                currentWarrior?.warriorBehind=warrior.also { currentWarrior=warrior }
+                currentWarrior?.warriorBehind = warrior.also { currentWarrior = warrior }
                 troops.add(warrior)
             }
         }

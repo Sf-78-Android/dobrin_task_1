@@ -5,8 +5,12 @@ import game.interfaces.BaseWarrior
 import game.settings.Params
 
 
-class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
+class Knight(warrior: BaseWarrior) : WarriorDecorator(warrior) {
+    private val initialHealth = Params.Knight.HEALTH
     private var health: Int = Params.Knight.HEALTH
+        private set(value) {
+            field = value.coerceAtMost(initialHealth)
+        }
     private val attack: Int = Params.Knight.ATTACK
 
     override fun hit(opponent: BaseWarrior) {
@@ -14,11 +18,16 @@ class Knight (warrior: BaseWarrior ) : WarriorDecorator(warrior)  {
     }
 
     override fun receiveDamage(damage: Int) {
-        health-=damage
+        health -= damage
     }
+
+
+    override var warriorBehind: BaseWarrior? = null
 
     override val isAlive: Boolean
         get() = health > 0
+
+
     override val getHealth: Int
         get() = health
 

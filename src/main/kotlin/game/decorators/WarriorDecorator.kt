@@ -13,8 +13,10 @@ abstract class WarriorDecorator(private val warrior: BaseWarrior) : BaseWarrior 
         warrior.receiveDamage(damage)
     }
 
-   abstract override val isAlive: Boolean
 
-   override var warriorBehind: BaseWarrior? = null
+    abstract override val isAlive: Boolean
+
+    override var warriorBehind: BaseWarrior? = null
+
 
 }
