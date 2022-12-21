@@ -1,11 +1,19 @@
 package game.characters
 
 import game.enums.FightType
+import game.interactions.Battle
+import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
 import game.testEnum.TestWarriorType
-import game.testInteractions.Battle
+import game.testInteractions.TestBattle
+
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
+import java.util.stream.Stream
 import kotlin.test.assertEquals
 
 internal class HealerTest {
@@ -21,14 +29,14 @@ internal class HealerTest {
         Army2.addUnits(1, TestWarriorType.Warrior)
         // when
 
-        val res = Battle.fight(Army2,Army1)
+        val res = TestBattle.fight(Army2,Army1)
         // then
         assertEquals(false,res)
     }
 
     @Test
     @DisplayName("1. Fight")
-    fun `Check if healer actually heals kk`() {
+    fun `Check if healer actually heals 2`() {
         // given
         val warrior1 = Healer()
         val warrior2 = Warrior()
@@ -40,5 +48,32 @@ internal class HealerTest {
        val res = warrior2.getHealth
         // then
         assertEquals(47,res)
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("fight")
+    fun fight (warrior1: BaseWarrior, warrior2: BaseWarrior, expected: Boolean) {
+        val res1 = Battle.fight(warrior1,warrior2)
+        val res2 = warrior1.isAlive
+        val res3 = warrior2.isAlive
+
+        assertAll(
+            { assertEquals(expected,res1, "Fight result is wrong")},
+            { assertEquals(expected,res2 , "First warrior isAlive is wrong")},
+            { assertEquals(!expected,res3 , "Second warrior isAlive is wrong")}
+        )
+    }
+
+    companion object {
+        @JvmStatic
+        fun fight() : Stream<Arguments> {
+            return Stream.of(
+            Arguments.of( Warrior() , Warrior(), true),
+            Arguments.of(Warrior(), Knight(), false),
+            Arguments.of(Knight(), Warrior(), true),
+            Arguments.of(Knight(), Knight(), true)
+            )
+        }
     }
 }

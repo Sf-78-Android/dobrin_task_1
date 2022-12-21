@@ -15,7 +15,7 @@ class Shield(
     }
 
     override fun getAttack(): Int {
-        return this.health
+        return this.attack
     }
 
     override fun getDefence(): Int {

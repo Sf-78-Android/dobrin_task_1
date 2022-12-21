@@ -21,7 +21,7 @@ object Functional {
         var katana = Katana()
         var wand = MagicWand()
         // consider using a builder instead
-        var superWeapon = Weapon(50, 10, 5, 150, 8)
+        var superWeapon = Weapon.Builder(50, 10, 5, 150, 8)
 
 
         ogre.equipWeapon(shield)

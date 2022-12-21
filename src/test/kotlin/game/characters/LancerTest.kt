@@ -2,7 +2,7 @@ package game.characters
 
 import game.testCollections.TestArmy
 import game.testEnum.TestWarriorType
-import game.testInteractions.Battle.fight
+import game.testInteractions.TestBattle.fight
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -10,7 +10,7 @@ import kotlin.test.assertFalse
 
 internal class LancerTest {
     @Test
-    @DisplayName("1. Battle")
+    @DisplayName("1. TestBattle")
     fun `Check Lancer pierce by killing two Rookies with one hit`() {
         // given
         val Army1 = TestArmy()
@@ -26,7 +26,7 @@ internal class LancerTest {
 
 
     @Test
-    @DisplayName("2 Battle")
+    @DisplayName("2 TestBattle")
     fun `Check Lancer pierce by killing one Vampire and Defender takes damage minus defence`() {
         // given
         val firstArmy = TestArmy()
@@ -42,7 +42,7 @@ internal class LancerTest {
 
 
     @Test
-    @DisplayName("3. Battle")
+    @DisplayName("3. TestBattle")
     fun `Second Army should win`() {
         // given
         val firstArmy = TestArmy()
@@ -58,8 +58,8 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("4. Battle")
-    fun `First Army wins in a Battle between Lancers`() {
+    @DisplayName("4. TestBattle")
+    fun `First Army wins in a TestBattle between Lancers`() {
         // given
         val firstArmy = TestArmy()
         firstArmy.addUnits(5, TestWarriorType.Lancer)
@@ -74,8 +74,8 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("5. Battle")
-    fun `Second Army wins in a Battle between Lancers`() {
+    @DisplayName("5. TestBattle")
+    fun `Second Army wins in a TestBattle between Lancers`() {
         // given
         val firstArmy = TestArmy()
         firstArmy.addUnits(15, TestWarriorType.Lancer)
@@ -90,7 +90,7 @@ internal class LancerTest {
     }
 
     @Test
-    @DisplayName("6. Battle")
+    @DisplayName("6. TestBattle")
     fun `Lancer kills rookie and continues to fight`() {
         // given
         val firstArmy = TestArmy()
