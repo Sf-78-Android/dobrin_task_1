@@ -4,51 +4,78 @@ import game.collections.Weapons
 import game.enums.WarriorType
 import game.interactions.Battle
 import game.interactions.Battle.fight
-import game.weapons.Sword
-import game.weapons.Weapon
+import game.interfaces.BaseWeapon
+import game.weapons.*
 
 
 fun main() {
 
+  var ogre = Warrior()
+  var lancelot = Knight()
+  var richard = Defender()
+  var eric = Vampire()
+  var freelancer = Lancer()
+  var priest = Healer()
 
-val  army1 = Army().apply {
-  addUnits(1, WarriorType.Lancer)
-  addUnits(1, WarriorType.Defender)
-  addUnits(1, WarriorType.Healer)
-  addUnits(1, WarriorType.Vampire)
-}
+  var sword = Sword()
+  var shield = Shield()
+  var axe = GreatAxe()
+  var katana = Katana()
+  var wand = MagicWand()
+  // consider using a builder instead
+  var superWeapon = Weapon.Builder()
+      .health(100)
+      .attack(200)
+      .defence(300)
+      .vampirism(200)
+      .healingPower(100)
 
-
-  val  army2 = Army().apply {
-    addUnits(1, WarriorType.Healer)
-    addUnits(1, WarriorType.Healer)
-    addUnits(3, WarriorType.Healer)
-    addUnits(2, WarriorType.Defender)
-    addUnits(1, WarriorType.Vampire)
-  }
-  check(!fight(army1,army2))
-  //check(!Battle.straightFight(army1,army2))
- val warrior =  Knight()
-val warrior1 = Vampire()
-  val warrior2 = Defender()
-  val warrior3 = Lancer()
-  val warrior4 = Warrior()
-  val warrior5 = Healer()
-
-  println(warrior.toString())
-  println(warrior1.toString())
-  println(warrior2.toString())
-  println(warrior3.toString())
-  println(warrior4.toString())
-  println(warrior5.toString())
+ var anotherWeapon = Weapon.Builder()
+   .health(50)
+   .attack(20)
+   .defence(5)
+   .vampirism(150)
 
 
-val weapon = Weapon(2,3,4,2,3)
 
-  warrior.equipWeapon(weapon)
- fight(warrior,warrior2)
-println(warrior2.toString())
-  println(warrior)
+  ogre.equipWeapon(shield)
+  ogre.equipWeapon(superWeapon)
+  lancelot.equipWeapon(superWeapon)
+  richard.equipWeapon(shield)
+  eric.equipWeapon(superWeapon)
+  freelancer.equipWeapon(axe)
+  freelancer.equipWeapon(katana)
+  priest.equipWeapon(wand)
+  priest.equipWeapon(shield)
+
+  assert(ogre.getHealth == 125)
+  assert(lancelot.getAttack == 17)
+  assert(richard.getDefence == 4)
+  assert(eric.getVampirism == 200)
+  assert(freelancer.getHealth  == 15)
+  assert(priest.getHealingPower == 5)
+
+  assert(fight (ogre, eric) == false)
+  assert(fight (priest, richard) == false)
+  assert(fight(lancelot, freelancer) == true)
+
+  var myArmy = Army()
+  myArmy.addUnits(1, WarriorType.Knight)
+  myArmy.addUnits(1, WarriorType.Lancer)
+
+  var enemyArmy = Army()
+  enemyArmy.addUnits(1, WarriorType.Vampire)
+  enemyArmy.addUnits(1, WarriorType.Healer)
+
+  myArmy.equipWarriorAtPosition(0, axe)
+  myArmy.equipWarriorAtPosition(1, superWeapon)
+
+  enemyArmy.equipWarriorAtPosition(0, katana)
+  enemyArmy.equipWarriorAtPosition(1, wand)
+
+  assert(fight(myArmy, enemyArmy) == true)
+
+  println("OK")
 }
 
 

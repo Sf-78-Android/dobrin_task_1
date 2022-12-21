@@ -2,20 +2,25 @@ package game.decorators
 
 import game.interfaces.BaseWeapon
 
-abstract class WeaponDecorator(private val health: Int, private  val attack: Int): BaseWeapon {
-    constructor(health: Int, attack: Int, defence: Int, vampirism: Int) : this(health, attack)
-    constructor(health: Int, attack: Int, defence: Int, vampirism: Int, healingPower: Int) : this(health, attack)
-    constructor(health: Int, attack: Int, healingPower: Int) : this(health, attack)
+abstract class WeaponDecorator: BaseWeapon {
 
+    override fun getHealth(): Int {
+        return  0
+    }
 
-    override val getAttack: Int
-        get() = attack
-    override val getHealth: Int
-        get() = health
-    override val getDefence: Int
-        get() = 0
-    override val getVampirism: Int
-        get() = 0
-    override val getHealingPower: Int
-        get() = 0
+    override fun getAttack(): Int {
+        return  0
+    }
+
+    override fun getDefence(): Int {
+        return 0
+    }
+
+    override fun getVampirism(): Int {
+        return  0
+    }
+
+    override fun getHealingPower(): Int {
+        return  0
+    }
 }

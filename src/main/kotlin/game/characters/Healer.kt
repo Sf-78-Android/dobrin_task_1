@@ -7,21 +7,27 @@ import game.interfaces.BaseWeapon
 import game.interfaces.CanHeal
 import game.settings.Params
 
-class Healer : WarriorDecorator() , CanHeal {
+class Healer : WarriorDecorator(), CanHeal {
     private var initialHealth = Params.Defender.HEALTH
     private var health: Int = Params.Healer.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
     private var attack: Int = Params.Healer.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
     private var healingPower: Int = Params.Healer.HEALING_POWER
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
 
 
     override val getHealth: Int
         get() = health
     override val getAttack: Int
         get() = attack
-    private val getHealingPower: Int
+    val getHealingPower: Int
         get() = healingPower
 
     override val isAlive: Boolean
@@ -38,9 +44,10 @@ class Healer : WarriorDecorator() , CanHeal {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth+= weapon.getHealth
-        attack+=weapon.getAttack
-        healingPower+=weapon.getHealingPower
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
+        healingPower += weapon.getHealingPower()
     }
 
     override fun heal(allyInFront: BaseWarrior, fightType: FightType) {
@@ -48,12 +55,18 @@ class Healer : WarriorDecorator() , CanHeal {
             if (fightType == FightType.Classic) {
                 allyInFront.restoreHp(healingPower)
             }
-            this.warriorBehind?.let { this.warriorIfFront?.let { it1 -> (this.warriorBehind as? Healer)?.heal(it1, FightType.Classic) } }
+            this.warriorBehind?.let {
+                this.warriorIfFront?.let { it1 ->
+                    (this.warriorBehind as? Healer)?.heal(
+                        it1,
+                        FightType.Classic
+                    )
+                }
+            }
         } else {
             allyInFront.restoreHp(healingPower)
         }
     }
-
 
 
     override fun toString(): String {

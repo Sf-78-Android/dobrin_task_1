@@ -10,9 +10,12 @@ class Lancer : WarriorDecorator() {
     private var initialHealth = Params.Lancer.HEALTH
     private var health: Int = Params.Lancer.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
     private var attack: Int = Params.Lancer.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
     private val pierce = Params.Lancer.PIERCING_POWER
 
 
@@ -23,8 +26,10 @@ class Lancer : WarriorDecorator() {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth += weapon.getHealth
-        attack += weapon.getAttack
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
+
     }
 
 

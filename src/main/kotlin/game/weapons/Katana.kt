@@ -8,9 +8,25 @@ class Katana(
     private val attack: Int = Params.Katana.ATTACK,
     private val defence: Int = Params.Katana.DEFENCE,
     private val vampirism: Int = Params.Katana.VAMPIRISM,
-) : WeaponDecorator(health, attack, defence, vampirism) {
-     override val getDefence: Int
-        get() = this.defence
-     override val getVampirism: Int
-        get() = this.vampirism
+) : WeaponDecorator() {
+
+    override fun getHealth(): Int {
+        return this.health
+    }
+
+    override fun getAttack(): Int {
+        return this.attack
+    }
+
+    override fun getDefence(): Int {
+        return this.defence
+    }
+
+    override fun getVampirism(): Int {
+        return this.vampirism
+    }
+
+    override fun getHealingPower(): Int {
+        return 0
+    }
 }

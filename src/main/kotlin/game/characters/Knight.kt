@@ -12,16 +12,18 @@ class Knight : WarriorDecorator() {
     private var initialHealth = Params.Knight.HEALTH
     private var health: Int = Params.Knight.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
     private var attack: Int = Params.Knight.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
 
 
     override val getHealth: Int
         get() = health
     override val getAttack: Int
         get() = attack
-
 
 
     override fun receiveDamage(damage: Int) {
@@ -34,8 +36,9 @@ class Knight : WarriorDecorator() {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth+= weapon.getHealth
-        attack+=weapon.getAttack
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
 
     }
 

@@ -8,23 +8,28 @@ class Defender : WarriorDecorator() {
     private var initialHealth = Params.Defender.HEALTH
     private var health: Int = Params.Defender.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
     private var attack: Int = Params.Defender.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
     private var defence: Int = Params.Defender.DEFENCE
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
 
 
     override val getHealth: Int
         get() = health
     override val getAttack: Int
         get() = attack
-    private val getDefence: Int
+    val getDefence: Int
         get() = defence
 
 
-
     override fun receiveDamage(damage: Int) {
-        health -= (damage-defence).coerceAtLeast(0)
+        health -= (damage - defence).coerceAtLeast(0)
     }
 
     override fun restoreHp(amountHp: Int) {
@@ -33,9 +38,10 @@ class Defender : WarriorDecorator() {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth+= weapon.getHealth
-        attack+=weapon.getAttack
-        defence+=weapon.getDefence
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
+        defence += weapon.getDefence()
 
     }
 

@@ -4,11 +4,21 @@ import game.decorators.WeaponDecorator
 import game.settings.Params
 
 class Shield(
-    health: Int = Params.Shield.HEALTH,
-    attack: Int = Params.Shield.ATTACK,
+    private val health: Int = Params.Shield.HEALTH,
+    private val attack: Int = Params.Shield.ATTACK,
     private val defence: Int = Params.Shield.DEFENCE,
 
-) : WeaponDecorator(health,attack,defence){
-    override val getDefence: Int
-        get() = this.defence
+    ) : WeaponDecorator() {
+
+    override fun getHealth(): Int {
+        return this.health
+    }
+
+    override fun getAttack(): Int {
+        return this.health
+    }
+
+    override fun getDefence(): Int {
+        return this.defence
+    }
 }

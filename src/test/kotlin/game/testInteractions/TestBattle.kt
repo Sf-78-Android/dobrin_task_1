@@ -1,14 +1,12 @@
 package game.testInteractions
 
 import game.characters.Healer
-import game.testCollections.TestArmy
-import game.collections.Army
 import game.enums.FightType
 import game.interfaces.BaseWarrior
-import game.interfaces.Fightable
+import game.testCollections.TestArmy
 import game.testInterfaces.TestFightable
 
-object Battle : TestFightable {
+object TestBattle : TestFightable {
 
     override fun fight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
         var attacker = warrior1

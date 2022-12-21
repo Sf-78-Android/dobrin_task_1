@@ -3,6 +3,7 @@ package game.collections
 import game.enums.WarriorType
 import game.factory.getWarrior
 import game.interfaces.BaseWarrior
+import game.interfaces.BaseWeapon
 
 class Army {
     private val troops = mutableListOf<BaseWarrior>()
@@ -42,6 +43,10 @@ class Army {
 
     fun getWarriorAtPosition(position : Int)  : BaseWarrior {
         return troops[position]
+    }
+
+    fun equipWarriorAtPosition(position: Int, weapon : BaseWeapon){
+        troops[position].equipWeapon(weapon)
     }
 
 }

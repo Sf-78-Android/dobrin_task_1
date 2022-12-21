@@ -8,9 +8,12 @@ import game.settings.Params
 class Warrior : WarriorDecorator() {
     private var initialHealth = Params.Warrior.HEALTH
     private var attack: Int = Params.Warrior.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
     private var health: Int = Params.Warrior.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
 
 
@@ -18,7 +21,6 @@ class Warrior : WarriorDecorator() {
         get() = health
     override val getAttack: Int
         get() = attack
-
 
 
     override fun receiveDamage(damage: Int) {
@@ -32,8 +34,9 @@ class Warrior : WarriorDecorator() {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth+= weapon.getHealth
-        attack+=weapon.getAttack
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
 
     }
 

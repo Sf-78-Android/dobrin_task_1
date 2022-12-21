@@ -4,7 +4,16 @@ import game.decorators.WeaponDecorator
 import game.settings.Params
 
 class Sword(
-    health: Int = Params.Sword.HEALTH,
-    attack: Int = Params.Sword.ATTACK,
+    private val health: Int = Params.Sword.HEALTH,
+    private val attack: Int = Params.Sword.ATTACK,
 
-) : WeaponDecorator(health, attack)
+    ) : WeaponDecorator() {
+
+    override fun getHealth(): Int {
+        return this.health
+    }
+
+    override fun getAttack(): Int {
+        return this.attack
+    }
+}

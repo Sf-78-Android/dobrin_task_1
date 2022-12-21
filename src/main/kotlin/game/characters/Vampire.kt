@@ -10,17 +10,23 @@ class Vampire : WarriorDecorator() {
     private var initialHealth = Params.Vampire.HEALTH
     private var health = initialHealth
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
     private var attack: Int = Params.Vampire.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
     private var vampirism: Int = Params.Vampire.VAMPIRISM
+        private set(value) {
+            field = value.coerceAtLeast(0)
+        }
 
 
     override val getHealth: Int
         get() = health
     override val getAttack: Int
         get() = attack
-    private val getVampirism: Int
+    val getVampirism: Int
         get() = vampirism
 
 
@@ -42,9 +48,10 @@ class Vampire : WarriorDecorator() {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        initialHealth += weapon.getHealth
-        attack += weapon.getAttack
-        vampirism += weapon.getVampirism
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
+        vampirism += weapon.getVampirism()
 
     }
 
