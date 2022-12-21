@@ -45,7 +45,7 @@ object Battle : Fightable {
            val deadPositionsArmy1 = mutableListOf<Int>()
            val deadPositionsArmy2 = mutableListOf<Int>()
            for (i in 0 until size) {
-               if (fight(army1.getWarriorAtPosition(i), army2.getWarriorAtPosition(i))) {
+               if (straightFight(army1.getWarriorAtPosition(i), army2.getWarriorAtPosition(i))) {
                    deadPositionsArmy2.add(i)
                } else {
                    deadPositionsArmy1.add(i)

@@ -46,7 +46,7 @@ class Army {
     }
 
     fun equipWarriorAtPosition(position: Int, weapon : BaseWeapon){
-        troops[position].equipWeapon(weapon)
+            troops[position].equipWeapon(weapon)
     }
 
 }

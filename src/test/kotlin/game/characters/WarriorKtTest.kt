@@ -1,9 +1,20 @@
 package game.characters
 
+import game.collections.Army
+import game.enums.WarriorType
+import game.interactions.Battle
+import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
 import game.testEnum.TestWarriorType
 import game.testInteractions.TestBattle
+import game.weapons.MagicWand
+import game.weapons.Sword
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
+import java.util.stream.Stream
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -171,6 +182,7 @@ internal class WarriorKtTest {
         // then
         assertEquals(true, res)
     }
+
     @Test
     @DisplayName("12. TestBattle")
     fun `First one hit, first one wins `() {
@@ -185,6 +197,34 @@ internal class WarriorKtTest {
         assertEquals(true, res)
     }
 
+    @ParameterizedTest
+    @MethodSource("straightFight")
+    fun fight(army1: Army, army2: Army, expected: Boolean) {
+        val res1 = Battle.straightFight(army1, army2)
+        val res2 = army2.getWarriorAtPosition(0).getHealth
 
+        assertAll(
+            { assertEquals(expected, res1, "Fight result is correct") },
+            { assertEquals(30, res2, "Check that Healer doesn't heal in a straight fight") }
+        )
+    }
+
+    companion object {
+        @JvmStatic
+        fun straightFight(): Stream<Arguments> {
+            val army1 = Army()
+            army1.addUnits(3, WarriorType.Warrior)
+            val army2 = Army()
+            army2.addUnits(1, WarriorType.Lancer)
+            army2.addUnits(1, WarriorType.Healer)
+            army2.equipWarriorAtPosition(0, Sword())
+            army2.equipWarriorAtPosition(1, MagicWand())
+
+            return Stream.of(
+                Arguments.of(army1, army2, false),
+
+                )
+        }
+    }
 
 }
