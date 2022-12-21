@@ -14,7 +14,7 @@ class WeaponTest2 {
 
 
     @ParameterizedTest
-    @MethodSource
+    @MethodSource("warriorIsDead")
     fun warriorIsDead(warrior: BaseWarrior, weapon: BaseWeapon, expected: Boolean) {
 
         warrior.equipWeapon(weapon)
@@ -23,6 +23,19 @@ class WeaponTest2 {
         assertAll(
             { assertEquals(expected, res1, "Warrior is dead") }
         )
+    }
+
+    @ParameterizedTest
+    @MethodSource("testNullParameters")
+    fun testNullParameters(warrior: BaseWarrior, weapon: BaseWeapon, expected: Int) {
+
+        warrior.equipWeapon(weapon)
+        val res1 = warrior.getHealth
+        assertAll(
+            { assertEquals(expected, res1, "Warrior has zero health added by weapon") }
+
+        )
+
     }
 
     companion object {
@@ -35,6 +48,18 @@ class WeaponTest2 {
                 Arguments.of(Warrior(), Weapon.Builder().health(-100), false),
                 Arguments.of(Lancer(), Weapon.Builder().health(-100), false),
                 Arguments.of(Vampire(), Weapon.Builder().health(-100), false)
+            )
+        }
+        @JvmStatic
+        fun testNullParameters(): Stream<Arguments> {
+            return Stream.of(
+                Arguments.of(Knight(), Weapon.Builder().vampirism(5), 50),
+                Arguments.of(Healer(), Weapon.Builder().vampirism(5), 60),
+                Arguments.of(Defender(), Weapon.Builder().vampirism(5), 60),
+                Arguments.of(Warrior(), Weapon.Builder().vampirism(5), 50),
+                Arguments.of(Lancer(), Weapon.Builder().vampirism(5), 60),
+                Arguments.of(Vampire(), Weapon.Builder().healingPower(5), 40),
+
             )
         }
     }
