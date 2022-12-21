@@ -49,6 +49,8 @@ class Healer : WarriorDecorator() , CanHeal {
                 allyInFront.restoreHp(healingPower)
             }
             this.warriorBehind?.let { this.warriorIfFront?.let { it1 -> (this.warriorBehind as? Healer)?.heal(it1, FightType.Classic) } }
+        } else {
+            allyInFront.restoreHp(healingPower)
         }
     }
 

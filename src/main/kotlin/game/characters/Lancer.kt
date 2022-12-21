@@ -38,8 +38,10 @@ class Lancer : WarriorDecorator() {
         val damageDealt = healthBefore - opponent.getHealth
         if (fightType == FightType.Classic) {
             val damageToNext: Int = (damageDealt * pierce) / 100
+            if (opponent.warriorBehind?.isAlive == false) {
+                opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
+            }
             opponent.warriorBehind?.receiveDamage(damageToNext)
-
         }
     }
 

@@ -1,10 +1,10 @@
 package game.characters
 
 
-import game.collections.Army
 import game.enums.FightType
-import game.enums.WarriorType
-import game.interactions.Battle
+import game.testCollections.TestArmy
+import game.testEnum.TestWarriorType
+import game.testInteractions.Battle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -111,10 +111,10 @@ internal class DefenderTest {
     @DisplayName("1. Battle")
     fun `Army of warriors losses against Army of defenders`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(20, WarriorType.Warrior)
-        val secondArmy = Army()
-        secondArmy.addUnits(20, WarriorType.Defender)
+        val firstArmy = TestArmy()
+        firstArmy.addUnits(20, TestWarriorType.Warrior)
+        val secondArmy = TestArmy()
+        secondArmy.addUnits(20, TestWarriorType.Defender)
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -125,10 +125,10 @@ internal class DefenderTest {
     @DisplayName("2. Battle")
     fun `Army of warriors loses to Army of defenders`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(20, WarriorType.Warrior)
-        val secondArmy = Army()
-        secondArmy.addUnits(31, WarriorType.Defender)
+        val firstArmy = TestArmy()
+        firstArmy.addUnits(20, TestWarriorType.Warrior)
+        val secondArmy = TestArmy()
+        secondArmy.addUnits(31, TestWarriorType.Defender)
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -139,12 +139,12 @@ internal class DefenderTest {
     @DisplayName("3. Battle")
     fun `Battle mix`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(5, WarriorType.Warrior)
-        firstArmy.addUnits(4, WarriorType.Defender)
-        firstArmy.addUnits(5, WarriorType.Defender)
-        val secondArmy = Army()
-        secondArmy.addUnits(4, WarriorType.Warrior)
+        val firstArmy = TestArmy()
+        firstArmy.addUnits(5, TestWarriorType.Warrior)
+        firstArmy.addUnits(4, TestWarriorType.Defender)
+        firstArmy.addUnits(5, TestWarriorType.Defender)
+        val secondArmy = TestArmy()
+        secondArmy.addUnits(4, TestWarriorType.Warrior)
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
@@ -156,12 +156,12 @@ internal class DefenderTest {
     @DisplayName("4. Battle")
     fun `Battle mix 2`() {
         // given
-        val firstArmy = Army()
-        firstArmy.addUnits(1, WarriorType.Warrior)
-        firstArmy.addUnits(2, WarriorType.Defender)
-        firstArmy.addUnits(1, WarriorType.Defender)
-        val secondArmy = Army()
-        secondArmy.addUnits(5, WarriorType.Warrior)
+        val firstArmy = TestArmy()
+        firstArmy.addUnits(1, TestWarriorType.Warrior)
+        firstArmy.addUnits(2, TestWarriorType.Defender)
+        firstArmy.addUnits(1, TestWarriorType.Defender)
+        val secondArmy = TestArmy()
+        secondArmy.addUnits(5, TestWarriorType.Warrior)
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then

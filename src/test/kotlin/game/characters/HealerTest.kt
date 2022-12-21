@@ -1,11 +1,9 @@
 package game.characters
 
-import game.collections.Army
 import game.enums.FightType
-import game.enums.WarriorType
-import game.factory.getWarrior
-import game.interactions.Battle
-import game.settings.Params
+import game.testCollections.TestArmy
+import game.testEnum.TestWarriorType
+import game.testInteractions.Battle
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -16,11 +14,11 @@ internal class HealerTest {
     @DisplayName("1. Fight")
     fun `Check if healer actually heals`() {
         // given
-        val Army1 = Army()
-        val Army2 = Army()
-        Army1.addUnits(1, WarriorType.Warrior)
-        Army1.addUnits(1, WarriorType.Healer)
-        Army2.addUnits(1, WarriorType.Warrior)
+        val Army1 = TestArmy()
+        val Army2 = TestArmy()
+        Army1.addUnits(1, TestWarriorType.Warrior)
+        Army1.addUnits(1, TestWarriorType.Healer)
+        Army2.addUnits(1, TestWarriorType.Warrior)
         // when
 
         val res = Battle.fight(Army2,Army1)
