@@ -1,4 +1,8 @@
 package game.commands
 
-class Command {
+import game.interfaces.BaseWarrior
+
+
+abstract class Command(val receiver: MutableList<BaseWarrior>) {
+   abstract fun execute()
 }

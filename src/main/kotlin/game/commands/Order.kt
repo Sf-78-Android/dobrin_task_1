@@ -1,7 +1,8 @@
 package game.commands
 
-class Client(sender : Sender) {
-    private val receiver = Receiver()
+import game.interfaces.BaseWarrior
+
+class Order(sender: Sender, receiver: MutableList<BaseWarrior>) {
 
     init {
         // setting the Invoker command

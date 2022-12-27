@@ -22,7 +22,7 @@ abstract class WarriorDecorator : BaseWarrior {
 
     override var warriorBehind: BaseWarrior? = null
 
-    //  get() = if (field?.isAlive ?: true) field else (field as? BaseWarrior)
+
     override var warriorIfFront: BaseWarrior? = null
 
     override var weapons: Weapons = Weapons()

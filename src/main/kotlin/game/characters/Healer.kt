@@ -8,14 +8,10 @@ import game.interfaces.CanHeal
 import game.settings.Params
 
 class Healer : WarriorDecorator(), CanHeal {
-    private var initialHealth = Params.Defender.HEALTH
+    private var initialHealth = Params.Healer.HEALTH
     private var health: Int = Params.Healer.HEALTH
         private set(value) {
             field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
-        }
-    private var attack: Int = Params.Healer.ATTACK
-        private set(value) {
-            field = value.coerceAtLeast(0)
         }
     private var healingPower: Int = Params.Healer.HEALING_POWER
         private set(value) {
@@ -26,7 +22,8 @@ class Healer : WarriorDecorator(), CanHeal {
     override val getHealth: Int
         get() = health
     override val getAttack: Int
-        get() = attack
+        get() = 0
+
     val getHealingPower: Int
         get() = healingPower
 
@@ -46,26 +43,11 @@ class Healer : WarriorDecorator(), CanHeal {
         weapons.addWeapon(weapon)
         initialHealth += weapon.getHealth()
         health = initialHealth
-        attack += weapon.getAttack()
         healingPower += weapon.getHealingPower()
     }
 
-    override fun heal(allyInFront: BaseWarrior, fightType: FightType) {
-        if (this.warriorBehind is Healer) {
-            if (fightType == FightType.Classic) {
-                allyInFront.restoreHp(healingPower)
-            }
-            this.warriorBehind?.let {
-                this.warriorIfFront?.let { it1 ->
-                    (this.warriorBehind as? Healer)?.heal(
-                        it1,
-                        FightType.Classic
-                    )
-                }
-            }
-        } else {
-            allyInFront.restoreHp(healingPower)
-        }
+    override fun heal(allyInFront: BaseWarrior) {
+        allyInFront.restoreHp(this.healingPower)
     }
 
 

@@ -1,12 +1,13 @@
 package game.testInteractions
 
-import game.characters.Healer
+import game.commands.Sender
 import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
 import game.testInterfaces.TestFightable
 
 object TestBattle : TestFightable {
+    private val sender = Sender()
 
     override fun fight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
         var attacker = warrior1
@@ -14,13 +15,21 @@ object TestBattle : TestFightable {
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender,FightType.Classic)
 
-            (defender.warriorBehind as? Healer)?.heal(defender, FightType.Classic)
-
 
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive
     }
+/*
+    private fun sendHealCommand(warriorBehind: BaseWarrior?) {
+        warriorBehind?.let { Order(sender, it) }
+        sender.performAction()
+        if (warriorBehind?.warriorBehind is Healer){
+            sendHealCommand(warriorBehind.warriorBehind)
+        }
+    }
+
+ */
 
     override fun straightFight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
         var attacker = warrior1

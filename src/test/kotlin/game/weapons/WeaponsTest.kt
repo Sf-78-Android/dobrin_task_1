@@ -146,13 +146,13 @@ class WeaponsTest {
                 Arguments.of(Defender(), Sword(), 6),
                 Arguments.of(Lancer(), Sword(), 8),
                 Arguments.of(Vampire(), Sword(), 6),
-                Arguments.of(Healer(), Sword(), 2),
+                Arguments.of(Healer(), Sword(), 0),
                 Arguments.of(Warrior(), GreatAxe(), 10),
                 Arguments.of(Knight(), GreatAxe(), 12),
                 Arguments.of(Defender(), GreatAxe(), 9),
                 Arguments.of(Lancer(), GreatAxe(), 11),
                 Arguments.of(Vampire(), GreatAxe(), 9),
-                Arguments.of(Healer(), GreatAxe(), 5),
+                Arguments.of(Healer(), GreatAxe(), 0),
                 Arguments.of(Warrior(), Shield(), 4),
                 Arguments.of(Knight(), Shield(), 6),
                 Arguments.of(Defender(), Shield(), 3),
@@ -164,7 +164,7 @@ class WeaponsTest {
                 Arguments.of(Lancer(), MagicWand(), 9),
                 Arguments.of(Defender(), MagicWand(), 7),
                 Arguments.of(Vampire(), MagicWand(), 7),
-                Arguments.of(Healer(), MagicWand(), 3)
+                Arguments.of(Healer(), MagicWand(), 0)
 
             )
         }

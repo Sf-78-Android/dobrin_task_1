@@ -18,7 +18,7 @@ internal class VampireTest {
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1,FightType.Classic)
+        warrior2.hit(warrior1, FightType.Classic)
         warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth
@@ -33,7 +33,7 @@ internal class VampireTest {
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1,FightType.Classic)
+        warrior2.hit(warrior1, FightType.Classic)
         warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth == 37
@@ -72,17 +72,4 @@ internal class VampireTest {
     }
 
 
-    @Test
-    @DisplayName("1. TestBattle")
-    fun `Vampires win`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(20, TestWarriorType.Vampire)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(11, TestWarriorType.Knight)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 }

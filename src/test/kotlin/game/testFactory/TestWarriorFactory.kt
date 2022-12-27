@@ -1,20 +1,18 @@
 package game.testFactory
 
 import game.characters.*
-import game.testEnum.TestWarriorType
+import game.enums.WarriorType
 import game.interfaces.BaseWarrior
-import game.testCharachters.Rookie
 
 
-fun getWarrior(type: TestWarriorType): BaseWarrior {
+fun getWarrior(type: WarriorType): BaseWarrior {
     val warrior: BaseWarrior = when (type) {
-        TestWarriorType.Knight -> Knight()
-        TestWarriorType.Vampire -> Vampire()
-        TestWarriorType.Warrior -> Warrior()
-        TestWarriorType.Lancer -> Lancer()
-        TestWarriorType.Defender -> Defender()
-        TestWarriorType.Healer -> Healer()
-        TestWarriorType.Rookie -> Rookie()
+        WarriorType.Knight -> Knight()
+        WarriorType.Vampire -> Vampire()
+        WarriorType.Warrior -> Warrior()
+        WarriorType.Lancer -> Lancer()
+        WarriorType.Defender -> Defender()
+        WarriorType.Healer -> Healer()
     }
 
     return warrior

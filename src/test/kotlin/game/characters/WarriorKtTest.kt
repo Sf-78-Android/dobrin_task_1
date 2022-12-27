@@ -3,9 +3,8 @@ package game.characters
 import game.collections.Army
 import game.enums.WarriorType
 import game.interactions.Battle
-import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
-import game.testEnum.TestWarriorType
+import game.testFactory.getWarrior
 import game.testInteractions.TestBattle
 import game.weapons.MagicWand
 import game.weapons.Sword
@@ -100,102 +99,23 @@ internal class WarriorKtTest {
     }
 
     @Test
-    @DisplayName("7.TestBattle")
-    fun `Second Army wins`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(1, TestWarriorType.Warrior)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(2, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(false, res)
-    }
-
-    @Test
     @DisplayName("8.TestBattle")
     fun `Second Army wins again`() {
         // given
         val firstArmy = TestArmy()
-        firstArmy.addUnits(2, TestWarriorType.Warrior)
+        firstArmy.addUnits(2, WarriorType.Warrior)
         val secondArmy = TestArmy()
-        secondArmy.addUnits(3, TestWarriorType.Warrior)
+        secondArmy.addUnits(3,   WarriorType.Warrior)
         // when
         val res = TestBattle.fight(firstArmy, secondArmy)
         // then
         assertEquals(false, res)
     }
 
-    @Test
-    @DisplayName("9. TestBattle")
-    fun `Second Army wins for third time`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(5, TestWarriorType.Warrior)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(7, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(false, res)
-    }
 
-    @Test
-    @DisplayName("10. TestBattle")
-    fun `First Army wins`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(20, TestWarriorType.Warrior)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(21, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 
-    @Test
-    @DisplayName("11. TestBattle")
-    fun `First Army wins `() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(11, TestWarriorType.Warrior)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(7, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 
-    @Test
-    @DisplayName("12. TestBattle")
-    fun `First Army wins with Knights `() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(11, TestWarriorType.Knight)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(12, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 
-    @Test
-    @DisplayName("12. TestBattle")
-    fun `First one hit, first one wins `() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(11, TestWarriorType.Knight)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(11, TestWarriorType.Knight)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 
     @ParameterizedTest
     @MethodSource("straightFight")
@@ -205,7 +125,7 @@ internal class WarriorKtTest {
 
         assertAll(
             { assertEquals(expected, res1, "Fight result is correct") },
-            { assertEquals(30, res2, "Check that Healer doesn't heal in a straight fight") }
+            { assertEquals(17, res2, "Check that Healer doesn't heal in a straight fight") }
         )
     }
 
@@ -213,10 +133,12 @@ internal class WarriorKtTest {
         @JvmStatic
         fun straightFight(): Stream<Arguments> {
             val army1 = Army()
-            army1.addUnits(3, WarriorType.Warrior)
+            army1.addUnits(1,  WarriorType.Lancer)
+            army1.addUnits(1,  WarriorType.Knight)
             val army2 = Army()
-            army2.addUnits(1, WarriorType.Lancer)
-            army2.addUnits(1, WarriorType.Healer)
+            army2.addUnits(1,  WarriorType.Lancer)
+            army2.addUnits(1,  WarriorType.Vampire)
+            army2.addUnits(1,  WarriorType.Healer)
             army2.equipWarriorAtPosition(0, Sword())
             army2.equipWarriorAtPosition(1, MagicWand())
 

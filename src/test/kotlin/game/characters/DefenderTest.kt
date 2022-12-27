@@ -2,14 +2,17 @@ package game.characters
 
 
 import game.enums.FightType
+import game.enums.WarriorType
+import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
-import game.testEnum.TestWarriorType
+import game.testFactory.getWarrior
 import game.testInteractions.TestBattle
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
+import java.util.stream.Stream
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -91,67 +94,21 @@ internal class DefenderTest {
     fun `Army of warriors losses against Army of defenders`() {
         // given
         val firstArmy = TestArmy()
-        firstArmy.addUnits(20, TestWarriorType.Warrior)
+        firstArmy.addUnits(20,  WarriorType.Warrior)
         val secondArmy = TestArmy()
-        secondArmy.addUnits(20, TestWarriorType.Defender)
+        secondArmy.addUnits(20,  WarriorType.Defender)
         // when
         val res = TestBattle.fight(firstArmy, secondArmy)
         // then
         assertEquals(false, res)
     }
 
-    @Test
-    @DisplayName("2. Battle")
-    fun `Army of warriors loses to Army of defenders`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(20, TestWarriorType.Warrior)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(31, TestWarriorType.Defender)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(false, res)
-    }
-
-    @Test
-    @DisplayName("3. Battle")
-    fun `Battle mix`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(5, TestWarriorType.Warrior)
-        firstArmy.addUnits(4, TestWarriorType.Defender)
-        firstArmy.addUnits(5, TestWarriorType.Defender)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(4, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
-
-
-    @Test
-    @DisplayName("4. Battle")
-    fun `Battle mix 2`() {
-        // given
-        val firstArmy = TestArmy()
-        firstArmy.addUnits(1, TestWarriorType.Warrior)
-        firstArmy.addUnits(2, TestWarriorType.Defender)
-        firstArmy.addUnits(1, TestWarriorType.Defender)
-        val secondArmy = TestArmy()
-        secondArmy.addUnits(5, TestWarriorType.Warrior)
-        // when
-        val res = TestBattle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 
 
 
     @ParameterizedTest
-    @MethodSource
-    fun fight (warrior1: Warrior, warrior2: Warrior, expected: Boolean) {
+    @MethodSource("fight")
+    fun fight (warrior1: BaseWarrior, warrior2: BaseWarrior, expected: Boolean) {
         val res1 = TestBattle.fight(warrior1,warrior2)
         val res2 = warrior1.isAlive
         val res3 = warrior2.isAlive
@@ -165,11 +122,13 @@ internal class DefenderTest {
 
     companion object {
         @JvmStatic
-        fun fight() = listOf {
-            Arguments.of( Warrior() , Warrior(), true)
-            Arguments.of(Warrior(), Knight(), false)
-            Arguments.of(Knight(), Warrior(), true)
+        fun fight() : Stream<Arguments> {
+            return Stream.of(
+            Arguments.of( Warrior() , Warrior(), true),
+            Arguments.of(Warrior(), Knight(), false),
+            Arguments.of(Knight(), Warrior(), true),
             Arguments.of(Knight(), Knight(), true)
+            )
         }
     }
 }

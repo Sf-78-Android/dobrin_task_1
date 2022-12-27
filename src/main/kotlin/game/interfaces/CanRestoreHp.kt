@@ -1,5 +1,5 @@
 package game.interfaces
 
 interface CanRestoreHp {
-    fun restoreHp(amountHp : Int)
+    fun restoreHp( amountHp : Int)
 }

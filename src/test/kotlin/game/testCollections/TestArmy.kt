@@ -1,16 +1,16 @@
 package game.testCollections
 
-import game.testEnum.TestWarriorType
-import game.factory.getWarrior
+import game.enums.WarriorType
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.testFactory.getWarrior
 
 class TestArmy {
     private val troops = mutableListOf<BaseWarrior>()
     private var currentWarrior : BaseWarrior? = null
-    fun addUnits(quantity: Int, type: TestWarriorType) {
+    fun addUnits(quantity: Int, type: WarriorType) {
         repeat(quantity) {
-            val warrior = game.testFactory.getWarrior(type)
+            var warrior = getWarrior(type)
             if (troops.isEmpty()) {
                 currentWarrior = warrior
                 troops.add(warrior)
