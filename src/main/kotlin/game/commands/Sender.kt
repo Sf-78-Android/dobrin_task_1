@@ -1,5 +1,6 @@
 package game.commands
 
+import game.interfaces.BaseWarrior
 
 
 class Sender {
@@ -11,8 +12,8 @@ class Sender {
     }
 
 
-    fun commandHeal() {
-        commandList.stream().filter { it is HealCommand }.findFirst().get().execute()
+    fun commandHeal(attacker : BaseWarrior) {
+        commandList.stream().filter { it is HealCommand }.findFirst().get().execute(attacker)
     }
 
     fun commandMove() {

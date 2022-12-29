@@ -8,8 +8,5 @@ class Weapons {
     fun addWeapon(weapon: BaseWeapon) {
         weapons.add(weapon)
     }
-    val getWeapons : MutableList<BaseWeapon>
-        get() = weapons
-
 
 }

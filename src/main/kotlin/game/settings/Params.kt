@@ -23,7 +23,7 @@ object Params {
         const val VAMPIRISM = 50
     }
     object Lancer {
-        const val HEALTH = 60
+        const val HEALTH = 50
         const val ATTACK = 6
         const val PIERCING_POWER = 50
 

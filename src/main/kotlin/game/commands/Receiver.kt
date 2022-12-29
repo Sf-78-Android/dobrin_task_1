@@ -27,7 +27,7 @@ open class Receiver  {
         if (units[0] !is Lancer && !lancers.isEmpty()) {
             val lancer = lancers.poll()
             this.units[0] = this.units[lancer].also { this.units[lancer] = this.units[0] }
-        } else if (!otherUnits.isEmpty() && !healers.isEmpty()) {
+        } else if (!otherUnits.isEmpty() && !healers.isEmpty() && units[0] !is Lancer) {
             val unit = otherUnits.poll()
             units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
         }
@@ -98,5 +98,9 @@ open class Receiver  {
         val newList: MutableList<BaseWarrior> = ArrayList()
         units.filter { !it.isAlive }.forEach { newList.add(it) }
         units.removeAll(newList)
+    }
+
+    fun contains(attacker: BaseWarrior): Boolean {
+        return units.contains(attacker)
     }
 }

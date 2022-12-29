@@ -16,11 +16,18 @@ object Battle : Fightable {
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender, FightType.Classic)
-            sender.commandHeal()
+            if (!singleFight(warrior1,warrior2)) {
+                sender.commandHeal(attacker)
+            }
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive
     }
+
+    private fun singleFight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
+        return warrior1.warriorBehind == null && warrior1.warriorIfFront == null && warrior2.warriorBehind == null && warrior2.warriorIfFront == null
+    }
+
 
     override fun straightFight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
         var attacker = warrior1

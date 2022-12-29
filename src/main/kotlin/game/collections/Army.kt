@@ -1,7 +1,6 @@
 package game.collections
 
 import game.characters.Warlord
-import game.characters.Warrior
 import game.commands.Receiver
 import game.enums.WarriorType
 import game.factory.getWarrior
@@ -13,23 +12,22 @@ class Army : Receiver() {
     private var currentWarrior: BaseWarrior? = null
 
 
-
     fun addUnits(quantity: Int, type: WarriorType) {
 
         repeat(quantity) {
             val warrior = getWarrior(type)
-          if (warrior is Warlord && !this.containsWarlord()) {
-              units.add(warrior)
-          } else {
-              if (units.isEmpty()) {
-                  currentWarrior = warrior
-                  units.add(warrior)
-              } else {
-                  currentWarrior?.warriorBehind = warrior.also { currentWarrior = warrior }
-                  units.add(warrior)
-                  warrior.warriorIfFront = units[units.indexOf(warrior) - 1]
-              }
-          }
+            if (warrior is Warlord && !this.containsWarlord()) {
+                units.add(warrior)
+            } else if (warrior !is Warlord) {
+                if (units.isEmpty()) {
+                    currentWarrior = warrior
+                    units.add(warrior)
+                } else {
+                    currentWarrior?.warriorBehind = warrior.also { currentWarrior = warrior }
+                    units.add(warrior)
+                    warrior.warriorIfFront = units[units.indexOf(warrior) - 1]
+                }
+            }
         }
     }
 
@@ -37,10 +35,6 @@ class Army : Receiver() {
         return units.first()
     }
 
-
-    fun killedWarrior() {
-        units.removeFirst()
-    }
 
     fun killedWarrior(warrior: BaseWarrior) {
         units.remove(warrior)
@@ -58,10 +52,6 @@ class Army : Receiver() {
 
     fun equipWarriorAtPosition(position: Int, weapon: BaseWeapon) {
         units[position].equipWeapon(weapon)
-    }
-
-    fun getTroops() : MutableList<BaseWarrior>{
-        return this.units
     }
 
 }

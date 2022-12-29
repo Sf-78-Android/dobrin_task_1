@@ -8,7 +8,6 @@ class AddOrders(sender: Sender, receivers: MutableList<Receiver>) {
 
         sender.setCommand(mutableListOf(healCommand,moveTroopsCommand,clearDead))
 
-
     }
 
 
