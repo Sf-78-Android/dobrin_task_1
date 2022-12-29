@@ -1,7 +1,7 @@
 package game.interactions
 
 import game.collections.Army
-import game.commands.Order
+import game.commands.AddOrders
 import game.commands.Sender
 import game.enums.FightType
 import game.interfaces.BaseWarrior
@@ -16,7 +16,7 @@ object Battle : Fightable {
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender, FightType.Classic)
-            sender.performAction()
+            sender.commandHeal()
             attacker = defender.also { defender = attacker }
         }
         return warrior1.isAlive
@@ -60,27 +60,21 @@ object Battle : Fightable {
             }
         }
 
-        return army1.size > army2.size
+        return army1.hasTroopsLeft
     }
 
 
     override fun fight(army1: Army, army2: Army): Boolean {
-        sendCommand(army1.getTroops())
-        sendCommand(army2.getTroops())
+        AddOrders(sender, mutableListOf(army1, army2))
+        sender.commandMove()
         while (army1.hasTroopsLeft && army2.hasTroopsLeft) {
             val warrior1 = army1.nextWarrior()
             val warrior2 = army2.nextWarrior()
-            if (fight(warrior1, warrior2)) {
-                army2.killedWarrior()
-            } else {
-                army1.killedWarrior()
-            }
+            fight(warrior1, warrior2)
+            sender.clearDead()
+            sender.commandMove()
         }
         return army1.hasTroopsLeft
-    }
-
-    private fun sendCommand(troops: MutableList<BaseWarrior>) {
-        Order(sender, troops)
     }
 
 

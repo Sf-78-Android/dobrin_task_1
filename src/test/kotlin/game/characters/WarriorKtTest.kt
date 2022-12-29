@@ -113,6 +113,31 @@ internal class WarriorKtTest {
     }
 
 
+    @Test
+    @DisplayName("8.TestBattle")
+    fun `Test moveUnits method`() {
+        // given
+        val firstArmy = Army()
+
+        firstArmy.addUnits(1, WarriorType.Warlord)
+        firstArmy.addUnits(1, WarriorType.Warlord)
+        firstArmy.addUnits(1, WarriorType.Warrior)
+        firstArmy.addUnits(1, WarriorType.Lancer)
+        firstArmy.addUnits(1, WarriorType.Healer)
+
+
+        val secondArmy = Army()
+        secondArmy.addUnits(1,   WarriorType.Vampire)
+        secondArmy.addUnits(3,   WarriorType.Healer)
+        secondArmy.addUnits(3,   WarriorType.Lancer)
+        secondArmy.addUnits(1,   WarriorType.Warlord)
+        // when
+        val res = Battle.fight(firstArmy, secondArmy)
+        // then
+        assertEquals(false, res)
+    }
+
+
 
 
 

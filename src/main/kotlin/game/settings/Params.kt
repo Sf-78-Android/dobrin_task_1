@@ -36,6 +36,13 @@ object Params {
 
     }
 
+    object Warlord {
+        const val HEALTH = 100
+        const val ATTACK = 4
+        const val DEFENCE  = 2
+
+    }
+
     // Weapons
 
     object Sword {

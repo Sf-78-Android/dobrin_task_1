@@ -1,7 +1,6 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
-import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.interfaces.CanHeal
