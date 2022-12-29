@@ -32,7 +32,7 @@ open class Receiver  {
             units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
         }
         var index = 1
-        while (!healers.isEmpty()) {
+        while (!healers.isEmpty() && !otherUnits.isEmpty()) {
             val healer = healers.poll()
             units[index] = healer.also { units[units.indexOf(healer)] = units[index] }
             index++
@@ -52,13 +52,13 @@ open class Receiver  {
 
 
     private fun updatePositions() {
+
         for (i in 1 until units.size-1){
             units[i-1].warriorBehind = units[i]
             units[i].warriorIfFront = units[i-1]
         }
-        if (units.size > 1) {
-            units[units.size - 1].warriorIfFront = units[units.size - 2]
-        }
+        units[units.size-1].warriorBehind = null
+
     }
 
     private fun getLancers(): LinkedList<Int> {
