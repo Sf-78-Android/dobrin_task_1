@@ -6,10 +6,10 @@ import game.characters.Warlord
 import game.interfaces.BaseWarrior
 import java.util.*
 
-open class Receiver  {
+open class Receiver {
     val units = mutableListOf<BaseWarrior>()
     fun heal() {
-        for (warrior in units ) {
+        for (warrior in units) {
             if (warrior is Healer && warrior.isAlive) {
                 warrior.warriorIfFront?.let { warrior.heal(it) }
             }
@@ -21,7 +21,8 @@ open class Receiver  {
         val healers = getHealers()
         val lancers = getLancers()
         val otherUnits = getOtherUnits()
-        this.units[this.units.size - 1] = warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - 1] }
+        this.units[this.units.size - 1] =
+            warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - 1] }
 
 
         if (units[0] !is Lancer && !lancers.isEmpty()) {
@@ -41,9 +42,9 @@ open class Receiver  {
         updatePositions()
     }
 
-     fun containsWarlord(): Boolean {
-        for (unit in units){
-            if (unit is Warlord){
+    fun containsWarlord(): Boolean {
+        for (unit in units) {
+            if (unit is Warlord) {
                 return true
             }
         }
@@ -53,11 +54,11 @@ open class Receiver  {
 
     private fun updatePositions() {
 
-        for (i in 1 until units.size-1){
-            units[i-1].warriorBehind = units[i]
-            units[i].warriorIfFront = units[i-1]
+        for (i in 1 until units.size - 1) {
+            units[i - 1].warriorBehind = units[i]
+            units[i].warriorIfFront = units[i - 1]
         }
-        units[units.size-1].warriorBehind = null
+        units[units.size - 1].warriorBehind = null
 
     }
 
@@ -78,7 +79,6 @@ open class Receiver  {
         }
         return queue
     }
-
 
 
     private fun getHealers(): LinkedList<BaseWarrior> {

@@ -6,7 +6,6 @@ import game.enums.WarriorType
 import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.testCollections.TestArmy
-import game.testFactory.getWarrior
 import game.testInteractions.TestBattle
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

@@ -2,8 +2,6 @@ package game.characters
 
 
 import game.enums.FightType
-import game.testCollections.TestArmy
-import game.testEnum.TestWarriorType
 import game.testInteractions.TestBattle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test

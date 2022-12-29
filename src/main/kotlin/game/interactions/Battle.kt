@@ -16,7 +16,7 @@ object Battle : Fightable {
         var defender = warrior2
         while (attacker.isAlive && defender.isAlive) {
             attacker.hit(defender, FightType.Classic)
-            if (!singleFight(warrior1,warrior2)) {
+            if (!singleFight(warrior1, warrior2)) {
                 sender.commandHeal(attacker)
             }
             attacker = defender.also { defender = attacker }
@@ -25,7 +25,8 @@ object Battle : Fightable {
     }
 
     private fun singleFight(warrior1: BaseWarrior, warrior2: BaseWarrior): Boolean {
-        return warrior1.warriorBehind == null && warrior1.warriorIfFront == null && warrior2.warriorBehind == null && warrior2.warriorIfFront == null
+        return warrior1.warriorBehind == null && warrior1.warriorIfFront == null &&
+                warrior2.warriorBehind == null && warrior2.warriorIfFront == null
     }
 
 

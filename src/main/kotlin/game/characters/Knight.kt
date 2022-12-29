@@ -1,11 +1,8 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
-import game.enums.FightType
-import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.settings.Params
-import game.weapons.Weapon
 
 
 class Knight : WarriorDecorator() {

@@ -4,7 +4,6 @@ import game.collections.Army
 import game.enums.WarriorType
 import game.interactions.Battle
 import game.testCollections.TestArmy
-import game.testFactory.getWarrior
 import game.testInteractions.TestBattle
 import game.weapons.MagicWand
 import game.weapons.Sword
