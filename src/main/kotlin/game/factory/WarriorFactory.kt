@@ -1,7 +1,6 @@
 package game.factory
 
 import game.characters.*
-import game.decorators.WarriorDecorator
 import game.enums.WarriorType
 import game.interfaces.BaseWarrior
 

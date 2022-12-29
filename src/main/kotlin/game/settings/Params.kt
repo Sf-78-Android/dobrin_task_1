@@ -48,9 +48,7 @@ object Params {
     object Sword {
         const val HEALTH = 5
         const val ATTACK = 2
-        const val HEALING_POWER  = 0
-        const val DEFENCE = 0
-        const val VAMPIRISM = 0
+
     }
 
     object Shield {
