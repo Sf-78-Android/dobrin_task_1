@@ -3,6 +3,7 @@ package game.commands
 import game.characters.Healer
 import game.characters.Lancer
 import game.characters.Warlord
+import game.collections.Army
 import game.interfaces.BaseWarrior
 import java.util.*
 
@@ -17,29 +18,34 @@ open class Receiver {
     }
 
     fun moveUnits() {
-        val warlord = getWarlord()
-        val healers = getHealers()
-        val lancers = getLancers()
-        val otherUnits = getOtherUnits()
-        this.units[this.units.size - 1] =
-            warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - 1] }
+        if (this.containsWarlord()) {
+            val healers = getHealers()
+            val lancers = getLancers()
+            val otherUnits = getOtherUnits()
 
 
-        if (units[0] !is Lancer && !lancers.isEmpty()) {
-            val lancer = lancers.poll()
-            this.units[0] = this.units[lancer].also { this.units[lancer] = this.units[0] }
-        } else if (!otherUnits.isEmpty() && !healers.isEmpty() && units[0] !is Lancer) {
-            val unit = otherUnits.poll()
-            units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
+            val warlord = getWarlord()
+            this.units[this.units.size - 1] =
+                warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - 1] }
+
+
+
+            if (units[0] !is Lancer && !lancers.isEmpty()) {
+                val lancer = lancers.poll()
+                this.units[0] = this.units[lancer].also { this.units[lancer] = this.units[0] }
+            } else if (!otherUnits.isEmpty() && !healers.isEmpty() && units[0] !is Lancer) {
+                val unit = otherUnits.poll()
+                units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
+            }
+            var index = 1
+            while (!healers.isEmpty() && !otherUnits.isEmpty()) {
+                val healer = healers.poll()
+                units[index] = healer.also { units[units.indexOf(healer)] = units[index] }
+                index++
+            }
+
+            updatePositions()
         }
-        var index = 1
-        while (!healers.isEmpty() && !otherUnits.isEmpty()) {
-            val healer = healers.poll()
-            units[index] = healer.also { units[units.indexOf(healer)] = units[index] }
-            index++
-        }
-
-        updatePositions()
     }
 
     fun containsWarlord(): Boolean {
@@ -103,4 +109,5 @@ open class Receiver {
     fun contains(attacker: BaseWarrior): Boolean {
         return units.contains(attacker)
     }
+
 }

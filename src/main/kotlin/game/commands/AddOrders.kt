@@ -6,7 +6,7 @@ class AddOrders(sender: Sender, receivers: MutableList<Receiver>) {
         val moveTroopsCommand = MoveUnitsCommand(receivers)
         val clearDead = ClearDeadCommand(receivers)
 
-        sender.setCommand(mutableListOf(healCommand,moveTroopsCommand,clearDead))
+        sender.setCommand(mutableListOf(healCommand, moveTroopsCommand, clearDead))
 
     }
 
