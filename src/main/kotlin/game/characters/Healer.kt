@@ -1,17 +1,18 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.interfaces.CanHeal
 import game.settings.Params
 
-
-class Knight : WarriorDecorator() {
-    private var initialHealth = Params.Knight.HEALTH
-    private var health: Int = Params.Knight.HEALTH
+class Healer : WarriorDecorator(), CanHeal {
+    private var initialHealth = Params.Healer.HEALTH
+    private var health: Int = Params.Healer.HEALTH
         private set(value) {
             field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
         }
-    private var attack: Int = Params.Knight.ATTACK
+    private var healingPower: Int = Params.Healer.HEALING_POWER
         private set(value) {
             field = value.coerceAtLeast(0)
         }
@@ -20,7 +21,13 @@ class Knight : WarriorDecorator() {
     override val getHealth: Int
         get() = health
     override val getAttack: Int
-        get() = attack
+        get() = 0
+
+    val getHealingPower: Int
+        get() = healingPower
+
+    override val isAlive: Boolean
+        get() = health > 0
 
 
     override fun receiveDamage(damage: Int) {
@@ -35,14 +42,18 @@ class Knight : WarriorDecorator() {
         weapons.addWeapon(weapon)
         initialHealth += weapon.getHealth()
         health = initialHealth
-        attack += weapon.getAttack()
-
+        healingPower += weapon.getHealingPower()
     }
 
+    override fun heal(allyInFront: BaseWarrior) {
+        allyInFront.restoreHp(this.healingPower)
+    }
+
+
     override fun toString(): String {
-        return """Knight
+        return """Healer
       Health = ${this.getHealth}
       Attack = ${this.getAttack}
-     """
+      Healing power = ${this.getHealingPower}"""
     }
 }

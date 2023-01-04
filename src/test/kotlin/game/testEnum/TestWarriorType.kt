@@ -1,11 +1,11 @@
-package game.enums
+package game.testEnum
 
-enum class WarriorType {
+enum class TestWarriorType {
     Warrior,
     Knight,
     Lancer,
     Defender,
     Healer,
     Vampire,
-    Warlord
+    Rookie
 }

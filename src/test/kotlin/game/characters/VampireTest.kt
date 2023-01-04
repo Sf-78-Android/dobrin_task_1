@@ -1,9 +1,8 @@
 package game.characters
 
 
-import game.collections.Army
-import game.enums.WarriorType
-import game.interactions.Battle
+import game.enums.FightType
+import game.testInteractions.TestBattle
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,12 +12,12 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class")
     fun `Does vampirism parameter work for Defender class`() {
-        val warrior1 = Vampire(Warrior())
+        val warrior1 = Vampire()
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1)
-        warrior1.hit(warrior2)
+        warrior2.hit(warrior1, FightType.Classic)
+        warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth
 
@@ -28,12 +27,12 @@ internal class VampireTest {
     @Test
     @DisplayName("Test Vampire class2")
     fun `Does vampirism parameter work for Warrior class`() {
-        val warrior1 = Vampire(Warrior())
+        val warrior1 = Vampire()
 
         val warrior2 = Warrior()
 
-        warrior2.hit(warrior1)
-        warrior1.hit(warrior2)
+        warrior2.hit(warrior1, FightType.Classic)
+        warrior1.hit(warrior2, FightType.Classic)
 
         val res = warrior1.getHealth == 37
 
@@ -44,11 +43,11 @@ internal class VampireTest {
     @DisplayName("1. Fight")
     fun `Vampire  wins against Warrior`() {
         // given
-        val carl = Vampire(Warrior())
+        val carl = Vampire()
         val tim = Warrior()
 
         // when
-        Battle.fight(carl, tim)
+        TestBattle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
@@ -59,11 +58,11 @@ internal class VampireTest {
     @DisplayName("2. Fight")
     fun `Vampire  losses against Knight`() {
         // given
-        val carl = Vampire(Warrior())
-        val tim = Knight(Warrior())
+        val carl = Vampire()
+        val tim = Knight()
 
         // when
-        Battle.fight(carl, tim)
+        TestBattle.fight(carl, tim)
 
         val res = carl.isAlive
         // then
@@ -71,17 +70,4 @@ internal class VampireTest {
     }
 
 
-    @Test
-    @DisplayName("1. Battle")
-    fun `Vampires win`() {
-        // given
-        val firstArmy = Army()
-        firstArmy.addUnits(20, WarriorType.Vampire)
-        val secondArmy = Army()
-        secondArmy.addUnits(11, WarriorType.Knight)
-        // when
-        val res = Battle.fight(firstArmy, secondArmy)
-        // then
-        assertEquals(true, res)
-    }
 }

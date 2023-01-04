@@ -1,4 +1,4 @@
-package game.factory
+package game.testFactory
 
 import game.characters.*
 import game.enums.WarriorType
