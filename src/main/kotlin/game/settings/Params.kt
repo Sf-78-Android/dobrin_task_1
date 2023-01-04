@@ -42,6 +42,12 @@ object Params {
         const val DEFENCE  = 2
 
     }
+    object Archer {
+        const val HEALTH = 25
+        const val ATTACK = 8
+
+
+    }
 
     // Weapons
 

@@ -17,8 +17,11 @@ class Army : Receiver() {
         repeat(quantity) {
             val warrior = getWarrior(type)
             if (warrior is Warlord && !this.containsWarlord()) {
+
+                warrior.warriorIfFront = currentWarrior
                 units.add(warrior)
-            } else if (warrior !is Warlord) {
+
+            } else {
                 if (units.isEmpty()) {
                     currentWarrior = warrior
                     units.add(warrior)

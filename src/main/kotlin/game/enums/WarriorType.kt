@@ -7,5 +7,6 @@ enum class WarriorType {
     Defender,
     Healer,
     Vampire,
-    Warlord
+    Warlord,
+    Archer
 }

@@ -14,6 +14,7 @@ fun getWarrior(type: WarriorType): BaseWarrior {
         WarriorType.Defender -> Defender()
         WarriorType.Healer -> Healer()
         WarriorType.Warlord -> Warlord()
+        WarriorType.Archer -> Archer()
     }
 
     return warrior

@@ -5,8 +5,8 @@ class AddOrders(sender: Sender, receivers: MutableList<Receiver>) {
         val healCommand = HealCommand(receivers)
         val moveTroopsCommand = MoveUnitsCommand(receivers)
         val clearDead = ClearDeadCommand(receivers)
-
-        sender.setCommand(mutableListOf(healCommand, moveTroopsCommand, clearDead))
+        val sendArrows = ArrowVolleyCommand(receivers)
+        sender.setCommand(mutableListOf(healCommand, moveTroopsCommand, clearDead,sendArrows))
 
     }
 

@@ -7,6 +7,7 @@ import game.interfaces.BaseWarrior
 
 abstract class WarriorDecorator : BaseWarrior {
 
+
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
         opponent.receiveDamage(this.getAttack)
     }
@@ -14,7 +15,7 @@ abstract class WarriorDecorator : BaseWarrior {
 
     abstract override fun receiveDamage(damage: Int)
 
-    abstract override fun restoreHp(amountHp: Int)
+   abstract  override fun restoreHp(amountHp: Int)
 
 
     override val isAlive: Boolean

@@ -23,4 +23,7 @@ class Sender {
     fun clearDead() {
         commandList.stream().filter { it is ClearDeadCommand }.findFirst().get().execute()
     }
+    fun sendArrows() {
+        commandList.stream().filter { it is ArrowVolleyCommand }.findFirst().get().execute()
+    }
 }

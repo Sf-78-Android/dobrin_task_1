@@ -17,6 +17,10 @@ open class Receiver {
         }
     }
 
+    fun sendArrows(){
+        //TODO make command for Archers to volley arrows
+    }
+
     fun moveUnits() {
         if (this.containsWarlord()) {
             val healers = getHealers()
@@ -60,7 +64,7 @@ open class Receiver {
 
     private fun updatePositions() {
 
-        for (i in 1 until units.size - 1) {
+        for (i in 1 until units.size) {
             units[i - 1].warriorBehind = units[i]
             units[i].warriorIfFront = units[i - 1]
         }
