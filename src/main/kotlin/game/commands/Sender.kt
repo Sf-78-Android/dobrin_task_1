@@ -23,7 +23,7 @@ class Sender {
     fun clearDead() {
         commandList.stream().filter { it is ClearDeadCommand }.findFirst().get().execute()
     }
-    fun sendArrows() {
-        commandList.stream().filter { it is ArrowVolleyCommand }.findFirst().get().execute()
+    fun sendArrows(attacker: BaseWarrior, defender: BaseWarrior) {
+        commandList.stream().filter { it is ArrowVolleyCommand }.findFirst().get().execute(attacker,defender)
     }
 }

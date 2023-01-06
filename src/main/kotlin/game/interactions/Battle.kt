@@ -18,6 +18,7 @@ object Battle : Fightable {
             attacker.hit(defender, FightType.Classic)
             if (!singleFight(warrior1, warrior2)) {
                 sender.commandHeal(attacker)
+                sender.sendArrows(attacker,defender)
             }
             attacker = defender.also { defender = attacker }
         }

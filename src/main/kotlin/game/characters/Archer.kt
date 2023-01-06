@@ -4,9 +4,10 @@ import game.decorators.WarriorDecorator
 import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.interfaces.CanShoot
 import game.settings.Params
 
-class Archer : WarriorDecorator() {
+class Archer : WarriorDecorator(), CanShoot {
 
     private var initialHealth = Params.Archer.HEALTH
     private var health: Int = Params.Archer.HEALTH
@@ -45,5 +46,13 @@ class Archer : WarriorDecorator() {
         this.initialHealth+=weapon.getHealth()
         this.health=initialHealth
         this.attack+=weapon.getAttack()
+    }
+
+    override fun shoot(target: BaseWarrior) {
+        if (target is Warlord){
+            target.receiveDamage(this.attack*3)
+        } else {
+            target.receiveDamage(this.attack)
+        }
     }
 }

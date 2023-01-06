@@ -7,4 +7,6 @@ abstract class Command(val receivers: MutableList<Receiver>) {
     abstract fun execute()
     open fun execute(attacker: BaseWarrior) {
     }
+    open fun execute(attacker: BaseWarrior,defender: BaseWarrior) {
+    }
 }

@@ -1,11 +1,13 @@
 package game.commands
 
+import game.characters.Archer
 import game.characters.Healer
 import game.characters.Lancer
 import game.characters.Warlord
 import game.collections.Army
 import game.interfaces.BaseWarrior
 import java.util.*
+import kotlin.random.Random
 
 open class Receiver {
     val units = mutableListOf<BaseWarrior>()
@@ -17,8 +19,13 @@ open class Receiver {
         }
     }
 
-    fun sendArrows(){
-        //TODO make command for Archers to volley arrows
+    fun sendArrows(targets: Receiver){
+       for (warrior in units) {
+           if (warrior is Archer && warrior.isAlive) {
+               val randomIndex : Int = Random.nextInt(0, targets.units.size)
+               warrior.shoot(targets.units[randomIndex])
+           }
+       }
     }
 
     fun moveUnits() {
