@@ -1,34 +1,23 @@
+import game.characters.Healer
+import game.characters.Knight
+import game.characters.Lancer
+import game.characters.Warlord
 import game.collections.Army
 import game.enums.WarriorType
-import game.interactions.Battle
+import game.interactions.Battle.fight
+import game.characters.Vampire as Vampire
 
 
 fun main() {
+    val ronald = Warlord()
+    val heimdall = Knight()
+
+    assert(fight(heimdall, ronald) == false)
 
 
-    val army1 = Army().apply {
-        addUnits(1, WarriorType.Warrior)
-        addUnits(1, WarriorType.Knight)
-        addUnits(1, WarriorType.Lancer)
-        addUnits(1, WarriorType.Defender)
-        addUnits(1, WarriorType.Vampire)
-    }
 
-
-    val army2 = Army().apply {
-        addUnits(1, WarriorType.Warrior)
-        addUnits(1, WarriorType.Knight)
-        addUnits(1, WarriorType.Lancer)
-        addUnits(3, WarriorType.Defender)
-        addUnits(1, WarriorType.Vampire)
-    }
-
-    check(!Battle.fight(army1, army2))
-
-
-    println("OK")
-
-
+    print("OK")
+  
 }
 
 
