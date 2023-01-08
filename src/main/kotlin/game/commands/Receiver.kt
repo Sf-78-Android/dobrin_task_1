@@ -12,6 +12,7 @@ import kotlin.random.Random
 
 open class Receiver {
     val units = mutableListOf<BaseWarrior>()
+    var sorted : Boolean = false
     fun heal() {
         for (warrior in units) {
             if (warrior is Healer && warrior.isAlive) {
@@ -66,6 +67,7 @@ open class Receiver {
 
 
             updatePositions()
+            sorted = true
         }
     }
 
@@ -126,11 +128,15 @@ open class Receiver {
     fun clearDeadBodies() {
         val newList: MutableList<BaseWarrior> = ArrayList()
         units.filter { !it.isAlive }.forEach { newList.add(it) }
+        if (newList.size > 0 ){
+            sorted = false
+        }
         units.removeAll(newList)
     }
 
     fun contains(attacker: BaseWarrior): Boolean {
         return units.contains(attacker)
     }
+
 
 }
