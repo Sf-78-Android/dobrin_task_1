@@ -76,12 +76,14 @@ object Battle : Fightable {
     override fun fight(army1: Army, army2: Army): Boolean {
         AddOrders(sender, mutableListOf(army1, army2))
         sender.commandMove()
+
         while (army1.hasTroopsLeft && army2.hasTroopsLeft) {
             val warrior1 = army1.nextWarrior()
             val warrior2 = army2.nextWarrior()
             fight(warrior1, warrior2)
             sender.clearDead()
             sender.commandMove()
+
         }
         return army1.hasTroopsLeft
     }

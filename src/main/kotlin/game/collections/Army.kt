@@ -1,6 +1,7 @@
 package game.collections
 
 import game.characters.Warlord
+import game.characters.Warrior
 import game.commands.Receiver
 import game.enums.WarriorType
 import game.factory.getWarrior
@@ -22,10 +23,10 @@ class Army : Receiver() {
                 units.add(warrior)
 
             } else {
-                if (units.isEmpty()) {
+                if (units.isEmpty() && warrior !is Warlord) {
                     currentWarrior = warrior
                     units.add(warrior)
-                } else {
+                } else if (warrior !is Warlord) {
                     currentWarrior?.warriorBehind = warrior.also { currentWarrior = warrior }
                     units.add(warrior)
                     warrior.warriorIfFront = units[units.indexOf(warrior) - 1]

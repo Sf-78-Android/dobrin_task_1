@@ -7,6 +7,7 @@ import game.characters.Warlord
 import game.collections.Army
 import game.interfaces.BaseWarrior
 import java.util.*
+import javax.print.attribute.standard.MediaSize.Other
 import kotlin.random.Random
 
 open class Receiver {
@@ -31,8 +32,9 @@ open class Receiver {
     fun moveUnits() {
         if (this.containsWarlord()) {
             val healers = getHealers()
-            val lancers = getLancers()
+            val lancers = getLancers(LinkedList<Lancer>())
             val otherUnits = getOtherUnits()
+            val archers = getArchers(LinkedList<Archer>())
 
 
             val warlord = getWarlord()
@@ -43,8 +45,8 @@ open class Receiver {
 
             if (units[0] !is Lancer && !lancers.isEmpty()) {
                 val lancer = lancers.poll()
-                this.units[0] = this.units[lancer].also { this.units[lancer] = this.units[0] }
-            } else if (!otherUnits.isEmpty() && !healers.isEmpty() && units[0] !is Lancer) {
+                this.units[0] = this.units[units.indexOf(lancer)].also { this.units[units.indexOf(lancer)] = this.units[0] }
+            } else if (!otherUnits.isEmpty()  && units[0] !is Lancer) {
                 val unit = otherUnits.poll()
                 units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
             }
@@ -55,17 +57,28 @@ open class Receiver {
                 index++
             }
 
+            index = units.size-2
+            while (!archers.isEmpty() && !otherUnits.isEmpty()){
+                val archer = archers.poll()
+                units[index] = units[units.indexOf(archer)].also { units[units.indexOf(archer)] = units[index] }
+                index--
+            }
+
+
             updatePositions()
         }
     }
 
-    fun containsWarlord(): Boolean {
-        for (unit in units) {
-            if (unit is Warlord) {
-                return true
-            }
+    private fun getArchers(queue : LinkedList<Archer>): LinkedList<Archer> {
+        val archers = this.units.stream().filter { it is Archer }.toList()
+        for (archer in archers) {
+            queue.add(archer as Archer)
         }
-        return false
+        return queue
+    }
+
+    fun containsWarlord(): Boolean {
+       return  units.stream().filter { it is Warlord }.count().toInt() == 1
     }
 
 
@@ -79,18 +92,17 @@ open class Receiver {
 
     }
 
-    private fun getLancers(): LinkedList<Int> {
-        val queue = LinkedList<Int>()
+    private fun getLancers(queue: LinkedList<Lancer>): LinkedList<Lancer> {
         val lancers = this.units.stream().filter { it is Lancer }.toList()
         for (lancer in lancers) {
-            queue.add(units.indexOf(lancer))
+            queue.add(lancer as Lancer)
         }
         return queue
     }
 
     private fun getOtherUnits(): LinkedList<BaseWarrior> {
         val queue = LinkedList<BaseWarrior>()
-        val warriors = units.stream().filter { it !is Lancer && it !is Healer && it !is Warlord }.toList()
+        val warriors = units.stream().filter { it !is Lancer && it !is Healer && it !is Warlord && it !is Archer }.toList()
         for (warrior in warriors) {
             queue.add(warrior)
         }

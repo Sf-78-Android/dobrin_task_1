@@ -1,7 +1,6 @@
 package game.commands
 
 import game.interfaces.BaseWarrior
-import kotlin.random.Random
 
 
 class ArrowVolleyCommand(receivers: MutableList<Receiver>) : Command(receivers){

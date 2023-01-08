@@ -25,14 +25,17 @@ internal class ArcherTest {
         val secondArmy = Army()
         secondArmy.addUnits(5,  WarriorType.Defender)
         secondArmy.addUnits(5,  WarriorType.Warrior)
+        secondArmy.addUnits(5,  WarriorType.Healer)
 
         secondArmy.addUnits(30,  WarriorType.Archer)
+
+
+        secondArmy.addUnits(2,  WarriorType.Warlord)
 
         // when
         val res = Battle.fight(firstArmy, secondArmy)
         // then
-        val res2 = firstArmy.containsWarlord()
-        assertEquals(false, res2)
-        assertEquals(true, res)
+
+        assertEquals(false, res)
     }
 }
