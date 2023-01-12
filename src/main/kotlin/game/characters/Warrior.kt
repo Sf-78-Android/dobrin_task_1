@@ -1,33 +1,52 @@
 package game.characters
 
 
-import game.interfaces.BaseWarrior
+import game.decorators.WarriorDecorator
+import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
-class Warrior : BaseWarrior {
-    private val initialHealth = Params.Warrior.HEALTH
-    private val attack: Int = Params.Warrior.ATTACK
+class Warrior : WarriorDecorator() {
+    private var initialHealth = Params.Warrior.HEALTH
+    private var attack: Int = Params.Warrior.ATTACK
+        private set(value) {
+            field = value.coerceAtLeast(Constants.ZERO)
+        }
     private var health: Int = Params.Warrior.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
-    override val isAlive: Boolean
-        get() = health > 0
 
-    override fun hit(opponent: BaseWarrior) {
-        opponent.receiveDamage(attack)
-    }
+
+    override val getHealth: Int
+        get() = health
+    override val getAttack: Int
+        get() = attack
+
 
     override fun receiveDamage(damage: Int) {
         health -= damage
     }
 
+    override fun restoreHp(amountHp: Int) {
+        health += amountHp
+    }
 
-    override var warriorBehind: BaseWarrior? = null
 
+    override fun equipWeapon(weapon: BaseWeapon) {
+        weapons.addWeapon(weapon)
+        initialHealth += weapon.getHealth()
+        health = initialHealth
+        attack += weapon.getAttack()
 
-    override val getHealth: Int
-        get() = health
+    }
+
+    override fun toString(): String {
+        return """Warrior
+      Health = ${this.getHealth}
+      Attack = ${this.getAttack}
+     """
+    }
 
 }
 
