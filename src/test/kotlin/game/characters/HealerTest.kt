@@ -56,7 +56,7 @@ internal class HealerTest {
         val res = Battle.fight(Army2, Army1)
         val res2 = warrior1.getHealth
         assertEquals(false, res)
-        assertEquals(60, res2)
+        assertEquals(50, res2)
     }
 
     @Test

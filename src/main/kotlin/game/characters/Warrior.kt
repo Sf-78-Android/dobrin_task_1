@@ -3,17 +3,18 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
 class Warrior : WarriorDecorator() {
     private var initialHealth = Params.Warrior.HEALTH
     private var attack: Int = Params.Warrior.ATTACK
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
     private var health: Int = Params.Warrior.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
 
 

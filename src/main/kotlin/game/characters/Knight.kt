@@ -2,6 +2,7 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
 
@@ -9,11 +10,11 @@ class Knight : WarriorDecorator() {
     private var initialHealth = Params.Knight.HEALTH
     private var health: Int = Params.Knight.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
     private var attack: Int = Params.Knight.ATTACK
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
 
 

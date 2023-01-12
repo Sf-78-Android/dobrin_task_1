@@ -57,7 +57,7 @@ class WeaponTest2 {
                 Arguments.of(Healer(), Weapon.Builder().vampirism(5), 60),
                 Arguments.of(Defender(), Weapon.Builder().vampirism(5), 60),
                 Arguments.of(Warrior(), Weapon.Builder().vampirism(5), 50),
-                Arguments.of(Lancer(), Weapon.Builder().vampirism(5), 60),
+                Arguments.of(Lancer(), Weapon.Builder().vampirism(5), 50),
                 Arguments.of(Vampire(), Weapon.Builder().healingPower(5), 40),
 
             )

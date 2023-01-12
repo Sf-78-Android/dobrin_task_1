@@ -7,6 +7,7 @@ import game.enums.WarriorType
 import game.factory.getWarrior
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 
 class Army : Receiver() {
 
@@ -17,20 +18,15 @@ class Army : Receiver() {
 
         repeat(quantity) {
             val warrior = getWarrior(type)
-            if (warrior is Warlord && !this.containsWarlord()) {
 
+            if (warrior is Warlord && !this.containsWarlord()) {
                 warrior.warriorIfFront = currentWarrior
                 units.add(warrior)
-
-            } else {
-                if (units.isEmpty() && warrior !is Warlord) {
-                    currentWarrior = warrior
-                    units.add(warrior)
-                } else if (warrior !is Warlord) {
-                    currentWarrior?.warriorBehind = warrior.also { currentWarrior = warrior }
-                    units.add(warrior)
-                    warrior.warriorIfFront = units[units.indexOf(warrior) - 1]
-                }
+            } else if(warrior !is Warlord) {
+                units.add(warrior)
+            }
+            if (units.size > 1) {
+                this.updatePositions()
             }
         }
     }
@@ -45,7 +41,7 @@ class Army : Receiver() {
     }
 
     val hasTroopsLeft: Boolean
-        get() = units.size > 0
+        get() = units.size > Constants.ZERO
 
     val size: Int
         get() = units.size

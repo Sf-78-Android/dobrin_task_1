@@ -6,6 +6,7 @@ import game.characters.Lancer
 import game.characters.Warlord
 import game.collections.Army
 import game.interfaces.BaseWarrior
+import game.settings.Constants
 import java.util.*
 import javax.print.attribute.standard.MediaSize.Other
 import kotlin.random.Random
@@ -24,7 +25,7 @@ open class Receiver {
     fun sendArrows(targets: Receiver){
        for (warrior in units) {
            if (warrior is Archer && warrior.isAlive) {
-               val randomIndex : Int = Random.nextInt(0, targets.units.size)
+               val randomIndex : Int = Random.nextInt(Constants.ZERO, targets.units.size)
                warrior.shoot(targets.units[randomIndex])
            }
        }
@@ -39,19 +40,19 @@ open class Receiver {
 
 
             val warlord = getWarlord()
-            this.units[this.units.size - 1] =
-                warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - 1] }
+            this.units[this.units.size - Constants.ONE] =
+                warlord.also { this.units[this.units.indexOf(warlord)] = units[units.size - Constants.ONE] }
 
 
 
-            if (units[0] !is Lancer && !lancers.isEmpty()) {
+            if (units[Constants.ZERO] !is Lancer && !lancers.isEmpty()) {
                 val lancer = lancers.poll()
-                this.units[0] = this.units[units.indexOf(lancer)].also { this.units[units.indexOf(lancer)] = this.units[0] }
-            } else if (!otherUnits.isEmpty()  && units[0] !is Lancer) {
+                this.units[Constants.ZERO] = this.units[units.indexOf(lancer)].also { this.units[units.indexOf(lancer)] = this.units[Constants.ZERO] }
+            } else if (!otherUnits.isEmpty()  && units[Constants.ZERO] !is Lancer) {
                 val unit = otherUnits.poll()
-                units[0] = unit.also { units[units.indexOf(unit)] = units[0] }
+                units[Constants.ZERO] = unit.also { units[units.indexOf(unit)] = units[Constants.ZERO] }
             }
-            var index = 1
+            var index = Constants.ONE
             while (!healers.isEmpty() && !otherUnits.isEmpty()) {
                 val healer = healers.poll()
                 units[index] = healer.also { units[units.indexOf(healer)] = units[index] }
@@ -80,17 +81,17 @@ open class Receiver {
     }
 
     fun containsWarlord(): Boolean {
-       return  units.stream().filter { it is Warlord }.count().toInt() == 1
+       return  units.stream().filter { it is Warlord }.count().toInt() == Constants.ONE
     }
 
 
-    private fun updatePositions() {
+    protected fun updatePositions() {
 
-        for (i in 1 until units.size) {
-            units[i - 1].warriorBehind = units[i]
-            units[i].warriorIfFront = units[i - 1]
+        for (i in Constants.ONE until units.size) {
+            units[i - Constants.ONE].warriorBehind = units[i]
+            units[i].warriorIfFront = units[i - Constants.ONE]
         }
-        units[units.size - 1].warriorBehind = null
+        units[units.size - Constants.ONE].warriorBehind = null
 
     }
 
@@ -128,7 +129,7 @@ open class Receiver {
     fun clearDeadBodies() {
         val newList: MutableList<BaseWarrior> = ArrayList()
         units.filter { !it.isAlive }.forEach { newList.add(it) }
-        if (newList.size > 0 ){
+        if (newList.size > Constants.ZERO ){
             sorted = false
         }
         units.removeAll(newList)

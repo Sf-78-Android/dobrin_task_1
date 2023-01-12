@@ -2,21 +2,22 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
 class Defender : WarriorDecorator() {
     private var initialHealth = Params.Defender.HEALTH
     private var health: Int = Params.Defender.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
     private var attack: Int = Params.Defender.ATTACK
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
     private var defence: Int = Params.Defender.DEFENCE
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
 
 
@@ -29,7 +30,7 @@ class Defender : WarriorDecorator() {
 
 
     override fun receiveDamage(damage: Int) {
-        health -= (damage - defence).coerceAtLeast(0)
+        health -= (damage - defence).coerceAtLeast(Constants.ZERO)
     }
 
     override fun restoreHp(amountHp: Int) {

@@ -4,17 +4,18 @@ import game.decorators.WarriorDecorator
 import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
 class Lancer : WarriorDecorator() {
     private var initialHealth = Params.Lancer.HEALTH
     private var health: Int = Params.Lancer.HEALTH
         private set(value) {
-            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
     private var attack: Int = Params.Lancer.ATTACK
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
     private val pierce = Params.Lancer.PIERCING_POWER
 
@@ -34,7 +35,7 @@ class Lancer : WarriorDecorator() {
 
 
     override val isAlive: Boolean
-        get() = health > 0
+        get() = health > Constants.ZERO
 
 
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
@@ -42,7 +43,7 @@ class Lancer : WarriorDecorator() {
         opponent.receiveDamage(attack)
         val damageDealt = healthBefore - opponent.getHealth
         if (fightType == FightType.Classic) {
-            val damageToNext: Int = (damageDealt * pierce) / 100
+            val damageToNext: Int = (damageDealt * pierce) / Constants.ONE_HUNDRED
             if (opponent.warriorBehind?.isAlive == false) {
                 opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
             }

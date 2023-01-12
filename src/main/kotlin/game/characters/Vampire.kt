@@ -4,21 +4,22 @@ import game.decorators.WarriorDecorator
 import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 import game.settings.Params
 
 class Vampire : WarriorDecorator() {
     private var initialHealth = Params.Vampire.HEALTH
     private var health = initialHealth
         private set(value) {
-            field = value.coerceAtMost(initialHealth).coerceAtLeast(0)
+            field = value.coerceAtMost(initialHealth).coerceAtLeast(Constants.ZERO)
         }
     private var attack: Int = Params.Vampire.ATTACK
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
     private var vampirism: Int = Params.Vampire.VAMPIRISM
         private set(value) {
-            field = value.coerceAtLeast(0)
+            field = value.coerceAtLeast(Constants.ZERO)
         }
 
 
@@ -34,7 +35,7 @@ class Vampire : WarriorDecorator() {
         val healthBefore = opponent.getHealth
         opponent.receiveDamage(attack)
         val damageDealt = healthBefore - opponent.getHealth
-        val healPoints = (damageDealt * vampirism) / 100
+        val healPoints = (damageDealt * vampirism) / Constants.ONE_HUNDRED
         restoreHp(healPoints)
     }
 

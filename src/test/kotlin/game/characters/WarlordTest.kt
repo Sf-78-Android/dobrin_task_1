@@ -106,7 +106,7 @@ internal class WarlordTest {
 // negative index means from the last position, so -1 == last
         assert(myArmy.getWarriorAtPosition(myArmy.size-1) !is Warlord)
 
-        assert(enemyArmy.getWarriorAtPosition(0)is Vampire)
+        assert(enemyArmy.getWarriorAtPosition(0) is Vampire)
         assert(enemyArmy.getWarriorAtPosition(enemyArmy.size-1) is Warlord)
         assert(enemyArmy.getWarriorAtPosition(enemyArmy.size-2) is Knight)
 

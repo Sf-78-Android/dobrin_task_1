@@ -1,6 +1,7 @@
 package game.weapons
 
 import game.decorators.WeaponDecorator
+import game.settings.Constants
 
 open class Weapon : WeaponDecorator() {
 
@@ -20,23 +21,23 @@ open class Weapon : WeaponDecorator() {
 
 
         override fun getHealth(): Int {
-            return this.health ?: 0
+            return this.health ?: Constants.ZERO
         }
 
         override fun getAttack(): Int {
-            return this.attack ?: 0
+            return this.attack ?: Constants.ZERO
         }
 
         override fun getDefence(): Int {
-            return this.defence ?: 0
+            return this.defence ?: Constants.ZERO
         }
 
         override fun getVampirism(): Int {
-            return this.vampirism ?: 0
+            return this.vampirism ?: Constants.ZERO
         }
 
         override fun getHealingPower(): Int {
-            return this.healingPower ?: 0
+            return this.healingPower ?: Constants.ZERO
         }
     }
 

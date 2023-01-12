@@ -1,6 +1,7 @@
 package game.weapons
 
 import game.decorators.WeaponDecorator
+import game.settings.Constants
 import game.settings.Params
 
 class GreatAxe(
@@ -28,6 +29,6 @@ class GreatAxe(
     }
 
     override fun getHealingPower(): Int {
-        return 0
+        return Constants.ZERO
     }
 }

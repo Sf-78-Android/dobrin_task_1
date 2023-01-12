@@ -1,6 +1,7 @@
 package game.weapons
 
 import game.decorators.WeaponDecorator
+import game.settings.Constants
 import game.settings.Params
 
 class MagicWand(
@@ -22,10 +23,10 @@ class MagicWand(
     }
 
     override fun getDefence(): Int {
-        return 0
+        return Constants.ZERO
     }
 
     override fun getVampirism(): Int {
-        return 0
+        return Constants.ZERO
     }
 }

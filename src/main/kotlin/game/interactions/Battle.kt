@@ -6,6 +6,7 @@ import game.commands.Sender
 import game.enums.FightType
 import game.interfaces.BaseWarrior
 import game.interfaces.Fightable
+import game.settings.Constants
 
 object Battle : Fightable {
     private val sender = Sender()
@@ -53,7 +54,7 @@ object Battle : Fightable {
             }
             val deadPositionsArmy1 = mutableListOf<BaseWarrior>()
             val deadPositionsArmy2 = mutableListOf<BaseWarrior>()
-            for (i in 0 until size) {
+            for (i in Constants.ZERO until size) {
                 if (straightFight(army1.getWarriorAtPosition(i), army2.getWarriorAtPosition(i))) {
                     deadPositionsArmy2.add(army2.getWarriorAtPosition(i))
                 } else {
@@ -61,10 +62,10 @@ object Battle : Fightable {
                 }
             }
 
-            for (i in 0 until deadPositionsArmy1.size) {
+            for (i in Constants.ZERO until deadPositionsArmy1.size) {
                 army1.killedWarrior(deadPositionsArmy1[i])
             }
-            for (i in 0 until deadPositionsArmy2.size) {
+            for (i in Constants.ZERO until deadPositionsArmy2.size) {
                 army2.killedWarrior(deadPositionsArmy2[i])
             }
         }

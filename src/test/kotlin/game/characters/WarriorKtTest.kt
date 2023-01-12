@@ -149,7 +149,7 @@ internal class WarriorKtTest {
 
         assertAll(
             { assertEquals(expected, res1, "Fight result is correct") },
-            { assertEquals(17, res2, "Check that Healer doesn't heal in a straight fight") }
+            { assertEquals(13, res2, "Check that Healer doesn't heal in a straight fight") }
         )
     }
 

@@ -1,6 +1,7 @@
 package game.weapons
 
 import game.decorators.WeaponDecorator
+import game.settings.Constants
 import game.settings.Params
 
 class Katana(
@@ -27,6 +28,6 @@ class Katana(
     }
 
     override fun getHealingPower(): Int {
-        return 0
+        return Constants.ZERO
     }
 }

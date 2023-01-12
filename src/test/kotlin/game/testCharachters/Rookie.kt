@@ -2,10 +2,11 @@ package game.testCharachters
 
 import game.decorators.WarriorDecorator
 import game.interfaces.BaseWeapon
+import game.settings.Constants
 
 class Rookie : WarriorDecorator() {
-    private var health = 20
-    private val attack = 0
+    private var health = Constants.TWENTY
+    private val attack = Constants.ZERO
 
     override fun receiveDamage(damage: Int) {
       health-=damage
