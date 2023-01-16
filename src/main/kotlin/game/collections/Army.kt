@@ -25,7 +25,7 @@ class Army : Receiver() {
             } else if(warrior !is Warlord) {
                 units.add(warrior)
             }
-            if (units.size > 1) {
+            if (units.size > Constants.ONE) {
                 this.updatePositions()
             }
         }

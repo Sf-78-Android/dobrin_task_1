@@ -39,5 +39,6 @@ class Warlord : WarriorDecorator() {
         health = initialHealth
         attack += weapon.getAttack()
         defence += weapon.getDefence()
+        this.equippedWeapon(weapon)
     }
 }

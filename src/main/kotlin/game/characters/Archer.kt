@@ -2,11 +2,13 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.enums.FightType
+import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.interfaces.CanShoot
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate.archerHitsWarlord
 
 class Archer : WarriorDecorator(), CanShoot {
 
@@ -22,9 +24,8 @@ class Archer : WarriorDecorator(), CanShoot {
 
 
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
-        if (fightType == FightType.Classic){
+        if (fightType == FightType.Classic)
             opponent.receiveDamage(this.attack/Constants.TWO)
-        }
     }
 
 
@@ -47,11 +48,14 @@ class Archer : WarriorDecorator(), CanShoot {
         this.initialHealth+=weapon.getHealth()
         this.health=initialHealth
         this.attack+=weapon.getAttack()
+        this.equippedWeapon(weapon)
     }
 
     override fun shoot(target: BaseWarrior) {
         if (target is Warlord){
-            target.receiveDamage(this.attack*Constants.THREE)
+            val tripleDamage = this.attack*Constants.THREE
+            target.receiveDamage(tripleDamage)
+            Battle.getLog().logMessage(String.format(archerHitsWarlord,this.javaClass.simpleName,target.javaClass.simpleName, tripleDamage))
         } else {
             target.receiveDamage(this.attack)
         }

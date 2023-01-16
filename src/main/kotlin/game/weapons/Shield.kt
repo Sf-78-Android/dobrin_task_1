@@ -21,4 +21,8 @@ class Shield(
     override fun getDefence(): Int {
         return this.defence
     }
+
+    override fun toString(): String {
+        return this.javaClass.simpleName
+    }
 }

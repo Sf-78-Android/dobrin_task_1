@@ -39,6 +39,10 @@ open class Weapon : WeaponDecorator() {
         override fun getHealingPower(): Int {
             return this.healingPower ?: Constants.ZERO
         }
+
+        override fun toString(): String {
+            return "CustomWeapon"
+        }
     }
 
 

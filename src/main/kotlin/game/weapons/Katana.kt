@@ -30,4 +30,8 @@ class Katana(
     override fun getHealingPower(): Int {
         return Constants.ZERO
     }
+
+    override fun toString(): String {
+        return this.javaClass.simpleName
+    }
 }

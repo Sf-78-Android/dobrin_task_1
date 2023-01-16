@@ -1,11 +1,13 @@
 package game.characters
 
 import game.decorators.WarriorDecorator
+import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.interfaces.CanHeal
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate.healerMsg
 
 class Healer : WarriorDecorator(), CanHeal {
     private var initialHealth = Params.Healer.HEALTH
@@ -44,10 +46,13 @@ class Healer : WarriorDecorator(), CanHeal {
         initialHealth += weapon.getHealth()
         health = initialHealth
         healingPower += weapon.getHealingPower()
+        this.equippedWeapon(weapon)
     }
 
     override fun heal(allyInFront: BaseWarrior) {
         allyInFront.restoreHp(this.healingPower)
+        Battle.getLog().logMessage(String.format(healerMsg,this.javaClass.simpleName,allyInFront.javaClass.simpleName,allyInFront.getHealth))
+
     }
 
 

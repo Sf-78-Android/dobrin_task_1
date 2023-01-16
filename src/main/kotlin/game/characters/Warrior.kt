@@ -38,7 +38,7 @@ class Warrior : WarriorDecorator() {
         initialHealth += weapon.getHealth()
         health = initialHealth
         attack += weapon.getAttack()
-
+        this.equippedWeapon(weapon)
     }
 
     override fun toString(): String {
