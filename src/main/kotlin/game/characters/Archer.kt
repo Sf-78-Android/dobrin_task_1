@@ -8,6 +8,7 @@ import game.interfaces.BaseWeapon
 import game.interfaces.CanShoot
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate
 import log.constants.MsgTemplate.archerHitsWarlord
 
 class Archer : WarriorDecorator(), CanShoot {
@@ -24,18 +25,27 @@ class Archer : WarriorDecorator(), CanShoot {
 
 
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
-        if (fightType == FightType.Classic)
-            opponent.receiveDamage(this.attack/Constants.TWO)
+        if (fightType == FightType.Classic) {
+            opponent.receiveDamage(this.attack / Constants.TWO)
+            Battle.getLog().logMessage(
+                String.format(
+                    MsgTemplate.warriorHitMsg,
+                    this.javaClass.simpleName,
+                    opponent.javaClass.simpleName,
+                    this.getAttack,
+                    opponent.getHealth
+                )
+            )
+        }
     }
-
 
 
     override fun receiveDamage(damage: Int) {
-       this.health-=damage
+        this.health -= damage
     }
 
     override fun restoreHp(amountHp: Int) {
-        this.health+=amountHp
+        this.health += amountHp
     }
 
     override val getHealth: Int
@@ -45,17 +55,24 @@ class Archer : WarriorDecorator(), CanShoot {
 
     override fun equipWeapon(weapon: BaseWeapon) {
         weapons.addWeapon(weapon)
-        this.initialHealth+=weapon.getHealth()
-        this.health=initialHealth
-        this.attack+=weapon.getAttack()
+        this.initialHealth += weapon.getHealth()
+        this.health = initialHealth
+        this.attack += weapon.getAttack()
         this.equippedWeapon(weapon)
     }
 
     override fun shoot(target: BaseWarrior) {
-        if (target is Warlord){
-            val tripleDamage = this.attack*Constants.THREE
+        if (target is Warlord) {
+            val tripleDamage = this.attack * Constants.THREE
             target.receiveDamage(tripleDamage)
-            Battle.getLog().logMessage(String.format(archerHitsWarlord,this.javaClass.simpleName,target.javaClass.simpleName, tripleDamage))
+            Battle.getLog().logMessage(
+                String.format(
+                    archerHitsWarlord,
+                    this.javaClass.simpleName,
+                    target.javaClass.simpleName,
+                    tripleDamage
+                )
+            )
         } else {
             target.receiveDamage(this.attack)
         }

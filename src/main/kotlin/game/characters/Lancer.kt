@@ -7,6 +7,7 @@ import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate
 import log.constants.MsgTemplate.lancerHitMsg
 
 class Lancer : WarriorDecorator() {
@@ -46,13 +47,27 @@ class Lancer : WarriorDecorator() {
         opponent.receiveDamage(getAttack)
         val damageDealt = healthBefore - opponent.getHealth
         if (fightType == FightType.Classic) {
-            val damageToNext: Int = (damageDealt * pierce) / Constants.ONE_HUNDRED
-            if (opponent.warriorBehind?.isAlive == false) {
-                opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
+            if (opponent.warriorBehind != null) {
+                val damageToNext: Int = (damageDealt * pierce) / Constants.ONE_HUNDRED
+                if (opponent.warriorBehind?.isAlive == false) {
+                    opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
+                }
+                opponent.warriorBehind?.receiveDamage(damageToNext)
+                Battle.getLog().logMessage(
+                    String.format(
+                        lancerHitMsg,
+                        this.javaClass.simpleName,
+                        opponent.javaClass.simpleName,
+                        damageDealt,
+                        opponent.warriorBehind?.javaClass?.simpleName,
+                        damageToNext
+                    )
+                )
+            } else {
+                Battle.getLog().logMessage(String.format(MsgTemplate.warriorHitMsg, this.javaClass.simpleName, opponent.javaClass.simpleName, this.getAttack, opponent.getHealth))
             }
-            opponent.warriorBehind?.receiveDamage(damageToNext)
-            Battle.getLog().logMessage(String.format(lancerHitMsg, this.javaClass.simpleName,opponent.javaClass.simpleName,damageDealt,opponent.warriorBehind?.javaClass?.simpleName,damageToNext))
         }
+
     }
 
     override fun receiveDamage(damage: Int) {

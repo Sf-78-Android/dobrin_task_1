@@ -8,6 +8,7 @@ import game.interfaces.BaseWarrior
 import game.interfaces.Fightable
 import game.settings.Constants
 import log.LoggerImpl
+import log.constants.MsgTemplate.armyWinnerMsg
 import log.constants.MsgTemplate.fightWinner
 
 object Battle : Fightable {
@@ -106,6 +107,9 @@ object Battle : Fightable {
             sender.commandMove()
 
         }
+        val armyWinner = if (army1.hasTroopsLeft) army1 else army2
+        val armyLoser = if (!army1.hasTroopsLeft) army1 else army2
+        logger.logMessage(String.format(armyWinnerMsg,armyWinner.toString(),armyLoser.toString()))
         return army1.hasTroopsLeft
     }
 
