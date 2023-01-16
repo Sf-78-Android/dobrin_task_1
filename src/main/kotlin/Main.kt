@@ -4,6 +4,7 @@ import game.enums.WarriorType
 import game.interactions.Battle
 import game.interactions.Battle.fight
 import game.interfaces.BaseWarrior
+import game.settings.Constants
 import log.constants.MsgTemplate.armyCreationMsg
 import log.constants.MsgTemplate.armyMsg
 import log.constants.MsgTemplate.firstWarriorCreationMsg
@@ -36,8 +37,8 @@ fun armyClassicFightGame(sc: Scanner) {
     val army2 = Army()
     var currentArmy: Army?
 
-    for (i in 0..1) {
-        currentArmy = if (i == 0) {
+    for (i in Constants.ZERO..Constants.ONE) {
+        currentArmy = if (i == Constants.ZERO) {
             army1
         } else {
             army2
@@ -47,12 +48,12 @@ fun armyClassicFightGame(sc: Scanner) {
         currentArmy.setArmyName(name)
         println(armyMsg)
         var select = sc.nextInt()
-        while (select != 9) {
+        while (select != Constants.NINE) {
 
             println(armyCreationMsg)
             println("Warrior Type:")
             select = sc.nextInt()
-            if (select == 9) {
+            if (select == Constants.NINE) {
                 break
             }
             val warrior = getWarriorType(select)
@@ -86,7 +87,7 @@ fun singleFightGame(sc: Scanner) {
     println(firstWarriorCreationMsg)
     while (sc.hasNextInt()) {
         var select = sc.nextInt()
-        if (select == 9) {
+        if (select == Constants.NINE) {
             break
         }
         val warrior1: BaseWarrior = getWarrior(select)
