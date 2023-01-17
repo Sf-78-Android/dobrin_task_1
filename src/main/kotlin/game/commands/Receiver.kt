@@ -4,17 +4,18 @@ import game.characters.Archer
 import game.characters.Healer
 import game.characters.Lancer
 import game.characters.Warlord
-import game.collections.Army
+import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.settings.Constants
+import log.constants.MsgTemplate.moveUnitsMsg
 import java.util.*
-import javax.print.attribute.standard.MediaSize.Other
 import kotlin.random.Random
 
 open class Receiver {
     val units = mutableListOf<BaseWarrior>()
     var sorted : Boolean = false
     fun heal() {
+
         for (warrior in units) {
             if (warrior is Healer && warrior.isAlive) {
                 warrior.warriorIfFront?.let { warrior.heal(it) }
@@ -24,7 +25,7 @@ open class Receiver {
 
     fun sendArrows(targets: Receiver){
        for (warrior in units) {
-           if (warrior is Archer && warrior.isAlive) {
+           if (warrior is Archer && warrior.isAlive && warrior.warriorIfFront != null) {
                val randomIndex : Int = Random.nextInt(Constants.ZERO, targets.units.size)
                warrior.shoot(targets.units[randomIndex])
            }
@@ -68,6 +69,7 @@ open class Receiver {
 
 
             updatePositions()
+            Battle.getLog().logMessage(moveUnitsMsg)
             sorted = true
         }
     }

@@ -16,4 +16,8 @@ class Sword(
     override fun getAttack(): Int {
         return this.attack
     }
+
+    override fun toString(): String {
+        return this.javaClass.simpleName
+    }
 }

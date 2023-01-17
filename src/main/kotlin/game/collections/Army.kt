@@ -10,7 +10,7 @@ import game.interfaces.BaseWeapon
 import game.settings.Constants
 
 class Army : Receiver() {
-
+    private var name : String? = null
     private var currentWarrior: BaseWarrior? = null
 
 
@@ -25,7 +25,7 @@ class Army : Receiver() {
             } else if(warrior !is Warlord) {
                 units.add(warrior)
             }
-            if (units.size > 1) {
+            if (units.size > Constants.ONE) {
                 this.updatePositions()
             }
         }
@@ -52,6 +52,14 @@ class Army : Receiver() {
 
     fun equipWarriorAtPosition(position: Int, weapon: BaseWeapon) {
         units[position].equipWeapon(weapon)
+    }
+
+    fun setArmyName(name : String) {
+        this.name =name
+    }
+
+    override fun toString(): String {
+        return "Army(name=$name)"
     }
 
 

@@ -2,10 +2,13 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.enums.FightType
+import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate
+import log.constants.MsgTemplate.lancerHitMsg
 
 class Lancer : WarriorDecorator() {
     private var initialHealth = Params.Lancer.HEALTH
@@ -30,6 +33,7 @@ class Lancer : WarriorDecorator() {
         initialHealth += weapon.getHealth()
         health = initialHealth
         attack += weapon.getAttack()
+        this.equippedWeapon(weapon)
 
     }
 
@@ -40,15 +44,30 @@ class Lancer : WarriorDecorator() {
 
     override fun hit(opponent: BaseWarrior, fightType: FightType) {
         val healthBefore = opponent.getHealth
-        opponent.receiveDamage(attack)
+        opponent.receiveDamage(getAttack)
         val damageDealt = healthBefore - opponent.getHealth
         if (fightType == FightType.Classic) {
-            val damageToNext: Int = (damageDealt * pierce) / Constants.ONE_HUNDRED
-            if (opponent.warriorBehind?.isAlive == false) {
-                opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
+            if (opponent.warriorBehind != null) {
+                val damageToNext: Int = (damageDealt * pierce) / Constants.ONE_HUNDRED
+                if (opponent.warriorBehind?.isAlive == false) {
+                    opponent.warriorBehind = opponent.warriorBehind?.warriorBehind
+                }
+                opponent.warriorBehind?.receiveDamage(damageToNext)
+                Battle.getLog().logMessage(
+                    String.format(
+                        lancerHitMsg,
+                        this.javaClass.simpleName,
+                        opponent.javaClass.simpleName,
+                        damageDealt,
+                        opponent.warriorBehind?.javaClass?.simpleName,
+                        damageToNext
+                    )
+                )
+            } else {
+                Battle.getLog().logMessage(String.format(MsgTemplate.warriorHitMsg, this.javaClass.simpleName, opponent.javaClass.simpleName, this.getAttack, opponent.getHealth))
             }
-            opponent.warriorBehind?.receiveDamage(damageToNext)
         }
+
     }
 
     override fun receiveDamage(damage: Int) {

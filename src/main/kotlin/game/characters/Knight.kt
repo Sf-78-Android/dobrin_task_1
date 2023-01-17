@@ -37,6 +37,7 @@ class Knight : WarriorDecorator() {
         initialHealth += weapon.getHealth()
         health = initialHealth
         attack += weapon.getAttack()
+        this.equippedWeapon(weapon)
 
     }
 

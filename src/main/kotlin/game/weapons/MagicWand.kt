@@ -29,4 +29,8 @@ class MagicWand(
     override fun getVampirism(): Int {
         return Constants.ZERO
     }
+
+    override fun toString(): String {
+        return this.javaClass.simpleName
+    }
 }

@@ -2,10 +2,12 @@ package game.characters
 
 import game.decorators.WarriorDecorator
 import game.enums.FightType
+import game.interactions.Battle
 import game.interfaces.BaseWarrior
 import game.interfaces.BaseWeapon
 import game.settings.Constants
 import game.settings.Params
+import log.constants.MsgTemplate.vampireHit
 
 class Vampire : WarriorDecorator() {
     private var initialHealth = Params.Vampire.HEALTH
@@ -37,6 +39,7 @@ class Vampire : WarriorDecorator() {
         val damageDealt = healthBefore - opponent.getHealth
         val healPoints = (damageDealt * vampirism) / Constants.ONE_HUNDRED
         restoreHp(healPoints)
+        Battle.getLog().logMessage(String.format(vampireHit,this.javaClass.simpleName, opponent.javaClass.simpleName, this.attack, this.health  ))
     }
 
     override fun receiveDamage(damage: Int) {
@@ -53,7 +56,7 @@ class Vampire : WarriorDecorator() {
         health = initialHealth
         attack += weapon.getAttack()
         vampirism += weapon.getVampirism()
-
+        this.equippedWeapon(weapon)
     }
 
 
